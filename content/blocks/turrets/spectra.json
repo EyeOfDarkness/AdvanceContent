@@ -1,0 +1,39 @@
+{
+	"localizedName": "Spectra",
+	"description": "its a good album, you should listen",
+	"health": 2000,
+	"size": 3,
+	"reload": 150,
+	"coolantMultiplier": 7,
+	"shootCone": 40,
+	"shootDuration": 320,
+	"firingMoveFract": 0.25,
+	"hasPower": true,
+	"hasLiquids": true,
+	"range": 155,
+	"shootCone": 20,
+	"ammoUseEffect": "none",
+	"rotatespeed": 2.2,
+	"recoil": 2,
+	"powerUse": 2.9,
+	"hasPower": true,
+	"targetAir": true,
+	"shootSound": "laser",
+	"activeSound": "spectra-beam",
+	"activeSoundVolume": 2.9,
+	"consumes": {
+		"liquid": {
+			"liquid": "ta-coolant",
+			"amount": 0.275
+		}
+	},
+	"requirements": [
+		{ "item": "lead", "amount": 230 },
+		{ "item": "silicon", "amount": 180 },
+		{ "item": "chromium", "amount": 135 },
+		{ "item": "titanium", "amount": 180 },
+		{ "item": "lanthanum", "amount": 45 }
+	],
+	"category": "turret",
+	"research": "photon"
+}

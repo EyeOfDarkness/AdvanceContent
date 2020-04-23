@@ -1,0 +1,25 @@
+{
+	"name": "Strider Factory",
+	"description": "Produces fast and durable ground units with multiple legs.",
+	"size": 5,
+	"produceTime": 2600,
+	"maxSpawn": 3,
+	"consumes": {
+		"power": 2.2,
+		"items": {
+			"items": [
+				{"item": "silicon", "amount": 30},
+				{"item": "titanium", "amount": 10}
+			]
+		}
+	},
+	"category": "units",
+	"research": "fortress-factory",
+	"requirements": [
+		{ "item": "lead", "amount": 220 },
+		{ "item": "graphite", "amount": 190 },
+		{ "item": "silicon", "amount": 150 },
+		{ "item": "titanium", "amount": 130 },
+		{ "item": "thorium", "amount": 90 }
+	]
+}

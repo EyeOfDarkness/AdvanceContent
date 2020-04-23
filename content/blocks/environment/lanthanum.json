@@ -1,0 +1,9 @@
+{
+	"name": "Lanthanum",
+	"type": "OreBlock",
+	"itemDrop": "lanthanum",
+	"variants": 3,
+	"oreDefault": true,
+	"oreScale": 25.86,
+	"oreThreshold": 0.903
+}

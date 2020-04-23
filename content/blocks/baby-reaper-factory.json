@@ -1,0 +1,28 @@
+{
+	"name": "Baby Reaper Factory",
+	"description": "Produces two very cute baby reaper",
+	"type": "UnitFactory",
+	"unitType": "baby-reaper",
+	"size": 4,
+	"produceTime": 2700,
+	"maxSpawn": 2,
+	"consumes": {
+		"power": 5.2,
+		"items": {
+			"items": [
+				{"item": "silicon", "amount": 60},
+				{"item": "titanium", "amount": 50},
+				{"item": "thorium", "amount": 5}
+			]
+		}
+	},
+	"category": "units",
+	"research": "revenant-factory",
+	"requirements": [
+		{ "item": "plastanium", "amount": 110},
+		{ "item": "graphite", "amount": 270 },
+		{ "item": "silicon", "amount": 210 },
+		{ "item": "titanium", "amount": 220 },
+		{ "item": "thorium", "amount": 90 }
+	]
+}

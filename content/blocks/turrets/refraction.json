@@ -1,0 +1,42 @@
+{
+	"localizedName": "Refraction",
+	"description": "The turret of light.",
+	"health": 9000,
+	"size": 8,
+	"reload": 490,
+	"coolantMultiplier": 3,
+	"shootCone": 40,
+	"shootDuration": 390,
+	"firingMoveFract": 0.25,
+	"hasPower": true,
+	"hasLiquids": true,
+	"range": 270,
+	"shootCone": 20,
+	"ammoUseEffect": "none",
+	"rotatespeed": 1.9,
+	"recoil": 2,
+	"powerUse": 24.3,
+	"hasPower": true,
+	"targetAir": true,
+	"shootSound": "laser",
+	"activeSound": "refraction-beam",
+	"activeSoundVolume": 3.5,
+	"consumes": {
+		"liquid": {
+			"liquid": "cryofluid",
+			"amount": 0.87
+		}
+	},
+	"requirements": [
+		{ "item": "copper", "amount": 1600 },
+		{ "item": "lead", "amount": 1500 },
+		{ "item": "silicon", "amount": 1250 },
+		{ "item": "chromium", "amount": 1100 },
+		{ "item": "titanium", "amount": 1300 },
+		{ "item": "thorium", "amount": 500 },
+		{ "item": "lanthanum", "amount": 400 },
+		{ "item": "advance-alloy", "amount": 150 }
+	],
+	"category": "turret",
+	"research": "rainbow-road"
+}

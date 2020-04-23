@@ -1,0 +1,21 @@
+{
+	"localizedName": "Repair Turret",
+	"description": "Repairs blocks faster than menders but can only target one.",
+	"size": 2,
+	"reload": 18,
+	"range": 70,
+	"shootCone": 2,
+	"ammoUseEffect": "none",
+	"rotatespeed": 7.5,
+	"powerUse": 4.4,
+	"shootSound": "laser",
+	"recoil": 0,
+	"requirements": [
+		{ "item": "copper", "amount": 30 },
+		{ "item": "lead", "amount": 80 },
+		{ "item": "silicon", "amount": 40 },
+		{ "item": "titanium", "amount": 20 }
+	],
+	"category": "effect",
+	"research": "repair-point"
+}

@@ -1,0 +1,31 @@
+{
+	"type": "FlyingUnit",
+	"name": "Rapid-T3",
+	"description": "Shoots Rapidly.",
+	"flying": true,
+	"maxVelocity": 1.7,
+	"speed": 0.3,
+	"drag": 0.035,
+	"mass": 1.8,
+	"rotatespeed": 0.17,
+	"health": 150,
+	"range": 120,
+	"shootCone": 7,
+	"rotateWeapon": false,
+	"weapon": {
+		"name": "rapid-equip",
+		"alternate": true,
+		"reload": 6,
+		"ejectEffect": "shellEjectSmall",
+		"inaccuracy": 1,
+		"bullet": {
+			"type": "BasicBulletType",
+			"speed": 6,
+			"damage": 9,
+			"lifetime": 32,
+			"bulletWidth": 8,
+			"bulletHeight": 10,
+			"keepVelocity": false
+		}
+	}
+}

@@ -1,0 +1,16 @@
+{
+	"localizedName": "Titanium Router",
+	"type": "Router",
+	"description": "Harder, Better, Faster, Stronger.",
+	"size": 1,
+	"speed": 2.6,
+	"health": 70,
+	"buildCostMultiplier": 1.5,
+	"category": "distribution",
+	"research": "router",
+	"requirements": [
+		{ "item": "copper", "amount": 2 },
+		{ "item": "lead", "amount": 2 },
+		{ "item": "titanium", "amount": 1 }
+	]
+}

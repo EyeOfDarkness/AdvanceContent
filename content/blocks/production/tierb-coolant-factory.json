@@ -1,0 +1,29 @@
+{
+	"localizedName": "Tier-2 Coolant Synthesizer",
+	"description": "Produces Tier-2 Coolant, primarily used for laser turrets and some factories.",
+	"outputLiquid": {"liquid": "tb-coolant", "amount": 1.3},
+	"size": 2,
+	"hasPower": true,
+	"hasItems": true,
+	"craftTime": 90,
+	"consumes": {
+		"power": 0.85,
+		"items": {
+			"items": [
+				{ "item": "graphite", "amount": 1 },
+			]
+		},
+		"liquid": {
+			"liquid": "water",
+			"amount": 0.2
+		}
+	},
+	"requirements": [
+		{ "item": "copper", "amount": 110 },
+		{ "item": "lead", "amount": 80 },
+		{ "item": "graphite", "amount": 70 },
+		{ "item": "silicon", "amount": 60 },
+	],
+	"category": "crafting",
+	"research": "tiera-coolant-factory"
+}

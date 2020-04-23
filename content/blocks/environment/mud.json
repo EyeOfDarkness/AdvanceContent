@@ -1,0 +1,8 @@
+{
+	"name": "Mud",
+	"type": "Floor",
+	"speedMultiplier": 0.4,
+	"variants": 3,
+	"itemDrop": "sand",
+	"attributes": { "array": [ 0, 0, 0.23, 0 ] }
+}

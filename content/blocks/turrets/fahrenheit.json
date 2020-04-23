@@ -1,0 +1,30 @@
+{
+	"localizedName": "Fahrenheit",
+	"description": "Useful electric anti-air turret. not very useful against walls",
+	"health": 6080,
+	"size": 3,
+	"reload": 3,
+	"range": 210,
+	"shootCone": 30,
+	"heatColor": "CCFFFF",
+	"ammoUseEffect": "none",
+	"inaccuracy": 6.2,
+	"rotatespeed": 6.5,
+	"shots": 2,
+	"spread": 6,
+	"recoil": 1,
+	"powerUse": 9.4,
+	"hasPower": true,
+	"targetAir": true,
+	"shootSound": "flame",
+	"cooldown": 0.01,
+	"requirements": [
+		{ "item": "silicon", "amount": 180 },
+		{ "item": "chromium", "amount": 270 },
+		{ "item": "lanthanum", "amount": 150 },
+		{ "item": "advance-alloy", "amount": 90 },
+		{ "item": "titanium", "amount": 220 }
+	],
+	"category": "turret",
+	"research": "kelvin"
+}

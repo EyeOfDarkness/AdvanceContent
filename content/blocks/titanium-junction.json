@@ -1,0 +1,17 @@
+{
+	"localizedName": "Titanium Junction",
+	"type": "Junction",
+	"description": "Faster than the regular junction.",
+	"size": 1,
+	"speed": 9.5,
+	"capacity": 16,
+	"health": 50,
+	"buildCostMultiplier": 5,
+	"category": "distribution",
+	"research": "junction",
+	"requirements": [
+		{ "item": "copper", "amount": 2 },
+		{ "item": "lead", "amount": 1 },
+		{ "item": "titanium", "amount": 1 }
+	]
+}

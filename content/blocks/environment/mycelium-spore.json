@@ -1,0 +1,7 @@
+{
+	"name": "Mycelium Spore",
+	"type": "Floor",
+	"speedMultiplier": 0.9,
+	"variants": 3,
+	"attributes": { "array": [ 0, 0.27, 0, 0 ] }
+}

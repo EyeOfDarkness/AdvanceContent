@@ -1,0 +1,20 @@
+{
+	"localizedName": "Overgrowth Summoner Mech Pad",
+	"description": "Provides transformation into a mech that shoots an assortment of bullets.",
+	"size": 5,
+	"consumes": {
+		"power": 4.8
+	},
+	"category": "upgrade",
+	"research": "omega-mech-pad",
+	"requirements": [
+		{ "item": "lead", "amount": 1250 },
+		{ "item": "graphite", "amount": 850 },
+		{ "item": "silicon", "amount": 1300 },
+		{ "item": "titanium", "amount": 1950 },
+		{ "item": "plastanium", "amount": 1250 },
+		{ "item": "thorium", "amount": 1750 },
+		{ "item": "surge-alloy", "amount": 420 },
+		{ "item": "advance-alloy", "amount": 480 }
+	]
+}

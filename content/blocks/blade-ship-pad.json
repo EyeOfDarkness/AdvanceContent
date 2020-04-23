@@ -1,0 +1,18 @@
+{
+	"localizedName": "Blade Ship Pad",
+	"description": "Provides transformation into a fast ship that shoots lasers.",
+	"size": 2,
+	"consumes": {
+		"power": 1.2
+	},
+	"category": "upgrade",
+	"research": "javelin-ship-pad",
+	"requirements": [
+		{ "item": "lead", "amount": 190 },
+		{ "item": "graphite", "amount": 150 },
+		{ "item": "silicon", "amount": 270 },
+		{ "item": "titanium", "amount": 280 },
+		{ "item": "plastanium", "amount": 280 },
+		{ "item": "phase-fabric", "amount": 130 },
+	]
+}

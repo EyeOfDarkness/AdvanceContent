@@ -1,0 +1,17 @@
+{
+	"type": "LightBlock",
+	"name": "Arc Lamp",
+	"description": "Not to be confused with Arc.",
+	"brightness": 0.94,
+	"radius": 330,
+	"hasPower": true,
+	"consumes": {"power": 0.11},
+	"size": 2,
+	"requirements": [
+		{ "item": "silicon", "amount": 10 },
+		{ "item": "graphite", "amount": 15 },
+		{ "item": "lanthanum", "amount": 10 }
+	],
+	"category": "effect",
+	"buildVisibility": "lightingOnly"
+}

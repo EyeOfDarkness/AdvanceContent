@@ -1,0 +1,30 @@
+{
+	"localizedName": "Fission Synthesizer Chromium",
+	"description": "splits the atomic mass of thorium into chromium",
+	"outputItem": {"item": "chromium", "amount": 4},
+	"flameColor": "ffffff",
+	"size": 3,
+	"hasLiquids": false,
+	"hasPower": true,
+	"hasItems": true,
+	"craftTime": 180,
+	"consumes": {
+		"power": 0.9,
+		"items": {
+			"items": [
+				{ "item": "thorium", "amount": 1 },
+			]
+		}
+	},
+	"requirements": [
+		{ "item": "silicon", "amount": 320 },
+		{ "item": "titanium", "amount": 230 },
+		{ "item": "thorium", "amount": 150 },
+		{ "item": "surge-alloy", "amount": 75 },
+		{ "item": "phase-fabric", "amount": 60 }
+	],
+	"category": "crafting",
+	"research": "fst",
+	"idleSound": "respawning",
+	"idleSoundVolume": 0.7
+}

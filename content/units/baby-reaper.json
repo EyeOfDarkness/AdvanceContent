@@ -1,0 +1,40 @@
+{
+	"type": "HoverUnit",
+	"name": "Baby Reaper",
+	"description": "omgggggg tsys the f***ng cutets j lovdhr",
+	"flying": true,
+	"maxVelocity": 1.7,
+	"hitsize": 12,
+	"speed": 0.11,
+	"drag": 0.035,
+	"mass": 8.8,
+	"rotatespeed": 0.02,
+	"baseRotateSpeed": 0.09,
+	"health": 1750,
+	"range": 170,
+	"shootCone": 90,
+	"engineOffset": 12.2,
+	"engineSize": 2.7,
+	"rotateWeapon": true,
+	"attackLength": 90,
+	"weapon": {
+		"name": "tiny-equip",
+		"width": 9.2,
+		"alternate": true,
+		"reload": 20,
+		"ejectEffect": "none",
+		"inaccuracy": 1,
+		"bullet": {
+			"type": "BasicBulletType",
+			"shootEffect": "shootSmall",
+			"speed": 6.7,
+			"recoil": 0.7,
+			"damage": 65,
+			"lifetime": 26,
+			"bulletWidth": 12,
+			"bulletHeight": 15,
+			"bulletShrink": 0,
+			"keepVelocity": false
+		}
+	}
+}
