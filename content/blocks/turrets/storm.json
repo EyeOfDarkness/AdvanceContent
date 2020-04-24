@@ -1,6 +1,6 @@
 {
 	"localizedName": "Arc Storm",
-	"description": "A powerful version of Arc Caster, but this shoots in burst.",
+	"description": "A powerful version of Arc Caster.",
 	"chargeTime": 130,
 	"chargeMaxDelay": 24,
 	"health": 7600,
