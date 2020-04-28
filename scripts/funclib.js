@@ -1,5 +1,5 @@
 // function library made by Eye of darkness, please dont claim that you made this script.
-module.exports = {
+module.exports = {	
 	nearestBullet(team, x, y, range, boolf){
 		if(team == Team.derelict) return null;
 		
@@ -12,20 +12,43 @@ module.exports = {
 			var dst2 = Mathf.dst2(b.x, b.y, x, y);
 			
 			if(dst2 < range * range && (result == null || dst2 < cdist) && team != b.getTeam()){
-				result = new TargetTrait({
-					isDead: function(){return b == null},
-					getTeam: function(){return b.getTeam()},
-					getX: function(){return b.x},
-					getY: function(){return b.y},
-					setX: function(x){b.x = x},
-					setY: function(y){b.y = y},
-					velocity: function(){return b.velocity()}
-				});
+				if(!Vars.android){
+					result = new TargetTrait({
+						isDead: function(){return b == null},
+						getTeam: function(){return b.getTeam()},
+						getX: function(){return b.x},
+						getY: function(){return b.y},
+						setX: function(x){b.x = x},
+						setY: function(y){b.y = y},
+						velocity: function(){return b.velocity()}
+					});
+				}else{
+					result = new TargetTrait({
+						isDead: function(){return b == null},
+						getTeam: function(){return b.getTeam()},
+						getX: function(){return b.x},
+						getY: function(){return b.y},
+						setX: function(x){b.x = x},
+						setY: function(y){b.y = y},
+						velocity: function(){return b.velocity()},
+						//override defaults
+						getTargetVelocityX: function(){return b.velocity().x},
+						getTargetVelocityY: function(){return b.velocity().y}
+					});
+				}
 				cdist = dst2;
 			}
 		}));
 		
 		return result;
+	},
+	
+	invalidateExperimental(target, team, x, y, range){
+		if(target != null){
+			return (range != Number.MAX_VALUE && !target.withinDst(x, y, range)) || target.getTeam() == team || !target.isValid();
+		}else{
+			return true;
+		}
 	},
 	
 	invalidateAlly(target, team, x, y, range){
