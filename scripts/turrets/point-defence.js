@@ -261,8 +261,19 @@ const point = extendContent(DoubleTurret, "point-defence-i", {
 	findTarget: function(tile){
 		entity = tile.ent();
 		
+		//entity.target = lib.nearestBullet(tile.getTeam(), tile.drawx(), tile.drawy(), this.range, boolf(b => b.getBulletType().hitSize < 11 && b.getBulletType().speed < 11));
+		
 		entity.target = lib.nearestBullet(tile.getTeam(), tile.drawx(), tile.drawy(), this.range, boolf(b => b.getBulletType().hitSize < 11 && b.getBulletType().speed < 11));
-	}
+	},
+	
+	validateTarget(tile){
+		entity = tile.ent();
+		if(!Vars.android){
+			return !(lib.invalidateExperimental(entity.target, tile.getTeam(), tile.drawx(), tile.drawy(), Number.MAX_VALUE));
+		}else{
+			return !(entity.target == null || entity.target.getTeam() == tile.getTeam());
+		}
+    }
 });
 
 point.ammo(Items.graphite, pointDense,
