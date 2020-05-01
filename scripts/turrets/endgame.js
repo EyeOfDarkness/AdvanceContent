@@ -212,7 +212,7 @@ const endGame = extendContent(PowerTurret, "end-game", {
 		
 		if(!this.validateTarget(tile)) entity.target = null;
 		
-		if(tile.entity.cons.valid()){
+		if(/*tile.entity.cons.valid()*/ entity.cons.valid()){
 			//this.updateShootingB(tile);
 			
 			if(entity.timer.get(this.bulletTimer, 3)){
@@ -252,7 +252,8 @@ const endGame = extendContent(PowerTurret, "end-game", {
 			
 			this.shootB(tile);
 			
-			tile.entity.cons.trigger();
+			//tile.entity.cons.trigger();
+			entity.cons.trigger();
 		}else{
 			entity.reload += tile.entity.delta() * this.baseReloadSpeed(tile);
 		};
