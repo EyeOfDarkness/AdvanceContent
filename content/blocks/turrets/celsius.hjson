@@ -1,0 +1,28 @@
+localizedName: Celsius
+description: Small and low range, but it can annihilate powerful units in a second when they come close. not very useful against walls
+health: 780
+size: 1
+reload: 3
+range: 55
+shootCone: 50
+heatColor: CCFFFF
+ammoUseEffect: none
+inaccuracy: 9.2
+rotatespeed: 7.5
+shots: 2
+spread: 6
+recoil: 1
+powerUse: 1.6
+hasPower: true
+targetAir: true
+shootSound: flame
+cooldown: 0.01
+requirements: [
+  silicon/20
+  chromium/30
+  lanthanum/20
+  advance-alloy/15
+  titanium/30
+]
+category: turret
+research: kelvin

@@ -1,0 +1,73 @@
+type: HoverUnit
+name: Gashadokuro
+description: a near indestructable foe made from the enemies you've destroyed.
+health: 72000
+maxVelocity: 0.6
+speed: 0.015
+mass: 80
+shootCone: 270
+flying: true
+rotateWeapon: true
+engineOffset: 70
+engineSize: 24
+rotatespeed: 0.02
+baseRotateSpeed: 0.08
+range: 120
+attackLength: 110
+hitsize: 86
+targetAir: true
+weaponOffsetY: -10
+immunities: [
+  burning
+  melting
+  freezing
+]
+weapon: {
+  name: decapitator-equip
+  alternate: true
+  length: 8
+  width: 27
+  recoil: 1
+  reload: 170
+  shootSound: decapitator-shoot
+  bullet: {
+    type: ArtilleryBulletType
+    collidesTiles: true
+    collidesAir: true
+    collides: true
+    speed: 8
+    damage: 240
+    lifetime: 40
+    splashDamage: 230
+    splashDamageRadius: 90
+    bulletWidth: 18
+    bulletHeight: 30
+    bulletShrink: 0
+    hitSize: 17
+    hitShake: 5
+    hitSound: decapitator-hit
+    lightining: 5
+    lightningLength: 12
+    fragBullets: 27
+    fragVelocityMin: 0.4
+    fragVelocityMax: 1.1
+    fragBullet: {
+      type: BasicBulletType
+      speed: 6
+      damage: 100
+      lifetime: 7
+      drag: 0.02
+      bulletWidth: 6
+      bulletHeight: 10
+      bulletShrink: 0
+      collidesTiles: false
+      despawnEffect: none
+      splashDamage: 50
+      splashDamageRadius: 60
+      hitSize: 7
+      incendChance: 0.1
+      incendAmount: 3
+      incendSpread: 10
+    }
+  }
+}

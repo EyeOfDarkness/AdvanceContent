@@ -1,0 +1,28 @@
+localizedName: Fission Synthesizer Silicon
+description: splits the atomic mass of thorium into silicon
+flameColor: ffffff
+size: 3
+hasLiquids: false
+hasPower: true
+hasItems: true
+craftTime: 180
+consumes: {
+  power: 1.8
+  items: {
+    items: [
+      thorium/1
+    ]
+  }
+}
+requirements: [
+  silicon/320
+  titanium/230
+  thorium/150
+  surge-alloy/75
+  phase-fabric/60
+]
+category: crafting
+research: fst
+idleSound: respawning
+idleSoundVolume: 0.7
+outputItem: silicon/8

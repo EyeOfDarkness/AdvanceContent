@@ -1,0 +1,16 @@
+localizedName: Blade Ship Pad
+description: Provides transformation into a fast ship that shoots lasers.
+size: 2
+consumes: {
+  power: 1.2
+}
+category: upgrade
+research: javelin-ship-pad
+requirements: [
+  lead/190
+  graphite/150
+  silicon/270
+  titanium/280
+  plastanium/280
+  phase-fabric/130
+]

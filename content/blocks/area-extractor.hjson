@@ -1,0 +1,30 @@
+type: Drill
+localizedName: Area Extractor V1
+description: A drill that covers a large area to maximize efficiency.
+size: 8
+tier: 5
+drillTime: 240
+liquidBoostIntensity: 1.6
+warmupSpeed: 0.01
+updateEffectChance: 0.03
+hasLiquids: true
+expanded: true
+consumes: {
+  power: 4
+  liquid: {
+    liquid: water
+    amount: 0.12
+    booster: true
+    optional: true
+  }
+}
+requirements: [
+  copper/250
+  graphite/180
+  silicon/90
+  titanium/200
+  thorium/70
+  surge-alloy/25
+]
+category: production
+research: blast-drill

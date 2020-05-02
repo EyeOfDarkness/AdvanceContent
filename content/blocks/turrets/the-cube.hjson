@@ -1,0 +1,27 @@
+localizedName: The Cube
+description: An object beyond of our comprehension.
+size: 8
+health: 14600
+range: 300
+chargeTime: 120
+powerUse: 120
+coolantMultiplier: 1.1
+reload: 240
+outlineIcon: false
+expanded: true
+shootSound: cube-shoot
+requirements: [
+  copper/1900
+  lead/1400
+  graphite/1900
+  lanthanum/1300
+  titanium/1200
+  surge-alloy/1600
+  silicon/1300
+  plastanium/990
+  phase-fabric/720
+  thorium/1100
+  advance-alloy/560
+]
+category: turret
+research: fahrenheit

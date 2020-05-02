@@ -1,0 +1,24 @@
+localizedName: Kami
+description: Have you ever played Touhou, Undertale, Deltarune and Just shapes and beats?
+size: 5
+expanded: true
+health: 18700
+powerUse: 330
+shootSound: curtain-of-bullets-shoot
+breakSound: curtain-of-bullets-explosion
+coolantMultiplier: 1
+requirements: [
+  copper/6000
+  lead/5600
+  metaglass/3400
+  graphite/4500
+  lanthanum/5300
+  titanium/6430
+  surge-alloy/6740
+  silicon/2345
+  phase-fabric/5420
+  thorium/2450
+  advance-alloy/4300
+]
+category: turret
+research: the-cube

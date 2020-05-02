@@ -1,0 +1,14 @@
+localizedName: Quake
+description: An even powerful Ripple, has 3 barrels.
+size: 5
+health: 3250
+targetAir: false
+requirements: [
+  copper/450
+  graphite/375
+  titanium/220
+  silicon/180
+  thorium/150
+]
+category: turret
+research: shatter

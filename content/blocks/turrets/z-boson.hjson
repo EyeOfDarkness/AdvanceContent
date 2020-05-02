@@ -1,0 +1,28 @@
+localizedName: Z Boson
+description: An electric double turret that slowly increases reload speed per shots.
+health: 4000
+size: 5
+reload: 40
+range: 230
+shootCone: 20
+heatColor: CCFFFF
+ammoUseEffect: none
+coolantMultiplier: 1.9
+rotatespeed: 2.7
+recoil: 2
+restitution: 0.09
+powerUse: 3.6
+hasPower: true
+targetAir: true
+shootSound: zboson-shoot
+cooldown: 0.008
+requirements: [
+  silicon/290
+  chromium/380
+  lanthanum/170
+  titanium/190
+  thorium/120
+  surge-alloy/20
+]
+category: turret
+research: neutron

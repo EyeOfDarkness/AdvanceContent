@@ -1,0 +1,22 @@
+localizedName: Typhoon
+description: A double barrel, anti-air turret.
+health: 3600
+size: 5
+reload: 2.2
+range: 265
+xRand: 4.5
+maxAmmo: 50
+ammoUseEffect: none
+shootSound: shootSnap
+inaccuracy: 10
+rotatespeed: 9
+shootCone: 7
+requirements: [
+  copper/550
+  lead/180
+  silicon/120
+  titanium/350
+  plastanium/210
+]
+category: turret
+research: cyclone-ii

@@ -1,0 +1,37 @@
+localizedName: Rainbow Road
+description: Rainbow!
+health: 3100
+size: 4
+reload: 240
+coolantMultiplier: 7
+shootCone: 20
+shootDuration: 390
+firingMoveFract: 0.25
+hasPower: true
+hasLiquids: true
+range: 185
+ammoUseEffect: none
+rotatespeed: 1.9
+recoil: 2
+powerUse: 8.6
+targetAir: true
+shootSound: laser
+activeSound: rainbow-beam
+activeSoundVolume: 3.5
+consumes: {
+  liquid: {
+    liquid: tb-coolant
+    amount: 0.55
+  }
+}
+requirements: [
+  copper/430
+  lead/380
+  silicon/320
+  chromium/275
+  titanium/350
+  thorium/150
+  lanthanum/125
+]
+category: turret
+research: spectra

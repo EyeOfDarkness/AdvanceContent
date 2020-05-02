@@ -1,0 +1,41 @@
+size: 8
+health: 9750
+range: 300
+reload: 180
+coolantMultiplier: 0.6
+shootCone: 40
+shootDuration: 320
+powerUse: 33
+shootShake: 4
+firingMoveFract: 0.1
+shootEffect: shootBigSmoke2
+recoil: 8
+localizedName: AC Phoenix Mk-2
+description: The upgraded version of Calamity, putting it behind defences or production is not recommended, can only use Tier-3 Coolant due to its design.
+cooldown: 0.012
+hasPower: true
+hasLiquids: true
+shootSound: laser-big-extended
+heatColor: ffffff
+rotatespeed: 1.1
+activeSound: phoenix-sound
+activeSoundVolume: 5
+expanded: true
+consumes: {
+  liquid: {
+    liquid: tc-coolant
+    amount: 1.2
+  }
+}
+requirements: [
+  copper/1300
+  lead/980
+  graphite/1100
+  titanium/750
+  surge-alloy/960
+  silicon/900
+  thorium/770
+  advance-alloy/270
+]
+category: turret
+research: ac-calamity

@@ -1,0 +1,15 @@
+localizedName: Medium Battery
+type: Battery
+size: "2"
+description: Not too big and not too small.
+hasPower: true
+consumes: {
+  powerBuffered: 27000
+}
+category: power
+research: battery
+requirements: [
+  lead/25
+  graphite/20
+  silicon/20
+]

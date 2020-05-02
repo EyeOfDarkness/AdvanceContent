@@ -1,0 +1,9 @@
+name: Large Advance Wall
+description: A very durable wall and more volatile when releasing energy than Surge wall. Spans multiple tiles
+health: 4600
+size: 2
+requirements: [
+  advance-alloy/24
+]
+category: defense
+research: advance-alloy-wall

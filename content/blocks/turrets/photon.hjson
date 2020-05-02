@@ -1,0 +1,36 @@
+localizedName: Photon
+description: A small laser turret
+health: 1280
+size: 2
+reload: 80
+coolantMultiplier: 7
+shootCone: 20
+shootDuration: 190
+firingMoveFract: 0.35
+hasPower: true
+hasLiquids: true
+range: 125
+heatColor: CCFFFF
+ammoUseEffect: none
+rotatespeed: 2.5
+recoil: 2
+powerUse: 1.76
+targetAir: true
+shootSound: laser
+activeSound: respawning
+activeSoundVolume: 2.5
+cooldown: 0.012
+consumes: {
+  liquid: {
+    liquid: water
+    amount: 0.2
+  }
+}
+requirements: [
+  silicon/30
+  chromium/75
+  titanium/65
+  lanthanum/15
+]
+category: turret
+research: electron

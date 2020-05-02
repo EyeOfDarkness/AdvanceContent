@@ -1,0 +1,26 @@
+name: Baby Reaper Factory
+description: Produces two very cute baby reaper
+type: UnitFactory
+unitType: baby-reaper
+size: 4
+produceTime: 2700
+maxSpawn: 2
+consumes: {
+  power: 5.2
+  items: {
+    items: [
+      silicon/60
+      titanium/50
+      thorium/5
+    ]
+  }
+}
+category: units
+research: revenant-factory
+requirements: [
+  plastanium/110
+  graphite/270
+  silicon/210
+  titanium/220
+  thorium/90
+]

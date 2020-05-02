@@ -1,0 +1,32 @@
+localizedName: Advance Compressor
+description: Uses an experimental and faster method of turning titanium and oil into plastanium.
+size: 3
+health: 700
+hasLiquids: false
+hasPower: true
+hasItems: true
+craftTime: 45
+craftEffect: formsmoke
+updateEffect: plasticburn
+consumes: {
+  power: 6.5
+  items: {
+    items: [
+      titanium/2
+    ]
+  }
+  liquid: {
+    liquid: oil
+    amount: 0.52
+  }
+}
+requirements: [
+  graphite/120
+  lead/240
+  silicon/160
+  titanium/150
+  plastanium/40
+]
+category: crafting
+research: plastanium-compressor
+outputItem: plastanium/2

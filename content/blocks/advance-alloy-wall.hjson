@@ -1,0 +1,9 @@
+name: Advance Wall
+description: A very durable wall and more volatile when releasing energy than Surge wall.
+health: 1150
+size: 1
+requirements: [
+  advance-alloy/6
+]
+category: defense
+research: surge-wall-large

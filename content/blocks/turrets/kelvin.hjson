@@ -1,0 +1,28 @@
+localizedName: Kelvin
+description: An advance Scorch that only use power. not very useful against walls
+health: 2680
+size: 2
+reload: 3
+range: 100
+shootCone: 30
+heatColor: CCFFFF
+ammoUseEffect: none
+inaccuracy: 9.2
+rotatespeed: 6.5
+shots: 2
+spread: 6
+recoil: 1
+powerUse: 5.4
+hasPower: true
+targetAir: true
+shootSound: flame
+cooldown: 0.01
+requirements: [
+  silicon/80
+  chromium/120
+  lanthanum/70
+  advance-alloy/40
+  titanium/90
+]
+category: turret
+research: electron

@@ -1,0 +1,23 @@
+name: Strider Factory
+description: Produces fast and durable ground units with multiple legs.
+size: 5
+produceTime: 2600
+maxSpawn: 3
+consumes: {
+  power: 2.2
+  items: {
+    items: [
+      silicon/30
+      titanium/10
+    ]
+  }
+}
+category: units
+research: fortress-factory
+requirements: [
+  lead/220
+  graphite/190
+  silicon/150
+  titanium/130
+  thorium/90
+]

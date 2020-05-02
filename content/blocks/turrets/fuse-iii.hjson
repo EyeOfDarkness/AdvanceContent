@@ -1,0 +1,19 @@
+name: Destroyer Fuse MK3
+description: Destroys, Everything.
+health: 5400
+size: 5
+reload: 45
+ammoUseEffect: none
+shootSound: shotgun
+restitution: 0.1
+shootCone: 35
+requirements: [
+  copper/690
+  graphite/600
+  titanium/375
+  silicon/260
+  thorium/300
+  surge-alloy/180
+]
+category: turret
+research: fuse-ii

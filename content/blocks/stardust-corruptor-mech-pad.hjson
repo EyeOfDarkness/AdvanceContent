@@ -1,0 +1,18 @@
+localizedName: Stardust Corruptor Mech Pad
+description: Provides transformation into a mech that shoot bullets that turn weakened enemy blocks into your team.
+size: 5
+consumes: {
+  power: 5.8
+}
+category: upgrade
+research: omega-mech-pad
+requirements: [
+  lead/1150
+  graphite/850
+  silicon/1600
+  titanium/1850
+  thorium/1750
+  surge-alloy/560
+  phase-fabric/800
+  advance-alloy/520
+]

@@ -1,0 +1,28 @@
+localizedName: Arc Caster
+description: Shoots a cloud that creates lightning. the cloud also bypasses defences
+chargeTime: 100
+chargeMaxDelay: 24
+health: 4600
+size: 3
+reload: 120
+range: 190
+shootCone: 30
+heatColor: CCFFFF
+ammoUseEffect: none
+inaccuracy: 9.2
+rotatespeed: 5.5
+recoil: 1
+powerUse: 6.4
+hasPower: true
+targetAir: true
+shootSound: flame
+cooldown: 0.01
+requirements: [
+  silicon/180
+  chromium/270
+  lanthanum/160
+  advance-alloy/120
+  titanium/210
+]
+category: turret
+research: kelvin

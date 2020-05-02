@@ -1,0 +1,23 @@
+localizedName: Electron
+description: A power only turret that shoots air and ground units.
+health: 2540
+size: 3
+reload: 50
+range: 175
+shootCone: 20
+heatColor: CCFFFF
+ammoUseEffect: none
+rotatespeed: 4.5
+recoil: 3
+powerUse: 1.2
+hasPower: true
+targetAir: true
+shootSound: pew
+cooldown: 0.012
+requirements: [
+  silicon/40
+  chromium/80
+  titanium/60
+]
+category: turret
+research: arc

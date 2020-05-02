@@ -1,0 +1,16 @@
+localizedName: Claymore Ship Pad
+description: Provides transformation into a fast ship that shoots missiles and create a laser at high speeds.
+size: 3
+consumes: {
+  power: 1.7
+}
+category: upgrade
+research: blade-ship-pad
+requirements: [
+  lead/400
+  graphite/300
+  silicon/570
+  titanium/630
+  plastanium/630
+  phase-fabric/280
+]

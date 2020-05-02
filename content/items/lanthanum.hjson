@@ -1,0 +1,6 @@
+type: material
+name: Lanthanum
+description: Rare type of metal, mostly used for electronics.
+cost: 0.2
+color: dbdbde
+hardness: 1

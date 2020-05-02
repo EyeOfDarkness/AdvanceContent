@@ -1,0 +1,38 @@
+localizedName: Refraction
+description: The turret of light.
+health: 9000
+size: 8
+reload: 490
+coolantMultiplier: 3
+shootCone: 20
+shootDuration: 390
+firingMoveFract: 0.25
+hasPower: true
+hasLiquids: true
+range: 270
+ammoUseEffect: none
+rotatespeed: 1.9
+recoil: 2
+powerUse: 24.3
+targetAir: true
+shootSound: laser
+activeSound: refraction-beam
+activeSoundVolume: 3.5
+consumes: {
+  liquid: {
+    liquid: cryofluid
+    amount: 0.87
+  }
+}
+requirements: [
+  copper/1600
+  lead/1500
+  silicon/1250
+  chromium/1100
+  titanium/1300
+  thorium/500
+  lanthanum/400
+  advance-alloy/150
+]
+category: turret
+research: rainbow-road

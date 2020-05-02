@@ -1,0 +1,29 @@
+localizedName: Higgs Boson
+description: Shoots 2 piercing lasers.
+health: 6000
+size: 6
+reload: 13
+range: 260
+shootCone: 20
+heatColor: CCFFFF
+ammoUseEffect: none
+coolantMultiplier: 3.4
+rotatespeed: 2.2
+recoil: 1.5
+restitution: 0.09
+powerUse: 6.5
+hasPower: true
+targetAir: true
+shootSound: higgsboson-shoot
+cooldown: 0.008
+requirements: [
+  lead/260
+  silicon/370
+  chromium/480
+  lanthanum/200
+  titanium/260
+  thorium/160
+  surge-alloy/30
+]
+category: turret
+research: graviton

@@ -1,0 +1,15 @@
+localizedName: Titanium Junction
+type: Junction
+description: Faster than the regular junction.
+size: 1
+speed: 9.5
+capacity: 16
+health: 50
+buildCostMultiplier: 5
+category: distribution
+research: junction
+requirements: [
+  copper/2
+  lead/1
+  titanium/1
+]

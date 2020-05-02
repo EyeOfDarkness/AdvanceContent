@@ -1,0 +1,37 @@
+localizedName: Graviton
+description: A laser turret. Deals almost no damage but it moves units closer to it, useful for turrets with low range but high damage.
+health: 2780
+size: 3
+reload: 80
+coolantMultiplier: 8
+shootCone: 20
+shootDuration: 190
+firingMoveFract: 0.25
+hasPower: true
+hasLiquids: true
+range: 230
+heatColor: CCFFFF
+ammoUseEffect: none
+rotatespeed: 3.3
+recoil: 2
+powerUse: 1.9
+targetAir: true
+shootSound: laser
+activeSound: graviton-beam
+activeSoundVolume: 2.5
+cooldown: 0.012
+consumes: {
+  liquid: {
+    liquid: ta-coolant
+    amount: 0.35
+  }
+}
+requirements: [
+  silicon/70
+  chromium/160
+  titanium/130
+  plastanium/50
+  lanthanum/35
+]
+category: turret
+research: photon

@@ -1,0 +1,26 @@
+localizedName: Excalibur
+description: Powerful version of lancer
+health: 2540
+size: 3
+reload: 110
+range: 180
+shootCone: 20
+heatColor: FF0000
+ammoUseEffect: none
+rotatespeed: 4.5
+recoil: 3
+powerUse: 4.1
+hasPower: true
+targetAir: false
+shootSound: excalibur-shoot
+chargeEffects: 10
+chargeMaxDelay: 35
+chargeTime: 60
+cooldown: 0.022
+requirements: [
+  silicon/180
+  titanium/110
+  lanthanum/30
+]
+category: turret
+research: lancer

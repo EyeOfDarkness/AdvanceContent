@@ -1,0 +1,9 @@
+name: Mud Water
+type: floor
+variants: 0
+speedMultiplier: 0.25
+isLiquid: true
+status: wet
+statusDuration: 60
+cacheLayer: water
+liquidDrop: water

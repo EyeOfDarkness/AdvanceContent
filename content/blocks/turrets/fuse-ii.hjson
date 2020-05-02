@@ -1,0 +1,20 @@
+name: Fuse MK2
+description: A powerful version of Fuse.
+health: 3520
+size: 4
+reload: 40
+range: 120
+ammoUseEffect: none
+shootSound: shotgun
+restitution: 0.1
+shootCone: 35
+spread: 25
+requirements: [
+  copper/440
+  graphite/400
+  titanium/240
+  silicon/170
+  thorium/200
+]
+category: turret
+research: fuse

@@ -1,0 +1,50 @@
+type: GroundUnit
+name: Claw Ranger
+description: Artillery based crab.
+maxVelocity: 0.65
+speed: 0.3
+drag: 0.25
+mass: 8
+rotatespeed: 0.05
+baseRotateSpeed: 0.03
+hitsizeTile: 16
+hitsize: 37
+health: 10000
+range: 120
+attackLength: 120
+rotateWeapon: true
+targetAir: false
+weaponOffsetY: 10.5
+immunities: [
+  burning
+  melting
+  freezing
+]
+weapon: {
+  name: claw-artillery-equip
+  length: 40
+  width: 27.5
+  alternate: true
+  recoil: 2
+  reload: 60
+  shootSound: shootBig
+  bullet: {
+    type: ArtilleryBulletType
+    collidesTiles: true
+    collidesAir: false
+    collides: true
+    speed: 6
+    damage: 90
+    lifetime: 55
+    bulletWidth: 15
+    bulletHeight: 28
+    bulletShrink: 0
+    hitSize: 12
+    knockback: 5
+    splashDamage: 20
+    splashDamageRadius: 100
+    incendChance: 0.3
+    incendAmount: 2
+    incendSpread: 7
+  }
+}

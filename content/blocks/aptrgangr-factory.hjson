@@ -1,0 +1,23 @@
+name: Aptrgangr Miner Drone Factory
+description: creates a drone that mines all vanilla ores and some modded ores
+type: UnitFactory
+unitType: aptrgangr
+size: 3
+produceTime: 4000
+maxSpawn: 1
+consumes: {
+  power: 1.2
+  items: {
+    items: [
+      titanium/5
+    ]
+  }
+}
+category: units
+research: draug-factory
+requirements: [
+  graphite/200
+  silicon/160
+  titanium/120
+  thorium/80
+]

@@ -1,9 +1,0 @@
-{
-	"name": "Tier-3 Coolant",
-	"description": "Hard to produce, primarily used for constant laser turrets.",
-	"temperature": 0.12,
-	"heatCapacity": 0.98,
-	"effect": "freezing",
-	"color": "83c7ff",
-	"lightColor": "83c7ff80"
-}

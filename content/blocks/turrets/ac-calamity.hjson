@@ -1,0 +1,39 @@
+size: 7
+health: 7800
+range: 275
+reload: 130
+coolantMultiplier: 0.6
+shootCone: 40
+shootDuration: 270
+powerUse: 24
+shootShake: 3
+firingMoveFract: 0.16
+shootEffect: shootBigSmoke2
+recoil: 8
+localizedName: AC Calamity Mk-1
+description: Death is upon your enemies, can only use Tier-3 Coolant due to its design.
+hasPower: true
+hasLiquids: true
+shootSound: laserbig
+heatColor: e04300
+rotatespeed: 1.5
+activeSound: calamity-sound
+activeSoundVolume: 5
+expanded: true
+consumes: {
+  liquid: {
+    liquid: tc-coolant
+    amount: 0.75
+  }
+}
+requirements: [
+  copper/890
+  lead/690
+  graphite/790
+  titanium/500
+  surge-alloy/750
+  silicon/730
+  thorium/430
+]
+category: turret
+research: fallout

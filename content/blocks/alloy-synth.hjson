@@ -1,0 +1,31 @@
+localizedName: Alloy Synthesizer
+description: Produces an alloy that allows highly advance technology possible.
+size: 3
+hasLiquids: false
+hasPower: true
+hasItems: true
+craftTime: 160
+consumes: {
+  power: 1.9
+  items: {
+    items: [
+      surge-alloy/1
+      lanthanum/1
+      chromium/2
+      phase-fabric/2
+    ]
+  }
+}
+requirements: [
+  graphite/210
+  lanthanum/80
+  silicon/270
+  titanium/230
+  thorium/120
+  surge-alloy/125
+]
+category: crafting
+research: alloy-smelter
+idleSound: respawning
+idleSoundVolume: 0.6
+outputItem: advance-alloy/2

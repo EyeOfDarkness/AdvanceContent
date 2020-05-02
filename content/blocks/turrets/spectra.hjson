@@ -1,0 +1,35 @@
+localizedName: Spectra
+description: its a good album, you should listen
+health: 2000
+size: 3
+reload: 150
+coolantMultiplier: 7
+shootCone: 20
+shootDuration: 320
+firingMoveFract: 0.25
+hasPower: true
+hasLiquids: true
+range: 155
+ammoUseEffect: none
+rotatespeed: 2.2
+recoil: 2
+powerUse: 2.9
+targetAir: true
+shootSound: laser
+activeSound: spectra-beam
+activeSoundVolume: 2.9
+consumes: {
+  liquid: {
+    liquid: ta-coolant
+    amount: 0.275
+  }
+}
+requirements: [
+  lead/230
+  silicon/180
+  chromium/135
+  titanium/180
+  lanthanum/45
+]
+category: turret
+research: photon

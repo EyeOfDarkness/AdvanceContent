@@ -1,0 +1,27 @@
+localizedName: W Boson
+description: Shoots a bullet that decays into smaller bullets.
+health: 4000
+size: 5
+reload: 60
+range: 250
+shootCone: 20
+heatColor: CCFFFF
+ammoUseEffect: none
+rotatespeed: 2.5
+recoil: 4
+powerUse: 7.4
+hasPower: true
+targetAir: true
+chargeTime: 38
+shootSound: wboson-shoot
+cooldown: 0.008
+requirements: [
+  silicon/300
+  chromium/350
+  lanthanum/170
+  titanium/180
+  thorium/110
+  surge-alloy/20
+]
+category: turret
+research: proton

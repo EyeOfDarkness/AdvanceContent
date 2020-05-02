@@ -1,0 +1,39 @@
+localizedName: End Game
+description:
+  '''
+  Instant death to all nearby enemies, regardless of health. 
+   Designed to annihilate The great old ones from another universe.
+  '''
+size: 8
+expanded: true
+range: 520
+health: 23500
+itemCapacity: 140
+powerUse: 530
+shootSound: end-game-shoot
+coolantMultiplier: 0.1
+hasLiquids: false
+consumes: {
+  items: {
+    items: [
+      phase-fabric/70
+      surge-alloy/70
+      advance-alloy/70
+    ]
+  }
+}
+requirements: [
+  copper/18500
+  lead/16500
+  metaglass/17000
+  graphite/14500
+  lanthanum/12800
+  titanium/19000
+  surge-alloy/16500
+  silicon/18400
+  phase-fabric/13400
+  thorium/12300
+  advance-alloy/11600
+]
+category: turret
+research: the-cube

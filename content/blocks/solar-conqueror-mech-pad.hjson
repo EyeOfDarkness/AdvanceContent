@@ -1,0 +1,18 @@
+localizedName: Solar Conqueror Mech Pad
+description: Provides transformation into a mech that shoot powerful lasers and drops bombs. weapons may become unstable while moving.
+size: 5
+consumes: {
+  power: 3.8
+}
+category: upgrade
+research: omega-mech-pad
+requirements: [
+  copper/1250
+  lead/1050
+  graphite/850
+  silicon/1500
+  titanium/1950
+  thorium/1650
+  surge-alloy/480
+  advance-alloy/470
+]

@@ -1,0 +1,29 @@
+localizedName: Fusion Synthesizer Mk1
+description: combines titanium and silicon into thorium
+flameColor: ffffff
+size: 3
+hasLiquids: false
+hasPower: true
+hasItems: true
+craftTime: 135
+consumes: {
+  power: 2.1
+  items: {
+    items: [
+      titanium/5
+      silicon/1
+    ]
+  }
+}
+requirements: [
+  silicon/340
+  titanium/300
+  thorium/200
+  surge-alloy/75
+  phase-fabric/50
+]
+category: crafting
+research: fst
+idleSound: respawning
+idleSoundVolume: 0.7
+outputItem: thorium/1

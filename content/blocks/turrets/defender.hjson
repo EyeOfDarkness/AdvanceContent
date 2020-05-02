@@ -1,0 +1,20 @@
+localizedName: Defender MK2
+description: An upgraded version of Point Defence MK1.
+size: 3
+health: 1800
+recoil: 1.8
+shootCone: 36
+restitution: 0.1
+range: 230
+shotWidth: 3.5
+reload: 7
+shootSound: shootSnap
+coolantMultiplier: 2
+requirements: [
+  lead/115
+  graphite/135
+  titanium/90
+  thorium/40
+]
+category: turret
+research: point-defence-i

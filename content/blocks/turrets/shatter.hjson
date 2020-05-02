@@ -1,0 +1,14 @@
+localizedName: Shatter
+description: A version of Ripple, but instead of one barrel it has two making its reload speed twice faster than Ripple.
+size: 4
+health: 2080
+targetAir: false
+requirements: [
+  copper/280
+  graphite/240
+  titanium/130
+  silicon/90
+  thorium/80
+]
+category: turret
+research: ripple

@@ -1,0 +1,33 @@
+localizedName: Tier-3 Coolant Synthesizer
+description: Produces Tier-3 Coolant, primarily used for laser turrets and some factories.
+outputLiquid: {
+  liquid: tc-coolant
+  amount: 1.4
+}
+size: 3
+hasPower: true
+hasItems: true
+craftTime: 80
+consumes: {
+  power: 1.25
+  items: {
+    items: [
+      silicon/1
+      titanium/1
+    ]
+  }
+  liquid: {
+    liquid: ta-coolant
+    amount: 0.3
+  }
+}
+requirements: [
+  copper/190
+  lead/140
+  graphite/120
+  silicon/100
+  titanium/110
+  plastanium/30
+]
+category: crafting
+research: tierb-coolant-factory

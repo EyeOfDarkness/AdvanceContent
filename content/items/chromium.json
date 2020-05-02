@@ -1,8 +1,0 @@
-{
-	"type": "material",
-	"name": "Chromium",
-	"description": "Extra shiny",
-	"cost": 1.2,
-	"color": "e6edf0",
-	"hardness": 2
-}
