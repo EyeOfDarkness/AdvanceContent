@@ -27,10 +27,16 @@ const shootSparks = newEffect(32, e => {
 const shipTrail = newEffect(24, e => {
 	const lightRegion = Core.atlas.find("advancecontent-solar-conqueror-lights");
 	
-	Draw.blend(Blending.additive);
-	Draw.color(Color.valueOf("722a18"), Color.valueOf("36080230"), e.fin());
-	Draw.rect(lightRegion, e.x, e.y, e.rotation - 90);
-	Draw.blend();
+	if(!Core.settings.getBool("bloom")){
+		Draw.blend(Blending.additive);
+		Draw.color(Color.valueOf("722a18"), Color.valueOf("36080230"), e.fin());
+		Draw.rect(lightRegion, e.x, e.y, e.rotation - 90);
+		Draw.blend();
+	}else{
+		Draw.mixcol(Color.valueOf("ff9c5a"), 1);
+		Draw.alpha(e.fout());
+		Draw.rect(lightRegion, e.x, e.y, e.rotation - 90);
+	}
 	
 	//Draw.color(Color.valueOf("ffffff"));
 	//Fill.circle(e.x, e.y, (1 * e.fout()) * (e.rotation / 1.3));
