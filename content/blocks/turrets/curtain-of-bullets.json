@@ -3,6 +3,7 @@
 	"description": "Have you ever played Touhou, Undertale, Deltarune and Just shapes and beats?",
 	"size": 5,
 	"expanded": true,
+	"coolantMultiplier": 0,
 	"health": 18700,
 	"powerUse": 330,
 	"shootSound": "curtain-of-bullets-shoot",
