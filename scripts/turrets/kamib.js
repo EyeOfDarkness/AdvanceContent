@@ -68,13 +68,13 @@ const bulletLarge = extend(BasicBulletType, {
 		Fill.circle(b.x, b.y, this.radius);
 		
 		Draw.color();
-		Fill.circle(b.x, b.y, this.radius * 0.9);
+		Fill.circle(b.x, b.y, this.radius * 0.85);
 	}
 });
 
 bulletLarge.lifetime = 260;
 bulletLarge.speed = 2.3;
-bulletLarge.damage = 11;
+bulletLarge.damage = 25;
 bulletLarge.pierce = false;
 bulletLarge.bulletShrink = 0;
 bulletLarge.bulletWidth = 15.5;
@@ -88,13 +88,13 @@ const bulletSlowAlt = extend(BasicBulletType, {
 		Fill.circle(b.x, b.y, this.radius);
 		
 		Draw.color();
-		Fill.circle(b.x, b.y, this.radius * 0.9);
+		Fill.circle(b.x, b.y, this.radius * 0.85);
 	}
 });
 
 bulletSlowAlt.lifetime = 390;
 bulletSlowAlt.speed = 1.1;
-bulletSlowAlt.damage = 8;
+bulletSlowAlt.damage = 12;
 bulletSlowAlt.pierce = false;
 bulletSlowAlt.hitSize = 4;
 bulletSlowAlt.radius = 4.5;
@@ -105,13 +105,13 @@ const bulletSlow = extend(BasicBulletType, {
 		Fill.circle(b.x, b.y, this.radius);
 		
 		Draw.color();
-		Fill.circle(b.x, b.y, this.radius * 0.9);
+		Fill.circle(b.x, b.y, this.radius * 0.85);
 	}
 });
 
 bulletSlow.lifetime = 590;
 bulletSlow.speed = 1.1;
-bulletSlow.damage = 8;
+bulletSlow.damage = 12;
 bulletSlow.pierce = false;
 bulletSlow.hitSize = 4;
 bulletSlow.radius = 4.5;
@@ -198,7 +198,8 @@ const kami = extendContent(PowerTurret, "curtain-of-bullets", {
 				//Fill.circle(this.tr.x + tile.drawx(), this.tr.y + tile.drawy(), Mathf.curve(entity.reload, 0, 0.2) * 12);
 			}
 		};
-		if(entity.shots > 4900) this.drawB(tile);
+		if(entity.shots > 4900 && entity.shots < 6470) this.drawB(tile);
+		if(entity.shots > 6470) this.drawC(tile);
 		Draw.color();
 	},
 	
@@ -221,6 +222,16 @@ const kami = extendContent(PowerTurret, "curtain-of-bullets", {
 		}
 	},
 	
+	drawC(tile){
+		entity = tile.ent();
+		
+		this.tr.x = Mathf.sin(entity.shots, 89 * 1.5, entity.reload * 290);
+		this.tr.y = Mathf.sin(entity.shots + 90, 127 * 1.5, entity.reload * 160);
+		
+		Draw.color(Color.valueOf("ff0000").shiftHue(Time.time()));
+		Fill.circle(this.tr.x + tile.drawx(), this.tr.y + tile.drawy(), Mathf.curve(entity.reload, 0, 0.2) * 12);
+	},
+	
 	findTargetB(tile){
 		entity = tile.ent();
 		
@@ -237,7 +248,7 @@ const kami = extendContent(PowerTurret, "curtain-of-bullets", {
 		
 		entity.shots++;
 		
-		//print(entity.shots);
+		print(entity.shots);
 		
 		var seq = entity.shots;
 		
@@ -285,11 +296,20 @@ const kami = extendContent(PowerTurret, "curtain-of-bullets", {
 		
 		if(seq > 5800 && seq < 5870) this.trnsG(tile);
 		
-		if(seq > 5870 && seq < 6300) this.sequenceH(tile);
+		if(seq > 5870 && seq < 6400) this.sequenceH(tile);
 		
-		if(seq > 6300 && seq < 6370) this.trnsH(tile);
+		if(seq > 6400 && seq < 6470) this.trnsH(tile);
 		
-		if(seq > 6370){
+		if(seq > 6470 && seq < 6540){
+			this.trnsI(tile);
+			this.sequenceI(tile);
+		};
+		
+		if(seq > 6540 && seq < 7800) this.sequenceI(tile);
+		
+		if(seq > 7800 && seq < 7870) this.trnsJ(tile);
+		
+		if(seq > 7870){
 			//entity.shots = 50;
 			entity.rotation = 90;
 			entity.reload = 0;
@@ -504,8 +524,18 @@ const kami = extendContent(PowerTurret, "curtain-of-bullets", {
 	
 	trnsH(tile){
 		entity = tile.ent();
-		entity.reload = Mathf.lerp(1, 0, (entity.shots - 6300) / 70);
-		entity.heat = Mathf.lerp(2, 0, (entity.shots - 6300) / 70);
+		entity.reload = Mathf.lerp(1, 0, (entity.shots - 6400) / 70);
+		entity.heat = Mathf.lerp(2, 0, (entity.shots - 6400) / 70);
+	},
+	
+	trnsI(tile){
+		entity = tile.ent();
+		entity.reload = Mathf.lerp(0, 1, (entity.shots - 6470) / 70);
+	},
+	
+	trnsJ(tile){
+		entity = tile.ent();
+		entity.reload = Mathf.lerp(1, 0, (entity.shots - 7800) / 70);
 	},
 	
 	sequenceE(tile){
@@ -595,7 +625,7 @@ const kami = extendContent(PowerTurret, "curtain-of-bullets", {
 		var shootAt2 = entity.shots % 64 == 0;
 		
 		if(shootAt2){
-			this.bulletsShoot(tile, bulletSlow, 1.4, 0, 0, 16, (entity.shots / 3), 1, 1);
+			this.bulletsShoot(tile, bulletSlow, 1.4, 0, 0, 19, (entity.shots / 3), 1, 1);
 			this.shootSoundB(tile, 0, 0, 0);
 		};
 		
@@ -621,6 +651,20 @@ const kami = extendContent(PowerTurret, "curtain-of-bullets", {
 				}
 			};
 		};
+	},
+	
+	sequenceI(tile){
+		entity = tile.ent();
+		
+		var shootAt1 = entity.shots % 20 == 0;
+		
+		this.tr2.x = Mathf.sin(entity.shots, 89 * 1.5, entity.reload * 290);
+		this.tr2.y = Mathf.sin(entity.shots + 90, 127 * 1.5, entity.reload * 160);
+		
+		if(shootAt1){
+			this.bulletsShootB(tile, bulletSlowAlt, 2.2, this.tr2.x, this.tr2.y, 22, (entity.shots / 2) * -1, 0.33, (entity.shots / 1.5));
+			this.shootSoundB(tile, 0, 0, 0.5);
+		}
 	}
 });
 
