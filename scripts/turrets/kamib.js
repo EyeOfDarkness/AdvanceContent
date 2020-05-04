@@ -248,7 +248,7 @@ const kami = extendContent(PowerTurret, "curtain-of-bullets", {
 		
 		entity.shots++;
 		
-		print(entity.shots);
+		//print(entity.shots);
 		
 		var seq = entity.shots;
 		
