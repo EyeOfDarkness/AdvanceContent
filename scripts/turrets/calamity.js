@@ -5,11 +5,11 @@ const calamitylaser = extend(BasicBulletType, {
 		if(b.timer.get(1, 5)){
 			Damage.collideLine(b, b.getTeam(), this.hitEffect, b.x, b.y, b.rot(), 340.0, true);
 		};
-		if(Mathf.chance(0.2)){
+		if(Mathf.chance(Time.delta() * 0.2)){
 			Tmp.v2.trns(b.rot() + 90.0, Mathf.range(7.0));
 			Lightning.create(b.getTeam(), Color.valueOf("ff9c5a"), 10, b.x + Tmp.v2.x, b.y + Tmp.v2.y, b.rot(), 46);
 		};
-		if(Mathf.chance(0.1)){
+		if(Mathf.chance(Time.delta() * 0.1)){
 			Tmp.v3.trns(b.rot(), Mathf.random(0.5, 340.0));
 			Lightning.create(b.getTeam(), Color.valueOf("ff9c5a"), 16, b.x + Tmp.v3.x, b.y + Tmp.v3.y, Mathf.random(360), 12);
 		}

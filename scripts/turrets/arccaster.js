@@ -38,11 +38,11 @@ const arcCasterBullet = extend(BasicBulletType, {
 			Effects.effect(arcSmoke, this.backColor, b.x + Mathf.range(2.0), b.y + Mathf.range(2.0), b.rot());
 		};
 
-		if(Mathf.chance(0.5)){
+		if(Mathf.chance(Time.delta() * 0.5)){
 			trnsC.trns(b.rot() + Mathf.range(2.0), 12);
 			Lightning.create(b.getTeam(), Color.valueOf("a9d8ff"), 29, b.x + trnsC.x + Mathf.range(12.0), b.y + trnsC.y + Mathf.range(12.0), b.rot() + Mathf.range(46.0), Mathf.random(4, 18));
 		};
-		if(Mathf.chance(0.2)){
+		if(Mathf.chance(Time.delta() * 0.2)){
 			trnsD.trns(b.rot() + Mathf.range(2.0), 12);
 			Lightning.create(b.getTeam(), Color.valueOf("8494b3"), 14, b.x + trnsD.x + Mathf.range(12.0), b.y + trnsD.y + Mathf.range(12.0), b.rot() + Mathf.range(180.0), Mathf.random(3, 12));
 		};

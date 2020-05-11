@@ -38,11 +38,11 @@ const stormBullet = extend(BasicBulletType, {
 			Effects.effect(stormSmoke, this.backColor, b.x + Mathf.range(2.0), b.y + Mathf.range(2.0), b.rot());
 		};
 
-		if(Mathf.chance(0.7)){
+		if(Mathf.chance(Time.delta() * 0.7)){
 			trnsC.trns(b.rot() + Mathf.range(2.0), 13);
 			Lightning.create(b.getTeam(), Color.valueOf("a9d8ff"), 31, b.x + trnsC.x + Mathf.range(12.0), b.y + trnsC.y + Mathf.range(12.0), b.rot() + Mathf.range(56.0), Mathf.random(4, 22));
 		};
-		if(Mathf.chance(0.3)){
+		if(Mathf.chance(Time.delta() * 0.3)){
 			trnsD.trns(b.rot() + Mathf.range(2.0), 13);
 			Lightning.create(b.getTeam(), Color.valueOf("8494b3"), 17, b.x + trnsD.x + Mathf.range(12.0), b.y + trnsD.y + Mathf.range(12.0), b.rot() + Mathf.range(180.0), Mathf.random(3, 12));
 		};
