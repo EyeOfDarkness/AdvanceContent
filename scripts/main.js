@@ -1,8 +1,9 @@
-if(typeof(require) !== "undefined"){
+/*if(typeof(require) !== "undefined"){
 	require("advancewall");
 	require("turrets/fallout");
 	require("turrets/calamity");
 	require("turrets/calamityii");
+	require("turrets/railgun");
 	require("turrets/point-defence");
 	require("turrets/point-defence-ii");
 	require("turrets/arccaster");
@@ -46,4 +47,74 @@ if(typeof(require) !== "undefined"){
 	require("effectlib");
 	require("turrets/kamib");
 	require("coolant");
+	require("turrets/xenon");
+	require("turrets/static");
+}*/
+if(typeof(require) !== "undefined"){
+	//turrets
+	require("turrets/fallout");
+	require("turrets/calamity");
+	require("turrets/calamityii");
+	require("turrets/mirage");
+	require("turrets/illusion");
+	require("turrets/ghost");
+	require("turrets/railgun");
+	require("turrets/railgunii");
+	require("turrets/point-defence");
+	require("turrets/point-defence-ii");
+	require("turrets/static");
+	require("turrets/arccaster");
+	require("turrets/arcstorm");
+	require("turrets/elec");
+	require("turrets/phot");
+	require("turrets/prot");
+	require("turrets/neut");
+	require("turrets/grvt");
+	require("turrets/bosonw");
+	require("turrets/bosonz");
+	require("turrets/bosonhiggs");
+	require("turrets/excalibur");
+	require("turrets/spectra");
+	require("turrets/rainbow");
+	require("turrets/refract");
+	require("turrets/xenon");
+	require("turrets/fahr");
+	require("turrets/kelv");
+	require("turrets/cels");
+	require("turrets/fuseii");
+	require("turrets/fuseiii");
+	require("turrets/shatterf");
+	require("turrets/quakef");	
+	require("turrets/cycloneii");
+	require("turrets/typhn");
+	require("turrets/cube");
+	require("turrets/endgame");
+	require("turrets/kamib");
+	//walls
+	require("advancewall");
+	//power
+	require("battery");
+	//crafting
+	require("coolant");
+	require("acompressor");
+	require("fission");
+	require("fus");
+	require("synth");
+	//mech
+	require("blad");
+	require("claymre");
+	require("strdust");
+	require("solar");
+	require("overgrowth");
+	//unit
+	require("strider");
+	require("pestilence");
+	require("famine");
+	require("death");
+	//etc
+	require("rturret");
+	require("effectlib");
+	require("funclib");
+	
+	require("war");
 }
