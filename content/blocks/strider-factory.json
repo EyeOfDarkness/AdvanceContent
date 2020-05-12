@@ -9,7 +9,8 @@
 		"items": {
 			"items": [
 				{"item": "silicon", "amount": 30},
-				{"item": "titanium", "amount": 10}
+				{"item": "titanium", "amount": 10},
+				{"item": "thorium", "amount": 5}
 			]
 		}
 	},
