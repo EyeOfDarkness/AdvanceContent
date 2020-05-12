@@ -1,0 +1,42 @@
+{
+	"size": 7,
+	"health": 7900,
+	"range": 290,
+	"reload": 160,
+	"coolantMultiplier": 1.4,
+	"shootCone": 40,
+	"shootDuration": 310,
+	"powerUse": 30,
+	"shootShake": 3,
+	"firingMoveFract": 0.16,
+	"shootEffect": "shootBigSmoke2",
+	"recoil": 8,
+	"localizedName": "Xeno Corruptor",
+	"description": "Converts weak units into your team. Damages itself per conversion and converted enemies are weaker.",
+	"hasPower": true,
+	"hasLiquids": true,
+	"shootSound": "laser",
+	"activeSound": "xeno-beam",
+	"activeSoundVolume": 2.5,
+	"heatColor": "59a7ff",
+	"rotatespeed": 1.95,
+	"expanded": true,
+	"consumes": {
+		"liquid": {
+			"liquid": "tc-coolant",
+			"amount": 0.85
+		}
+	},
+	"requirements": [
+		{ "item": "lead", "amount": 640 },
+		{ "item": "graphite", "amount": 740 },
+		{ "item": "titanium", "amount": 560 },
+		{ "item": "surge-alloy", "amount": 750 },
+		{ "item": "silicon", "amount": 760 },
+		{ "item": "thorium", "amount": 430 },
+		{ "item": "phase-fabric", "amount": 230 },
+		{ "item": "advance-alloy", "amount": 640 }
+	],
+	"category": "turret",
+	"research": "fahrenheit"
+}

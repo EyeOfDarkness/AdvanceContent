@@ -1,0 +1,41 @@
+{
+	"localizedName": "Static",
+	"description": "Shocks enemies, preventing them from moving.",
+	"health": 2800,
+	"size": 3,
+	"reload": 120,
+	"coolantMultiplier": 3,
+	"shootCone": 40,
+	"shootDuration": 150,
+	"firingMoveFract": 1.2,
+	"hasPower": true,
+	"hasLiquids": true,
+	"range": 160,
+	"shootCone": 20,
+	"heatColor": "ffcc33",
+	"ammoUseEffect": "none",
+	"rotatespeed": 2.5,
+	"recoil": 2,
+	"powerUse": 7.2,
+	"hasPower": true,
+	"targetAir": true,
+	"shootSound": "static-shoot",
+	"activeSound": "static-active",
+	"activeSoundVolume": 4.5,
+	"cooldown": 0.012,
+	"consumes": {
+		"liquid": {
+			"liquid": "tb-coolant",
+			"amount": 0.3
+		}
+	},
+	"requirements": [
+		{ "item": "copper", "amount": 120 },
+		{ "item": "lead", "amount": 110 },
+		{ "item": "graphite", "amount": 110 },
+		{ "item": "silicon", "amount": 90 },
+		{ "item": "surge-alloy", "amount": 70 }
+	],
+	"category": "turret",
+	"research": "lancer"
+}

@@ -109,7 +109,7 @@ const baseBullet = extend(BasicBulletType, {});
 
 baseBullet.damage = Number.MAX_VALUE;
 
-const visualLaser = extend(BasicBulletType, {
+/*const visualLaser = extend(BasicBulletType, {
 	draw: function(b){
 		const length = b.velocity().len() * 50000;
 		const colors = [Color.valueOf("ff0000"), Color.valueOf("ff8000"), Color.valueOf("ffccaa")];
@@ -147,7 +147,7 @@ visualLaser.collidesTiles = false;
 visualLaser.collides = false;
 visualLaser.collidesTeam = false;
 visualLaser.shootEffect = Fx.none;
-visualLaser.smokeEffect = Fx.none;
+visualLaser.smokeEffect = Fx.none;*/
 
 const endGame = extendContent(PowerTurret, "end-game", {
 	load(){
@@ -281,7 +281,6 @@ const endGame = extendContent(PowerTurret, "end-game", {
 	
 	destroyTile(tile){
 		//entity = tile.ent();
-		
 		for(var f = 0; f < 256; f++){
 			var tileB = Units.findEnemyTile(tile.getTeam(), tile.drawx(), tile.drawy(), this.range, boolf(e => !e.isDead()));
 			
@@ -305,6 +304,18 @@ const endGame = extendContent(PowerTurret, "end-game", {
 	},
 	
 	destroyBullets(tile){
+		var scanned = 0;
+		var scannedB = 0;
+		
+		Vars.bulletGroup.intersect(tile.drawx() - this.range, tile.drawy() - this.range, this.range * 2, this.range * 2, cons(b => {
+			if(Mathf.within(tile.drawx(), tile.drawy(), b.x, b.y, this.range) && b.getBulletType() != null && b.getTeam() != tile.getTeam()){
+				scanned += b.getShieldDamage();
+				scannedB += 1;
+			}
+		}));
+		
+		//print(scanned);
+		
 		Vars.bulletGroup.intersect(tile.drawx() - this.range, tile.drawy() - this.range, this.range * 2, this.range * 2, cons(b => {
 			if(b != null){
 				if(Mathf.within(tile.drawx(), tile.drawy(), b.x, b.y, this.range) && b instanceof Bullet && b.getBulletType() != null){	
@@ -329,7 +340,7 @@ const endGame = extendContent(PowerTurret, "end-game", {
 						//print("damage:" + damageB + " totalFragBullets:" + totalFragBullets);
 					};
 					
-					if(b.getTeam() != tile.getTeam() && (b.getShieldDamage() + damageB > 1000 || b.getBulletType().splashDamageRadius > 75) && b != null){
+					if(b.getTeam() != tile.getTeam() && (b.getShieldDamage() + damageB > 1000 || b.getBulletType().splashDamageRadius > 75 || scanned > 1000 || scannedB > 30) && b != null){
 						
 						//b.reset();
 						//b.remove();

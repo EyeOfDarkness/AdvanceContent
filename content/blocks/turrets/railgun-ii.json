@@ -1,0 +1,22 @@
+{
+	"name": "Piercer MK-2",
+	"description": "A powerful version of Railgun MK-1.",
+	"health": 3200,
+	"size": 4,
+	"reload": 80,
+	"range": 340,
+	"recoil": 3.5,
+	"ammoUseEffect": "none",
+	"shootSound": "railgun-shootb",
+	"restitution": 0.04,
+	"shootCone": 10,
+	"requirements": [
+		{ "item": "copper", "amount": 300 },
+		{ "item": "lead", "amount": 240 },
+		{ "item": "graphite", "amount": 160 },
+		{ "item": "silicon", "amount": 150 },
+		{ "item": "titanium", "amount": 80 }
+	],
+	"category": "turret",
+	"research": "railgun-i"
+}

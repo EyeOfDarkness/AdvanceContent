@@ -12,7 +12,7 @@
 	"shootEffect": "shootBigSmoke2",
 	"recoil": 8,
 	"localizedName": "Fallout",
-	"description": "A more powerful version of Meltdown, can only use Cyrofluid due to its design.",
+	"description": "A more powerful version of Meltdown, can only use Tier-2 Coolant due to its design.",
 	"hasPower": true,
 	"shootSound": "laserbig",
 	"heatColor": "e04300",
