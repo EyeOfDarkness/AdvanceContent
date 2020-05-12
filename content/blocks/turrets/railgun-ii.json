@@ -7,6 +7,7 @@
 	"range": 340,
 	"recoil": 3.5,
 	"ammoUseEffect": "none",
+	"shootSound": "railgun-shootb",
 	"restitution": 0.04,
 	"shootCone": 10,
 	"requirements": [
