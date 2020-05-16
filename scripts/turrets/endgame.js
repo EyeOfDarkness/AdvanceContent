@@ -33,6 +33,48 @@ const vaporizeTile = newEffect(67, e => {
 	Draw.blend();
 });
 
+/*experimental effect, Very laggy, do not use if your device hardware cant handle it or doesnt support OpenGL
+const vaporizeExperimental = elib.newEffectWDraw(78, 512, e => {
+	const buffer = new Packages.arc.graphics.gl.FrameBuffer(Core.graphics.getWidth(), Core.graphics.getHeight());
+	
+	if(e.data[1] == null){
+		Draw.flush();
+		//Core.graphics.clear(Color.clear);
+		buffer.begin();
+		//Draw.color(Color.clear);
+		Core.graphics.clear(Color.clear);
+		//buffer.beginDraw(Color.clear);
+		e.data[0].draw();
+		//buffer.endDraw();
+		//Draw.reset();
+		Draw.flush();
+		buffer.end();
+		e.data[1] = buffer.getTexture();
+	};
+		
+	const texReg = new TextureRegion(e.data[1]);
+	
+	//const region = e.data;
+	
+	//const regionB = new TextureRegion(region);
+	//print(e.data.getType());
+	
+	Draw.blend(Blending.additive);
+	//Draw.color(Color.valueOf("ff0000"));
+	Draw.alpha(e.fout());
+	Draw.mixcol(Color.valueOf("ff0000"), 1);
+	Draw.rect(texReg, Core.camera.position.x, Core.camera.position.y, Core.camera.width, -Core.camera.height);
+	//Draw.rect(regionB, e.x, e.y, Core.camera.width, -Core.camera.height);
+	
+	//buffer.dispose();
+	
+	Draw.reset();
+	Draw.blend();
+	
+	buffer.dispose();
+	e.data[1] = null;
+});
+*/
 const vaporize = elib.newEffectWDraw(78, 512, e => {
 	const type = e.data.getType();
 	const vec = new Vec2();
@@ -308,17 +350,19 @@ const endGame = extendContent(PowerTurret, "end-game", {
 		var scannedB = 0;
 		
 		Vars.bulletGroup.intersect(tile.drawx() - this.range, tile.drawy() - this.range, this.range * 2, this.range * 2, cons(b => {
-			if(Mathf.within(tile.drawx(), tile.drawy(), b.x, b.y, this.range) && b.getBulletType() != null && b.getTeam() != tile.getTeam()){
-				scanned += b.getShieldDamage();
-				scannedB += 1;
+			if(!(b instanceof Lightning)){
+				if(Mathf.within(tile.drawx(), tile.drawy(), b.x, b.y, this.range) && b.getBulletType() != null && b.getTeam() != tile.getTeam()){
+					scanned += b.getShieldDamage();
+					scannedB += 1;
+				}
 			}
 		}));
 		
 		//print(scanned);
 		
 		Vars.bulletGroup.intersect(tile.drawx() - this.range, tile.drawy() - this.range, this.range * 2, this.range * 2, cons(b => {
-			if(b != null){
-				if(Mathf.within(tile.drawx(), tile.drawy(), b.x, b.y, this.range) && b instanceof Bullet && b.getBulletType() != null){	
+			if(b != null && !(b instanceof Lightning)){
+				if(Mathf.within(tile.drawx(), tile.drawy(), b.x, b.y, this.range) && b instanceof Bullet && b.getBulletType() != null && b.getTeam() != tile.getTeam()){
 					var damageB = 0;
 					var currentBullet = b.getBulletType();
 					var totalFragBullets = 1;
@@ -340,7 +384,7 @@ const endGame = extendContent(PowerTurret, "end-game", {
 						//print("damage:" + damageB + " totalFragBullets:" + totalFragBullets);
 					};
 					
-					if(b.getTeam() != tile.getTeam() && (b.getShieldDamage() + damageB > 1000 || b.getBulletType().splashDamageRadius > 75 || scanned > 1000 || scannedB > 30) && b != null){
+					if((b.getShieldDamage() + damageB > 1000 || b.getBulletType().splashDamageRadius > 75 || scanned > 1000 || scannedB > 40) && b != null){
 						
 						//b.reset();
 						//b.remove();
@@ -365,7 +409,7 @@ const endGame = extendContent(PowerTurret, "end-game", {
 		const radius = (this.size * Vars.tilesize / 2) * 1.333;
 		
 		Vars.bulletGroup.intersect(tile.drawx() - radius, tile.drawy() - radius, radius * 2, radius * 2, cons(b => {
-			if(b != null){
+			if(b != null && !(b instanceof Lightning)){
 				if(Mathf.within(tile.drawx(), tile.drawy(), b.x, b.y, radius) && b.getOwner() != null && !b.getBulletType().collidesTiles){
 					var owner = b.getOwner();
 					//this.range
@@ -397,6 +441,12 @@ const endGame = extendContent(PowerTurret, "end-game", {
 		this.super$onDestroyed(tile);
 	},
 	
+	/*experimentalEffect(unit){
+		var data = [unit, null];
+		
+		Effects.effect(vaporizeExperimental, unit.x, unit.y, unit.rotation, data);
+	},*/
+	
 	onDestroyedB(tile, range){
 		//entity = tile.ent();
 		// 640
@@ -409,6 +459,11 @@ const endGame = extendContent(PowerTurret, "end-game", {
 					//var ang = Angles.angle(tile.drawx(), tile.drawy(), unit.x, unit.y);
 					
 					//Bullet.create(visualLaser, null, tile.getTeam(), tile.drawx(), tile.drawy(), ang, dst);
+					//if(unit instanceof BaseUnit) Effects.effect(vaporize, unit.x, unit.y, unit.rotation, unit);
+					
+					/* experimental effects, Very Laggy
+					if(unit instanceof BaseUnit) this.experimentalEffect(unit);
+					*/
 					if(unit instanceof BaseUnit) Effects.effect(vaporize, unit.x, unit.y, unit.rotation, unit);
 					
 					this.laserEffectC(tile.drawx(), tile.drawy(), unit.x, unit.y);
@@ -427,8 +482,14 @@ const endGame = extendContent(PowerTurret, "end-game", {
 	},
 	
 	handleBulletHit(entity, bullet){
-		this.super$handleBulletHit(entity, bullet);
+		//this.super$handleBulletHit(entity, bullet);
 		if(entity != null && bullet != null){
+			if(!(bullet instanceof Lightning)){
+				entity.damage(bullet.damage());
+			}else{
+				return
+			};
+			
 			const owner = bullet.getOwner();
 			
 			if(!Mathf.within(entity.x, entity.y, bullet.x, bullet.y, this.range / 1.5)){
