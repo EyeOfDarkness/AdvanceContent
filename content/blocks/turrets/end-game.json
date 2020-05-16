@@ -10,6 +10,7 @@
 	"shootSound": "end-game-shoot",
 	"coolantMultiplier": 0.1,
 	"hasLiquids": false,
+	"insulated": true,
 	"consumes": {
 		"items": {
 			"items": [
