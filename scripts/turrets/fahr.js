@@ -56,7 +56,7 @@ const fahrBullet = extend(BasicBulletType, {
 
 fahrBullet.speed = 6.2;
 fahrBullet.drag = 0.02;
-fahrBullet.damage = 4;
+fahrBullet.damage = 5;
 fahrBullet.lifetime = 58;
 fahrBullet.hitSize = 9;
 fahrBullet.shootEffect = Fx.none;
