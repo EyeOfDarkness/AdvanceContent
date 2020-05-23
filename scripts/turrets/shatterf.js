@@ -18,12 +18,52 @@ const shellEjectHugeB = elib.newGroundEffect(27, 400, e => {
 });
 
 shatter = extendContent(DoubleTurret, "shatter", {
+	load(){
+		this.super$load();
+		
+		for(var i = 0; i < 2; i++){
+			this.heatArrayRegion[i] = Core.atlas.find(this.name + "-heat-" + (i + 1));
+		}
+	},
+	
+	drawLayer(tile){
+		entity = tile.ent();
+		//this.super$drawLayer(tile);
+		
+		this.tr2.trns(entity.rotation, -entity.recoil);
+		
+		Draw.rect(this.region, tile.drawx() + this.tr2.x, tile.drawy() + this.tr2.y, entity.rotation - 90);
+		
+		for(var i = 0; i < 2; i++){
+			if(!(entity.getArrayHeat()[i] <= 0.00001)){
+				Draw.color(this.heatColor, entity.getArrayHeat()[i]);
+				Draw.blend(Blending.additive);
+				Draw.rect(this.heatArrayRegion[i], tile.drawx() + this.tr2.x, tile.drawy() + this.tr2.y, entity.rotation - 90);
+				Draw.blend();
+				Draw.color();
+			}
+		}
+	},
+	
+	update(tile){
+		this.super$update(tile);
+		
+		entity = tile.ent();
+		
+		for(var h = 0; h < 2; h++){
+			entity.getArrayHeat()[h] = Mathf.lerpDelta(entity.getArrayHeat()[h], 0, this.cooldown);
+		};
+		
+		//print(entity.getArrayHeat());
+	},
+	
 	shoot: function(tile, ammo){
-		const tr3 = new Vec2();
+		//const tr3 = new Vec2();
 		entity = tile.ent();
 		entity.shots++;
 		entity.recoil = this.recoil;
-		entity.heat = 1;
+		entity.getArrayHeat()[entity.shots % 2] = 1;
+		//entity.heat = 1;
 		
 		const type = this.peekAmmo(tile);
 		const predict = Predict.intercept(tile, entity.target, type.speed * (this.extraVelocity + 1));
@@ -33,41 +73,20 @@ shatter = extendContent(DoubleTurret, "shatter", {
 		const i = Mathf.signs[entity.shots % 2];
 		//const i = (entity.shots % 2) <= 0 ? -1 : 1;
 		
-		tr3.trns(entity.rotation - 90, this.shotWidth * i, (this.size * Vars.tilesize / 2) - entity.recoil);
+		//tr3.trns(entity.rotation - 90, this.shotWidth * i, (this.size * Vars.tilesize / 2) - entity.recoil);
+		this.tr.trns(entity.rotation - 90, this.shotWidth * i, (this.size * Vars.tilesize / 2) - entity.recoil);
 		//this.bullet(tile, ammo, entity.rotation + Mathf.range(this.inaccuracy));
 		
         for(var s = 0; s < this.shotsB; s++){
-            Bullet.create(ammo, tile.entity, tile.getTeam(), tile.drawx() + tr3.x, tile.drawy() + tr3.y,
+            Bullet.create(ammo, tile.entity, tile.getTeam(), tile.drawx() + this.tr.x, tile.drawy() + this.tr.y,
             entity.rotation + Mathf.range(this.inaccuracy + type.inaccuracy), (1.0 + this.extraVelocity) + Mathf.range(this.velocityInaccuracy), (dst / maxTraveled));
         };
 
 		this.effects(tile);
 		this.useAmmo(tile);
-	},
-	
-	effects: function(tile){
-		const tr3 = new Vec2();
-		entity = tile.ent();
-		//entity.shots++;
-		
-		const i = Mathf.signs[entity.shots % 2];
-		//const i = (entity.shots % 2) <= 0 ? -1 : 1;
-		tr3.trns(entity.rotation - 90, this.shotWidth * i, (this.size * Vars.tilesize / 2) - entity.recoil);
-		
-		const shootEffectB = this.shootEffect == Fx.none ? this.peekAmmo(tile).shootEffect : this.shootEffect;
-		const smokeEffectB = this.smokeEffect == Fx.none ? this.peekAmmo(tile).smokeEffect : this.smokeEffect;
-
-		Effects.effect(shootEffectB, tile.drawx() + tr3.x, tile.drawy() + tr3.y, entity.rotation);
-		Effects.effect(smokeEffectB, tile.drawx() + tr3.x, tile.drawy() + tr3.y, entity.rotation);
-		this.shootSound.at(tile, Mathf.random(0.9, 1.1));
-
-		if(this.shootShake > 0){
-		Effects.shake(this.shootShake, this.shootShake, tile.entity);
-		};
-
-		entity.recoil = this.recoil;
 	}
 });
+shatter.heatArrayRegion = [];
 shatter.shotWidth = 4.4;
 shatter.extraVelocity = 0.2;
 shatter.shotsB = 7;
@@ -82,6 +101,20 @@ shatter.recoil = 5;
 shatter.shootShake = 2;
 shatter.range = 320;
 shatter.shootSound = Sounds.artillery;
+shatter.entityType = prov(() => {
+	entityB = extendContent(ItemTurret.ItemTurretEntity, shatter, {
+		getArrayHeat(){
+			return this._arrayHeat;
+		},
+		
+		setArrayHeat(a){
+			this._arrayHeat = a;
+		}
+	});
+	entityB.setArrayHeat([0, 0]);
+	
+	return entityB;
+});
 shatter.ammo(
 		Items.graphite, Bullets.artilleryDense,
 		Items.silicon, Bullets.artilleryHoming,
