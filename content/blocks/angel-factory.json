@@ -1,0 +1,26 @@
+{
+	"name": "AC Angel Factory",
+	"description": "Produces units that heals ally units.",
+	"size": 3,
+	"produceTime": 2100,
+	"maxSpawn": 1,
+	"consumes": {
+		"power": 4.2,
+		"items": {
+			"items": [
+				{"item": "silicon", "amount": 40},
+				{"item": "lead", "amount": 40},
+				{"item": "plastanium", "amount": 10}
+			]
+		}
+	},
+	"category": "units",
+	"research": "spirit-factory",
+	"requirements": [
+		{ "item": "metaglass", "amount": 100 },
+		{ "item": "lead", "amount": 125 },
+		{ "item": "silicon", "amount": 110 },
+		{ "item": "titanium", "amount": 60 },
+		{ "item": "plastanium", "amount": 20 }
+	]
+}

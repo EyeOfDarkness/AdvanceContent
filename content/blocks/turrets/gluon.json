@@ -1,0 +1,31 @@
+{
+	"localizedName": "Gluon",
+	"description": "Shoots bullets that attracts enemies.",
+	"health": 5000,
+	"size": 4,
+	"reload": 90,
+	"coolantMultiplier": 3,
+	"shootCone": 40,
+	"hasPower": true,
+	"range": 200,
+	"shootCone": 30,
+	"heatColor": "CCFFFF",
+	"ammoUseEffect": "none",
+	"rotatespeed": 4.3,
+	"recoil": 2,
+	"powerUse": 1.9,
+	"hasPower": true,
+	"targetAir": true,
+	"cooldown": 0.012,
+	"shootSound": "gluon-shoot",
+	"requirements": [
+		{ "item": "silicon", "amount": 135 },
+		{ "item": "chromium", "amount": 320 },
+		{ "item": "titanium", "amount": 250 },
+		{ "item": "surge-alloy", "amount": 70 },
+		{ "item": "lanthanum", "amount": 100 },
+		{ "item": "advance-alloy", "amount": 15 }
+	],
+	"category": "turret",
+	"research": "graviton"
+}

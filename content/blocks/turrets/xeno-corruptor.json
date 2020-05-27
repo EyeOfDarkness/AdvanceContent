@@ -17,7 +17,7 @@
 	"hasLiquids": true,
 	"shootSound": "laser",
 	"activeSound": "xeno-beam",
-	"activeSoundVolume": 2.5,
+	"activeSoundVolume": 2,
 	"heatColor": "59a7ff",
 	"rotatespeed": 1.95,
 	"expanded": true,

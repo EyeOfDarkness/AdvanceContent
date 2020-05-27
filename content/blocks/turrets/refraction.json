@@ -20,7 +20,7 @@
 	"targetAir": true,
 	"shootSound": "laser",
 	"activeSound": "refraction-beam",
-	"activeSoundVolume": 3.5,
+	"activeSoundVolume": 2.5,
 	"consumes": {
 		"liquid": {
 			"liquid": "cryofluid",
