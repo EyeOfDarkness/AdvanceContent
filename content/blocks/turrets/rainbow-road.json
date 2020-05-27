@@ -20,7 +20,7 @@
 	"targetAir": true,
 	"shootSound": "laser",
 	"activeSound": "rainbow-beam",
-	"activeSoundVolume": 3.5,
+	"activeSoundVolume": 2.3,
 	"consumes": {
 		"liquid": {
 			"liquid": "tb-coolant",

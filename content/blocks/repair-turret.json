@@ -7,7 +7,7 @@
 	"shootCone": 2,
 	"ammoUseEffect": "none",
 	"rotatespeed": 7.5,
-	"powerUse": 4.4,
+	"powerUse": 1.4,
 	"shootSound": "laser",
 	"recoil": 0,
 	"requirements": [

@@ -1,0 +1,19 @@
+{
+	"name": "Shred",
+	"description": "A simple but inaccurate shotgun.",
+	"health": 210,
+	"size": 1,
+	"reload": 45,
+	"range": 50,
+	"ammoUseEffect": "none",
+	"shootSound": "shotgun",
+	"restitution": 0.04,
+	"shootCone": 35,
+	"recoil": 2,
+	"requirements": [
+		{ "item": "copper", "amount": 30 },
+		{ "item": "lead", "amount": 20 }
+	],
+	"category": "turret",
+	"research": "duo"
+}

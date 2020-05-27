@@ -1,0 +1,23 @@
+{
+	"name": "AC Neptune MK-1",
+	"description": "An experimental liquid turret that uses any kind of liquids, liquids maybe inefficient or too efficient than their native liquid turret.",
+	"health": 4000,
+	"size": 4,
+	"liquidCapacity": 30,
+	"reload": 2,
+	"shots": 2,
+	"range": 160,
+	"shootCone": 50,
+	"ammoUseEffect": "none",
+	"shootSound": "splash",
+	"inaccuracy": 5,
+	"requirements": [
+		{ "item": "metaglass", "amount": 330 },
+		{ "item": "graphite", "amount": 300 },
+		{ "item": "lead", "amount": 290 },
+		{ "item": "titanium", "amount": 130 },
+		{ "item": "thorium", "amount": 60 }
+	],
+	"category": "turret",
+	"research": "wave"
+}

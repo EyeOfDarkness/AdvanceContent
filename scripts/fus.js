@@ -1,5 +1,6 @@
 const fusion = extendContent(GenericSmelter, "fusion", {	
-	load: function(){
+	load(){
+		this.super$load();
 		this.region = Core.atlas.find(this.name);
 		this.topRegion = Core.atlas.find(this.name + "-top");
 		this.topRegionB = Core.atlas.find(this.name + "-topB");

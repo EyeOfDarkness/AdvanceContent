@@ -12,7 +12,7 @@
 	"rotatespeed": 2.2,
 	"recoil": 1.5,
 	"restitution": 0.09,
-	"powerUse": 6.5,
+	"powerUse": 9.5,
 	"hasPower": true,
 	"targetAir": true,
 	"shootSound": "higgsboson-shoot",
@@ -24,7 +24,7 @@
 		{ "item": "lanthanum", "amount": 200 },
 		{ "item": "titanium", "amount": 260 },
 		{ "item": "thorium", "amount": 160 },
-		{ "item": "surge-alloy", "amount": 30 }
+		{ "item": "surge-alloy", "amount": 60 }
 	],
 	"category": "turret",
 	"research": "graviton"

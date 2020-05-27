@@ -20,7 +20,7 @@
 	"targetAir": true,
 	"shootSound": "laser",
 	"activeSound": "spectra-beam",
-	"activeSoundVolume": 2.9,
+	"activeSoundVolume": 2,
 	"consumes": {
 		"liquid": {
 			"liquid": "ta-coolant",

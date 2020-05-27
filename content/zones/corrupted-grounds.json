@@ -1,0 +1,46 @@
+{
+	"localizedName": "Corrupted Grounds",
+	"description": "High threat area, they will send out their most powerful units if necessary.",
+	"loadout": "basicFoundation",
+	"startingItems": [
+		{ "item": "copper", "amount": 400 },
+		{ "item": "lead", "amount": 300 },
+		{ "item": "silicon", "amount": 150 },
+		{ "item": "graphite", "amount": 150 },
+		{ "item": "metaglass", "amount": 150 }
+	],
+	"conditionWave": 30,
+	"launchPeriod": 15,
+	"requirements": [
+		{
+			"type": "ZoneWave",
+			"zone": "tarFields",
+			"wave": 70
+		},
+		{
+			"type": "ZoneWave",
+			"zone": "desolateRift",
+			"wave": 30
+		},
+		{
+			"type": "Unlock",
+			"block": "shatter"
+		},
+		{
+			"type": "Unlock",
+			"block": "cyclone-ii"
+		},
+		{
+			"type": "Unlock",
+			"block": "alloy-smelter"
+		},
+	],
+	"resources": [
+		"coal",
+		"sand",
+		"copper",
+		"lead",
+		"titanium",
+		"thorium"
+	]
+}

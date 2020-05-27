@@ -7,9 +7,9 @@ const corruptEffect = newEffect(18, e => {
 });
 
 const corrupted = new StatusEffect("corrupted");
-corrupted.speedMultiplier = 0.95;
-corrupted.armorMultiplier = 0.333;
-corrupted.damageMultiplier = 0.5;
+corrupted.speedMultiplier = 0.985;
+corrupted.armorMultiplier = 0.25;
+corrupted.damageMultiplier = 0.333;
 //corrupted.damage = 0.01;
 corrupted.effect = corruptEffect;
 

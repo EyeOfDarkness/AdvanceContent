@@ -21,7 +21,7 @@
 	"targetAir": true,
 	"shootSound": "laser",
 	"activeSound": "graviton-beam",
-	"activeSoundVolume": 2.5,
+	"activeSoundVolume": 2,
 	"cooldown": 0.012,
 	"consumes": {
 		"liquid": {
