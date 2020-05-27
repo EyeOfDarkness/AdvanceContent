@@ -1,55 +1,3 @@
-/*if(typeof(require) !== "undefined"){
-	require("advancewall");
-	require("turrets/fallout");
-	require("turrets/calamity");
-	require("turrets/calamityii");
-	require("turrets/railgun");
-	require("turrets/point-defence");
-	require("turrets/point-defence-ii");
-	require("turrets/arccaster");
-	require("turrets/arcstorm");
-	require("turrets/elec");
-	require("turrets/phot");
-	require("turrets/prot");
-	require("turrets/neut");
-	require("turrets/grvt");
-	require("turrets/bosonw");
-	require("turrets/bosonz");
-	require("turrets/bosonhiggs")
-	require("turrets/excalibur");
-	require("acompressor");
-	require("fission");
-	require("fus");
-	require("turrets/mirage");
-	require("turrets/spectra");
-	require("turrets/rainbow");
-	require("turrets/refract");
-	require("synth");
-	require("turrets/fahr");
-	require("turrets/kelv");
-	require("turrets/cels");
-	require("blad");
-	require("claymre");
-	require("strdust");
-	require("solar");
-	require("overgrowth");
-	require("turrets/fuseii");
-	require("turrets/fuseiii");
-	require("turrets/shatterf");
-	require("turrets/quakef");
-	require("funclib");
-	require("strider");
-	require("turrets/cycloneii");
-	require("turrets/typhn");
-	require("rturret");
-	require("turrets/cube");
-	require("turrets/endgame");
-	require("effectlib");
-	require("turrets/kamib");
-	require("coolant");
-	require("turrets/xenon");
-	require("turrets/static");
-}*/
 if(typeof(require) !== "undefined"){
 	//turrets
 	require("turrets/fallout");
@@ -58,6 +6,7 @@ if(typeof(require) !== "undefined"){
 	require("turrets/mirage");
 	require("turrets/illusion");
 	require("turrets/ghost");
+	require("turrets/shotgun");
 	require("turrets/railgun");
 	require("turrets/railgunii");
 	require("turrets/point-defence");
@@ -65,11 +14,13 @@ if(typeof(require) !== "undefined"){
 	require("turrets/static");
 	require("turrets/arccaster");
 	require("turrets/arcstorm");
+	require("turrets/eclipse");
 	require("turrets/elec");
 	require("turrets/phot");
 	require("turrets/prot");
 	require("turrets/neut");
 	require("turrets/grvt");
+	require("turrets/gluon");
 	require("turrets/bosonw");
 	require("turrets/bosonz");
 	require("turrets/bosonhiggs");
@@ -84,7 +35,7 @@ if(typeof(require) !== "undefined"){
 	require("turrets/fuseii");
 	require("turrets/fuseiii");
 	require("turrets/shatterf");
-	require("turrets/quakef");	
+	require("turrets/quakef");
 	require("turrets/cycloneii");
 	require("turrets/typhn");
 	require("turrets/cube");
@@ -100,6 +51,7 @@ if(typeof(require) !== "undefined"){
 	require("fission");
 	require("fus");
 	require("synth");
+	require("fissionmkii");
 	//mech
 	require("blad");
 	require("claymre");
@@ -108,13 +60,18 @@ if(typeof(require) !== "undefined"){
 	require("overgrowth");
 	//unit
 	require("strider");
+	require("angel");
+	require("empunit");
 	require("pestilence");
 	require("famine");
 	require("death");
+	require("war");
 	//etc
 	require("rturret");
 	require("effectlib");
 	require("funclib");
 	
-	require("war");
+	require("turrets/neptune");
+	//require("turrets/shatterf");
+	//require("turrets/quakef");
 }

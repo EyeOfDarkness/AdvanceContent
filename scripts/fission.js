@@ -1,5 +1,6 @@
 const fst = extendContent(GenericSmelter, "fst", {	
-	load: function(){
+	load(){
+		this.super$load();
 		this.region = Core.atlas.find("advancecontent-fst");
 		this.topRegion = Core.atlas.find("advancecontent-fission-top");
 	},
@@ -11,7 +12,8 @@ const fst = extendContent(GenericSmelter, "fst", {
 });
 
 const fsl = extendContent(GenericSmelter, "fsl", {	
-	load: function(){
+	load(){
+		this.super$load();
 		this.region = Core.atlas.find("advancecontent-fsl");
 		this.topRegion = Core.atlas.find("advancecontent-fission-top");
 	},
@@ -23,7 +25,8 @@ const fsl = extendContent(GenericSmelter, "fsl", {
 });
 
 const fss = extendContent(GenericSmelter, "fss", {	
-	load: function(){
+	load(){
+		this.super$load();
 		this.region = Core.atlas.find("advancecontent-fss");
 		this.topRegion = Core.atlas.find("advancecontent-fission-top");
 	},
@@ -35,7 +38,8 @@ const fss = extendContent(GenericSmelter, "fss", {
 });
 
 const fsc = extendContent(GenericSmelter, "fsc", {	
-	load: function(){
+	load(){
+		this.super$load();
 		this.region = Core.atlas.find("advancecontent-fsc");
 		this.topRegion = Core.atlas.find("advancecontent-fission-top");
 	},

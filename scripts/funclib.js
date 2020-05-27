@@ -1,5 +1,34 @@
 // function library made by Eye of darkness, please dont claim that you made this script.
-module.exports = {	
+module.exports = {
+	findDamagedAlly(team, x, y, range, boolff){
+		if(team == Team.derelict) return null;
+		
+		var result = null;
+		var health = 0;
+		var cdist = 0;
+		
+		Units.nearby(team, x, y, range, cons(e => {
+			if(!boolff.get(e)) return;
+			
+			var dst2 = Mathf.dst2(e.x, e.y, x, y);
+			var healthB = e.healthf();
+			
+			if(result == null || healthB < health || dst2 < cdist){
+				result = e;
+				//cdist = dst2;
+				health = healthB;
+				
+				if(!(healthB < 1)){
+					cdist = dst2;
+				}else{
+					cdist = 0;
+				}
+			}
+		}));
+		
+		return result;
+	},
+	
 	nearestBullet(team, x, y, range, boolf){
 		if(team == Team.derelict) return null;
 		

@@ -89,6 +89,6 @@ death.drag = 0.02;
 death.attackLength = 130;
 death.range = 200;
 death.maxVelocity = 0.78;
-death.shootCone = 45;
+death.shootCone = 80;
 death.rotatespeed = 0.01;
 death.baseRotateSpeed = 0.04;
