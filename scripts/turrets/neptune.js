@@ -28,28 +28,6 @@ const neptune = extendContent(LiquidTurret, "neptune", {
 				
 				table.row();
 				
-				/*for(var t in ammoMap.keys()){
-					var type = ammoMap.get(t);
-					table.addImage(icon(t)).size(3 * 8).padRight(4).right().top();
-					table.add(t.localizedName).padRight(10).left().top();
-					table.table(Tex.underline, cons(bt => {
-						if(type.damage > 0){
-							bt.add(Core.bundle.format("bullet.damage", type.damage.toString()));
-						};
-						
-						if(type.splashDamage > 0){
-							this.sep(bt, Core.bundle.format("bullet.splashdamage", type.splashDamage.toString(), Strings.fixed(type.splashDamageRadius / Vars.tilesize, 1)));
-						};
-						
-						if(type.knockback > 0){
-							this.sep(bt, Core.bundle.format("bullet.knockback", Strings.fixed(type.knockback, 1)));
-						};
-						
-						if(type.status != null && type.status != StatusEffects.none){
-							this.sep(bt, type.status.name);
-						}
-					}));
-				};*/
 				//var loopAAA = 0;
 				for(var t = 0; t < neptune.liquidArrayB.length; t++){
 					var type = neptune.bulletArrayB[t];
@@ -84,7 +62,7 @@ const neptune = extendContent(LiquidTurret, "neptune", {
 								shouldUpperCase = false;
 								if(tmpLetter.indexOf("-") != -1){
 									shouldUpperCase = true;
-									tmpLetter.replace("-", " ");
+									tmpLetter = " ";
 								};
 								newStatusName += tmpLetter;
 							};
@@ -94,33 +72,6 @@ const neptune = extendContent(LiquidTurret, "neptune", {
 					})).left().padTop(-9);
 					table.row();
 				};
-				
-				/*ammoMap.each(new Cons2({
-					get: function(liquid, bullet){
-						table.addImage(sV.icon(liquid)).size(3 * 8).padRight(4).right().top();
-						table.add(liquid.localizedName).padRight(10).left().top();
-						table.table(Tex.underline, cons(bt => {
-							if(bullet.damage > 0){
-								bt.add(Core.bundle.format("bullet.damage", bullet.damage));
-							};
-							
-							if(type.splashDamage > 0){
-								sV.sep(bt, Core.bundle.format("bullet.splashdamage", bullet.splashDamage, Strings.fixed(bullet.splashDamageRadius / Vars.tilesize, 1)));
-							};
-							
-							if(type.knockback > 0){
-								sV.sep(bt, Core.bundle.format("bullet.knockback", Strings.fixed(bullet.knockback, 1)));
-							};
-							
-							if(bullet.status != null && bullet.status != StatusEffects.none){
-								var bulletStatusName = "unknown-effect";
-								if(bullet.status.name != null) bulletStatusName = bullet.status.name;
-								
-								this.sep(bt, bulletStatusName);
-							}
-						}));
-					}
-				}));*/
 			},
 			
 			sep: function(table, text){
