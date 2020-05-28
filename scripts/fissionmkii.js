@@ -63,14 +63,14 @@ const fissionB = extendContent(GenericSmelter, "fission-mkii", {
 			this.bars.remove("items");
 			this.bars.add("items", new Func({
 				get: function(entity){
-					return new Bar(prov(() => Core.bundle.format("bar.items", entity.getItemStack() != null ? entity.items.get(entity.getItemStack().item) : 0)), prov(() => Pal.powerBar), new Floatp({get: function(){
-							if(entity.getItemStack() != null){
-								//does not work currently.
+					return new Bar(prov(() => Core.bundle.format("bar.items", (entity != null && entity.getItemStack() != null) ? entity.items.get(entity.getItemStack().item) : 0)), prov(() => Pal.powerBar), new Floatp({get: function(){
+							if(entity != null && entity.getItemStack() != null){
 								var items = entity.items.get(entity.getItemStack().item);
-								var sssss = items / this.itemCapacity;
+								var sssss = items / fissionB.itemCapacity;
 								
 								return sssss.toFixed(6);
-							}
+							};
+							return 0;
 						}
 					}));
 				}
@@ -281,29 +281,3 @@ fissionB.entityType = prov(() => {
 	
 	return entityB;
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
