@@ -22,6 +22,10 @@ const neptune = extendContent(LiquidTurret, "neptune", {
 		
 		const sV = new StatValue({
 			display: function(table){
+				if(Vars.android){
+					table.add("unknown error on android, \n it cant be fixed because the crash doesnt create a log that tells me whats the error");
+					return;
+				};
 				ammoMap = neptune.ammo;
 				//print("sV");
 				if(ammoMap == null) return;
