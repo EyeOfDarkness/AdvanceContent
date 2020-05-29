@@ -22,10 +22,10 @@ const neptune = extendContent(LiquidTurret, "neptune", {
 		
 		const sV = new StatValue({
 			display: function(table){
-				if(Vars.android){
+				/*if(Vars.android){
 					table.add("unknown error on android, \n it cant be fixed because the crash doesnt create a log that tells me whats the error");
 					return;
-				};
+				};*/
 				ammoMap = neptune.ammo;
 				//print("sV");
 				if(ammoMap == null) return;
@@ -37,42 +37,79 @@ const neptune = extendContent(LiquidTurret, "neptune", {
 					var type = neptune.bulletArrayB[t];
 					var liquid = neptune.liquidArrayB[t];
 					//print(type + "/" + liquid);
-					table.addImage(this.icon(liquid)).size(3 * 8).padRight(4).right().top();
+					if(liquid == null || type == null) continue;
+					
+					if(!Vars.android){
+						table.addImage(this.icon(liquid)).size(3 * 8).padRight(4).right().top();
+					}else{
+						table.addImage(liquid.icon(Cicon.medium)).size(3 * 8).padRight(4).right().top();
+					};
 					table.add(liquid.localizedName).padRight(10).left().top();
 					//loopAAA++;
 					table.table(Tex.underline, cons(bt => {
 						if(type.damage > 0){
 							var dmg = type.damage.toFixed(1);
 							bt.add(Core.bundle.format("bullet.damage", dmg.toString()));
+							bt.row();
 						};
 						
 						if(type.splashDamage > 0){
 							var spDmg = type.splashDamage.toFixed(1);
-							this.sep(bt, Core.bundle.format("bullet.splashdamage", spDmg.toString(), Strings.fixed(type.splashDamageRadius / Vars.tilesize, 1)));
+							if(!Vars.android){
+								this.sep(bt, Core.bundle.format("bullet.splashdamage", spDmg.toString(), Strings.fixed(type.splashDamageRadius / Vars.tilesize, 1)));
+							}else{
+								var spRad = type.splashDamageRadius / Vars.tilesize;
+								var spRadFixed = spRad.toFixed(1);
+								bt.add(Core.bundle.format("bullet.splashdamage", spDmg.toString(), spRadFixed.toString()));
+								bt.row();
+							}
 						};
 						
 						if(type.knockback > 0){
-							this.sep(bt, Core.bundle.format("bullet.knockback", Strings.fixed(type.knockback, 1)));
+							if(!Vars.android){
+								this.sep(bt, Core.bundle.format("bullet.knockback", Strings.fixed(type.knockback, 1)));
+							}else{
+								var knbk = type.knockback.toFixed(1);
+								
+								//bt.add("[stat]" + knbk + "[lightgray] knockback");
+								bt.add(Core.bundle.format("bullet.knockback", knbk));
+								bt.row();
+							}
 						};
 						
 						if(type.status != null && type.status != StatusEffects.none){
-							var statusName = type.status.name.toString();
-							var shouldUpperCase = true;
-							var newStatusName = "";
-							
-							for(var b = 0; b < statusName.length; b++){
-								tmpLetter = statusName.charAt(b);
-								if(shouldUpperCase) tmpLetter = tmpLetter.toUpperCase();
-								shouldUpperCase = false;
-								if(tmpLetter.indexOf("-") != -1){
-									shouldUpperCase = true;
-									tmpLetter = " ";
+							if(!Vars.android){
+								var statusName = type.status.name.toString();
+								var shouldUpperCase = true;
+								var newStatusName = "";
+								
+								if(type.status.name != null){
+									for(var b = 0; b < statusName.length; b++){
+										tmpLetter = statusName.charAt(b);
+										if(shouldUpperCase) tmpLetter = tmpLetter.toUpperCase();
+										shouldUpperCase = false;
+										if(tmpLetter.indexOf("-") != -1){
+											shouldUpperCase = true;
+											tmpLetter = " ";
+										};
+										newStatusName += tmpLetter;
+									};
+								}else{
+									newStatusName = "Unknown Effect";
 								};
-								newStatusName += tmpLetter;
-							};
 							
-							this.sep(bt, newStatusName);
-						}
+								this.sep(bt, newStatusName);
+							}else{
+								var nameb = "unknown-effect";
+								
+								if(type.status.name != null) nameb = type.status.name;
+								
+								//this.sep(bt, name);
+								
+								bt.add(nameb.toString());
+								bt.row();
+							};
+						};
 					})).left().padTop(-9);
 					table.row();
 				};
