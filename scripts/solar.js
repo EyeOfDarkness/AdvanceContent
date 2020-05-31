@@ -80,6 +80,7 @@ const solarBullet = extend(BasicBulletType, {
 		const vec2 = new Vec2();
 		const vec3 = new Vec2();
 		const owner = b.getOwner();
+		if(owner == null || b == null) return;
 		var lastX = owner.getX() - b.getX();
 		var lastY = owner.getY() - b.getY();
 		
