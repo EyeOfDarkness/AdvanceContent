@@ -119,6 +119,10 @@ const prism = extendContent(PowerTurret, "prism", {
 				entBullet.time(0);
 			};
 			
+			var shakeB = Mathf.clamp(1 - entity.getBulletHeat()) * 2.3;
+			
+			Effects.shake(shakeB, shakeB, tile.drawx(), tile.drawy());
+			
 			entity.heat = 1;
 			entity.recoil = (1 - entity.getBulletHeat()) * this.recoil;
 			entity.setBulletTime(entity.getBulletTime() + Time.delta());
