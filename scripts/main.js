@@ -30,6 +30,7 @@ if(typeof(require) !== "undefined"){
 	require("turrets/rainbow");
 	require("turrets/refract");
 	require("turrets/xenon");
+	require("turrets/crusader");
 	require("turrets/fahr");
 	require("turrets/kelv");
 	require("turrets/cels");
@@ -72,7 +73,7 @@ if(typeof(require) !== "undefined"){
 	require("effectlib");
 	require("funclib");
 	
-	//require("turrets/neptune");
+	require("turrets/prism");
 	//require("turrets/shatterf");
 	//require("turrets/quakef");
 }
