@@ -1,0 +1,43 @@
+{
+	"size": 8,
+	"health": 9800,
+	"range": 340,
+	"reload": 190,
+	"coolantMultiplier": 0.9,
+	"shootCone": 40,
+	"shootDuration": 310,
+	"powerUse": 34,
+	"shootShake": 3.5,
+	"firingMoveFract": 0.14,
+	"shootEffect": "shootBigSmoke2",
+	"recoil": 8,
+	"localizedName": "Stardust Crusader",
+	"description": "Converts enemy units and tiles into its team.",
+	"cooldown": 0.013,
+	"hasPower": true,
+	"hasLiquids": true,
+	"shootSound": "laser",
+	"activeSound": "crusader-beam",
+	"activeSoundVolume": 3,
+	"heatColor": "d191ff",
+	"rotatespeed": 1.95,
+	"expanded": true,
+	"consumes": {
+		"liquid": {
+			"liquid": "tc-coolant",
+			"amount": 1.25
+		}
+	},
+	"requirements": [
+		{ "item": "lead", "amount": 800 },
+		{ "item": "graphite", "amount": 950 },
+		{ "item": "titanium", "amount": 720 },
+		{ "item": "surge-alloy", "amount": 950 },
+		{ "item": "silicon", "amount": 970 },
+		{ "item": "thorium", "amount": 540 },
+		{ "item": "phase-fabric", "amount": 310 },
+		{ "item": "advance-alloy", "amount": 835 }
+	],
+	"category": "turret",
+	"research": "xeno-corruptor"
+}
