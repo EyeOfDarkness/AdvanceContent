@@ -34,7 +34,7 @@
 		{ "item": "titanium", "amount": 1300 },
 		{ "item": "thorium", "amount": 500 },
 		{ "item": "lanthanum", "amount": 400 },
-		{ "item": "advance-alloy", "amount": 150 }
+		{ "item": "surge-alloy", "amount": 350 }
 	],
 	"category": "turret",
 	"research": "rainbow-road"
