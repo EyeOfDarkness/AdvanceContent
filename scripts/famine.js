@@ -5,7 +5,7 @@ const famineBullet = extend(BasicBulletType, {
 		//var target = null;
 		//var cdist = 0;
 		
-		if(b.timer.get(1, 15)){
+		if(b.timer.get(1, 5)){
 			this.scanTiles(b);
 		};
 		
@@ -39,7 +39,7 @@ const famineBullet = extend(BasicBulletType, {
 		var tile = Vars.world.ltileWorld(b.x, b.y);
 		if(tile != null && tile.block() != null){
 			var g = tile.block().group;
-			var criteria = g == BlockGroup.transportation || g == BlockGroup.power || g == BlockGroup.liquids || g == BlockGroup.drills;
+			var criteria = g == BlockGroup.transportation || g == BlockGroup.power || g == BlockGroup.liquids || g == BlockGroup.drills || (tile.ent() != null && tile.ent() instanceof GenericCrafter.GenericCrafterEntity);
 			
 			//return b.getTeam() != tile.getTeam() && tile.block().group == BlockGroup.transportation;
 			return b.getTeam() != tile.getTeam() && criteria;
@@ -56,50 +56,17 @@ const famineBullet = extend(BasicBulletType, {
 	},
 	
 	scanTiles(b){
-		const minusRange = (this.rectRangeTile * Vars.tilesize) / 2;
-		
-		var target = null;
-		var cdist = 0;
-		
-		scan:
-		for(var x = 0; x < this.rectRangeTile; x++){
-			yscan:
-			for(var y = 0; y < this.rectRangeTile; y++){
-				var tile = Vars.world.ltileWorld(((x * Vars.tilesize) - minusRange) + b.x, ((y * Vars.tilesize) - minusRange) + b.y);
+		var tileBool = new Boolf({
+			get: function(tile){
+				var entity = tile.ent();
+				if(tile.ent() == null) return false;
 				
-				if(tile != null){
-					var xb = tile.x * Vars.tilesize;
-					var yb = tile.y * Vars.tilesize;
-					
-					if(!Mathf.within(b.x, b.y, tile.drawx(), tile.drawy(), this.rectRangeTile * Vars.tilesize / 2)){
-						//Effects.effect(invalid, xb, yb);
-						continue yscan;
-					};
-					
-					//Effects.effect(valid, xb, yb);
-					if(tile.ent() != null && tile.block() != null){
-						var g = tile.block().group;
-						var criteria = g == BlockGroup.transportation || g == BlockGroup.power || g == BlockGroup.liquids || g == BlockGroup.drills;
-						
-						if(b.getTeam() != tile.getTeam() && criteria){
-							
-							dst2 = Mathf.dst2(tile.drawx(), tile.drawy(), b.x, b.y);
-							
-							if(target == null || dst2 < cdist){
-								target = tile;
-								cdist = dst2;
-							};
-							
-							//print("aaaa");
-							
-							//Effects.effect(validB, xb, yb);
-							//scannedTiles[sequence] = tile.ent().getID();
-							//sequence++;
-						};
-					}
-				}
+				var g = entity.block.group;
+				return g == BlockGroup.transportation || g == BlockGroup.power || g == BlockGroup.liquids || g == BlockGroup.drills || entity instanceof GenericCrafter.GenericCrafterEntity;
 			}
-		};
+		});
+		
+		var target = Units.closestTarget(b.getTeam(), b.x, b.y, this.rectRangeTile * Vars.tilesize, boolf(e => false), tileBool);
 		
 		b.setData(target);
 		
@@ -112,7 +79,7 @@ famineBullet.lifetime = 56;
 famineBullet.damage = 3;
 famineBullet.homingRange = 50;
 //warning, increasing rectRangeTile may cause lag.
-famineBullet.rectRangeTile = 24;
+famineBullet.rectRangeTile = 28;
 famineBullet.splashDamageRadius = 15;
 famineBullet.splashDamage = 11;
 famineBullet.bulletSprite = "missile";
