@@ -17,7 +17,6 @@ const changeTeamTile = newEffect(17, e => {
 const changeTeam = elib.newEffectWDraw(78, 512, e => {
 	const type = e.data.getType();
 	const base = e.data;
-	const vec = new Vec2();
 	//const weaponB = type.weapon.region;
 	//print(e.data.getType());
 	
