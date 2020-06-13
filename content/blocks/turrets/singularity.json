@@ -17,6 +17,7 @@
 	"hasPower": true,
 	"targetAir": true,
 	"cooldown": 0.012,
+	"shootSound": "singularity-shoot",
 	"requirements": [
 		{ "item": "silicon", "amount": 420 },
 		{ "item": "chromium", "amount": 980 },
