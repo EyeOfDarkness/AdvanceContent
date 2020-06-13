@@ -5,7 +5,7 @@
 	"reload": 280,
 	"coolantMultiplier": 2.4,
 	"shootCone": 40,
-	"powerUse": 38,
+	"powerUse": 19,
 	"shootShake": 3,
 	"shootEffect": "shootBigSmoke2",
 	"recoil": 8,

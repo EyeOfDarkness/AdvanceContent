@@ -13,7 +13,7 @@
 	"ammoUseEffect": "none",
 	"rotatespeed": 3.3,
 	"recoil": 6,
-	"powerUse": 11.3,
+	"powerUse": 34.3,
 	"hasPower": true,
 	"targetAir": true,
 	"cooldown": 0.012,
