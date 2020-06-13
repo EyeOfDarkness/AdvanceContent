@@ -1,0 +1,30 @@
+{
+	"localizedName": "Singularity",
+	"description": "Shoots bullet that attracts and destroys everything.",
+	"health": 9800,
+	"size": 7,
+	"reload": 190,
+	"coolantMultiplier": 1.1,
+	"shootCone": 40,
+	"hasPower": true,
+	"range": 310,
+	"shootCone": 30,
+	"heatColor": "CCFFFF",
+	"ammoUseEffect": "none",
+	"rotatespeed": 3.3,
+	"recoil": 6,
+	"powerUse": 11.3,
+	"hasPower": true,
+	"targetAir": true,
+	"cooldown": 0.012,
+	"requirements": [
+		{ "item": "silicon", "amount": 420 },
+		{ "item": "chromium", "amount": 980 },
+		{ "item": "titanium", "amount": 770 },
+		{ "item": "surge-alloy", "amount": 230 },
+		{ "item": "lanthanum", "amount": 300 },
+		{ "item": "advance-alloy", "amount": 220 }
+	],
+	"category": "turret",
+	"research": "gluon"
+}
