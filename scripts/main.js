@@ -44,6 +44,7 @@ if(typeof(require) !== "undefined"){
 	require("turrets/cube");
 	require("turrets/endgame");
 	require("turrets/kamib");
+	require("turrets/singularity");
 	//walls
 	require("advancewall");
 	//power
