@@ -21,6 +21,7 @@ if(typeof(require) !== "undefined"){
 	require("turrets/neut");
 	require("turrets/grvt");
 	require("turrets/gluon");
+	require("turrets/singularity");
 	require("turrets/bosonw");
 	require("turrets/bosonz");
 	require("turrets/bosonhiggs");
@@ -74,7 +75,7 @@ if(typeof(require) !== "undefined"){
 	require("effectlib");
 	require("funclib");
 	
-	//require("turrets/prism");
+	//require("turrets/singularity");
 	//require("turrets/shatterf");
 	//require("turrets/quakef");
 }
