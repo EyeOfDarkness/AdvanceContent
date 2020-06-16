@@ -184,7 +184,7 @@ const singularityBullet = extend(BasicBulletType, {
 
 singularityBullet.strength = 0.7;
 singularityBullet.speed = 6.6;
-singularityBullet.damage = 5;
+singularityBullet.damage = 7;
 singularityBullet.drag = 0.018;
 singularityBullet.lifetime = 110;
 singularityBullet.collidesTiles = false;
