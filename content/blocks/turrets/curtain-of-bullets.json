@@ -7,7 +7,7 @@
 	"health": 18700,
 	"powerUse": 330,
 	"shootSound": "curtain-of-bullets-shoot",
-	"breakSound": "curtain-of-bullets-explosion",
+	"breakSound": "curtain-of-bullets-explosion-b",
 	"coolantMultiplier": 1,
 	"requirements": [
 		{ "item": "copper", "amount": 6000 },
