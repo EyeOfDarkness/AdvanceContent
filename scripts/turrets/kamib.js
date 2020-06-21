@@ -28,14 +28,14 @@ const spellCardOver = elib.newEffectWDraw(87, 1300, e => {
 		spritelib.blendingCustom(blendInvert[0], blendInvert[1]);
 		
 		Lines.stroke(570 * customSlope);
-		Lines.circle(e.x, e.y, (570 * power3) + 30);
+		Lines.circle(e.x, e.y, (570 * power3));
 		
 		spritelib.blendReset();
 	}else{
 		Draw.color(Color.valueOf("ff0000").shiftHue(Time.time()));
 		Draw.blend(Blending.additive);
 		Lines.stroke(570 * customSlope);
-		Lines.circle(e.x, e.y, (570 * power3) + 30);
+		Lines.circle(e.x, e.y, (570 * power3));
 	};
 	
 	//Draw.flush();
