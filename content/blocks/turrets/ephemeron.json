@@ -1,0 +1,31 @@
+{
+	"size": 8,
+	"health": 9800,
+	"range": 320,
+	"reload": 70,
+	"coolantMultiplier": 1.9,
+	"shootCone": 30,
+	"powerUse": 26,
+	"shootShake": 2,
+	"recoil": 4,
+	"localizedName": "Ephemeron",
+	"description": "Shoots a bullet that creates multiple bullet with an anti-bullet partner that explodes when they collide.",
+	"hasPower": true,
+	"hasLiquids": true,
+	"shootSound": "ephemeron-shoot",
+	"rotatespeed": 1.9,
+	"heatColor": "CCFFFF",
+	"cooldown": 0.009,
+	"expanded": true,
+	"requirements": [
+		{ "item": "lead", "amount": 790 },
+		{ "item": "silicon", "amount": 750 },
+		{ "item": "chromium", "amount": 990 },
+		{ "item": "lanthanum", "amount": 380 },
+		{ "item": "titanium", "amount": 670 },
+		{ "item": "surge-alloy", "amount": 560 },
+		{ "item": "advance-alloy", "amount": 840 }
+	],
+	"category": "turret",
+	"research": "w-boson"
+}

@@ -15,24 +15,26 @@ if(typeof(require) !== "undefined"){
 	require("turrets/arccaster");
 	require("turrets/arcstorm");
 	require("turrets/eclipse");
-	require("turrets/elec");
 	require("turrets/phot");
+	require("turrets/elec");
+	require("turrets/grvt");
 	require("turrets/prot");
 	require("turrets/neut");
-	require("turrets/grvt");
 	require("turrets/gluon");
-	require("turrets/singularity");
 	require("turrets/bosonw");
 	require("turrets/bosonz");
 	require("turrets/bosonhiggs");
+	require("turrets/singularity");
+	require("turrets/muon");
+	require("turrets/ephemeron");
 	require("turrets/excalibur");
 	require("turrets/neptune");
 	require("turrets/spectra");
 	require("turrets/rainbow");
 	require("turrets/prism");
 	require("turrets/refract");
-	require("turrets/xenon");
 	require("turrets/crusader");
+	require("turrets/xenon");
 	require("turrets/fahr");
 	require("turrets/kelv");
 	require("turrets/cels");
@@ -71,11 +73,12 @@ if(typeof(require) !== "undefined"){
 	require("death");
 	require("war");
 	//etc
+	require("modsettings");
 	require("rturret");
 	require("effectlib");
 	require("funclib");
+	require("spritebatchcustom");
 	
-	//require("turrets/singularity");
 	//require("turrets/shatterf");
 	//require("turrets/quakef");
 }
