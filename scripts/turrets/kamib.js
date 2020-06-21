@@ -1,6 +1,19 @@
 const elib = require("effectlib");
+const spritelib = require("spritebatchcustom");
+const settingLib = require("modsettings");
 
-const spellCardOver = elib.newEffectWDraw(54, 1300, e => {
+//const blendInvert = [GL20.GL_ONE_MINUS_SRC_COLOR, GL20.GL_ONE_MINUS_DST_COLOR];
+
+//const blendInvert = [Gl.oneMinusSrcAlpha, Gl.oneMinusDstAlpha];
+const blendInvert = [Gl.oneMinusDstColor, Gl.oneMinusSrcColor];
+
+//const blendInvert = [Gl.srcAlpha, Gl.oneMinusDstAlpha];
+//const blendInvert = [Gl.oneMinusDstAlpha, Gl.srcAlpha];
+
+//const blendInvert = [GL20.GL_SRC_ALPHA, GL20.GL_ONE];
+//const blendInvert = [GL20.GL_ONE, GL20.GL_ONE_MINUS_SRC_COLOR];
+
+const spellCardOver = elib.newEffectWDraw(87, 1300, e => {
 	const vec = new Vec2();
 	const vec2 = new Vec2();
 	//const lastVec = new Vec2();
@@ -8,7 +21,25 @@ const spellCardOver = elib.newEffectWDraw(54, 1300, e => {
 	var power = new Interpolation.PowOut(2).apply(e.fin());
 	var power2 = new Interpolation.PowOut(3).apply(e.fin());
 	var power3 = Interpolation.pow4Out.apply(e.fin());
-	var sides = 148;
+	var customSlope = (0.5 - Math.abs(power3 - 0.5)) * 2;
+	
+	if(spritelib.isCustomBatch()){
+		Draw.color(Color.valueOf("ffffff"));
+		spritelib.blendingCustom(blendInvert[0], blendInvert[1]);
+		
+		Lines.stroke(570 * customSlope);
+		Lines.circle(e.x, e.y, (570 * power3) + 30);
+		
+		spritelib.blendReset();
+	}else{
+		Draw.color(Color.valueOf("ff0000").shiftHue(Time.time()));
+		Draw.blend(Blending.additive);
+		Lines.stroke(570 * customSlope);
+		Lines.circle(e.x, e.y, (570 * power3) + 30);
+	};
+	
+	//Draw.flush();
+	/*var sides = 148;
 	var poly = [];
 	var poly2 = [];
 	//var lenRand = Mathf.range(2);
@@ -43,23 +74,28 @@ const spellCardOver = elib.newEffectWDraw(54, 1300, e => {
 	Lines.polyline(poly2, sides * 2, true);
 	
 	Draw.alpha(e.fout() / 2);
-	Fill.circle(e.x, e.y, power3 * 570);
+	Fill.circle(e.x, e.y, power3 * 570);*/
 	
 	Draw.blend();
 	Draw.reset();
 });
 
-const clearEffect = newEffect(25, e => {
+const clearEffect = newEffect(35, e => {
 	//const curve1 = e.finpow();
-	const curve1 = Interpolation.pow3In.apply(e.fin());
-	const curve2 = Mathf.curve(e.fout(), 0, 0.3);
-	const lerpx = Mathf.lerp(e.x, e.data.x, curve1);
-	const lerpy = Mathf.lerp(e.y, e.data.y, curve1);
+	//const curve1 = Interpolation.pow3In.apply(e.fin());
+	//const curve2 = Mathf.curve(e.fout(), 0, 0.3);
+	//const lerpx = Mathf.lerp(e.x, e.data.x, curve1);
+	//const lerpy = Mathf.lerp(e.y, e.data.y, curve1);
+	Draw.blend(Blending.additive);
 	
-	Draw.color(Color.valueOf("ff0000").shiftHue(Time.time()), Color.valueOf("ff000000").shiftHue(Time.time()), e.fin());
-	Fill.circle(lerpx, lerpy, curve2 * 4);
+	Draw.color(Color.valueOf("ff0000").shiftHue(Time.time()));
+	//Fill.circle(lerpx, lerpy, curve2 * 4);
+	Lines.stroke(2.5);
+	Lines.swirl(e.x, e.y, 11, e.fout(), (e.fin() * Mathf.randomSeedRange(e.id, 45)) + Mathf.randomSeedRange(e.id * 7526, 20) + 180);
 	
-	Draw.color();
+	//Draw.color();
+	Draw.blend();
+	Draw.reset()
 });
 
 const bulletLarge = extend(BasicBulletType, {

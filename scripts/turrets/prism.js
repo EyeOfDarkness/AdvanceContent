@@ -119,7 +119,7 @@ const prism = extendContent(PowerTurret, "prism", {
 				entBullet.time(0);
 			};
 			
-			var shakeB = Mathf.clamp(1 - entity.getBulletHeat()) * 2.3;
+			var shakeB = Mathf.clamp(1 - entity.getBulletHeat()) * 2.1;
 			
 			Effects.shake(shakeB, shakeB, tile.drawx(), tile.drawy());
 			
