@@ -79,7 +79,7 @@ famineBullet.lifetime = 56;
 famineBullet.damage = 3;
 famineBullet.homingRange = 50;
 //warning, increasing rectRangeTile may cause lag.
-famineBullet.rectRangeTile = 28;
+famineBullet.rectRangeTile = 11;
 famineBullet.splashDamageRadius = 15;
 famineBullet.splashDamage = 11;
 famineBullet.bulletSprite = "missile";
