@@ -1,4 +1,4 @@
-var customSpriteBatch = true;
+var customSpriteBatch = false;
 var animatedSprite = false;
 if(Vars.mobile){
 	customSpriteBatch = false;
