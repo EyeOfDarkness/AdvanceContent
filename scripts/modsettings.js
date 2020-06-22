@@ -1,5 +1,8 @@
 var customSpriteBatch = true;
 var animatedSprite = false;
+if(Vars.mobile){
+	customSpriteBatch = false;
+};
 
 module.exports = {
 	settingCustomSpriteBatch(){
