@@ -169,7 +169,7 @@ forceSpriteBatch.blendingDst = null;
 if(settingLib.settingCustomSpriteBatch()){
 	Core.batch = forceSpriteBatch;
 };
-print("AdvanceContent Custom SpriteBatch is used: " + forceSpriteBatch == Core.batch);
+//print("AdvanceContent Custom SpriteBatch is used: " + forceSpriteBatch == Core.batch);
 
 var isBatch = () => Core.batch == forceSpriteBatch;
 
