@@ -330,7 +330,8 @@ const endGame = extendContent(PowerTurret, "end-game", {
 			
 			this.laserEffectC(tile.drawx(), tile.drawy(), tileB.x, tileB.y);
 			
-			tileB.damage(Number.MAX_VALUE);
+			//tileB.damage(Number.MAX_VALUE);
+			tileB.kill();
 			if(tileB.block.size > 2) Effects.effect(vaporizeTile, tileB.x, tileB.y, tileB.block.size);
 		}
 	},
