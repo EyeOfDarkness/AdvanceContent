@@ -23,7 +23,7 @@ const spellCardOver = elib.newEffectWDraw(87, 1300, e => {
 	var power3 = Interpolation.pow4Out.apply(e.fin());
 	var customSlope = (0.5 - Math.abs(power3 - 0.5)) * 2;
 	
-	if(spritelib.isCustomBatch()){
+	if(settingLib.settingCustomSpriteBatch()){
 		Draw.color(Color.valueOf("ffffff"));
 		spritelib.blendingCustom(blendInvert[0], blendInvert[1]);
 		
@@ -32,10 +32,25 @@ const spellCardOver = elib.newEffectWDraw(87, 1300, e => {
 		
 		spritelib.blendReset();
 	}else{
-		Draw.color(Color.valueOf("ff0000").shiftHue(Time.time()));
-		Draw.blend(Blending.additive);
+		var prev = Core.batch;
+		var lastTrans = Draw.trans();
+		var lastProj = Draw.proj();
+		Draw.flush();
+		
+		Core.batch = spritelib.getCustomBatch();
+		Draw.trans(lastTrans);
+		Draw.proj(lastProj);
+		
+		Draw.color(Color.valueOf("ffffff"));
+		spritelib.blendingCustom(blendInvert[0], blendInvert[1]);
+		
 		Lines.stroke(570 * customSlope);
 		Lines.circle(e.x, e.y, (570 * power3));
+		
+		spritelib.blendReset();
+		
+		Draw.flush();
+		Core.batch = prev;
 	};
 	
 	//Draw.flush();
@@ -91,7 +106,7 @@ const clearEffect = newEffect(35, e => {
 	Draw.color(Color.valueOf("ff0000").shiftHue(Time.time()));
 	//Fill.circle(lerpx, lerpy, curve2 * 4);
 	Lines.stroke(2.5);
-	Lines.swirl(e.x, e.y, 11, e.fout(), (e.fin() * Mathf.randomSeedRange(e.id, 45)) + Mathf.randomSeedRange(e.id * 7526, 20) + 180);
+	Lines.swirl(e.x, e.y, 11, e.fout(), (e.fin() * Mathf.randomSeedRange(e.id, 45)) + e.rotation + 180);
 	
 	//Draw.color();
 	Draw.blend();
@@ -363,11 +378,11 @@ const kami = extendContent(PowerTurret, "curtain-of-bullets", {
 					b.scaleTime(Mathf.lerp(b.time(), b.getBulletType().lifetime, 0.999));
 					b.velocity(0.001, b.rot());
 					b.deflect();
-					const vec = new Vec2()
-					if(target instanceof TileEntity || target instanceof BaseUnit) vec.set(tile.drawx(), tile.drawy());
-					if(target instanceof Player) vec.set(target.getX(), target.getY());
+					//const vec = new Vec2()
+					//if(target instanceof TileEntity || target instanceof BaseUnit) vec.set(tile.drawx(), tile.drawy());
+					//if(target instanceof Player) vec.set(target.getX(), target.getY());
 					
-					Effects.effect(clearEffect, b.x, b.y, 0, vec);
+					Effects.effect(clearEffect, b.x, b.y, Mathf.range(20));
 				}
 			}
 		}));
