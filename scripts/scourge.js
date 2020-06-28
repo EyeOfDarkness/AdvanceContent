@@ -483,6 +483,7 @@ scourgeSegWeap.length = 8;
 scourgeSegWeap.width = 19;
 scourgeSegWeap.ignoreRotation = true;
 scourgeSegWeap.bullet = segmentBullet;
+scourgeSegWeap.shootSound = Sounds.shootSnap;
 
 const scourgeHeadWeap = extendContent(Weapon, "scourge-head-equip", {});
 
@@ -494,6 +495,7 @@ scourgeHeadWeap.length = 16;
 scourgeHeadWeap.width = 0;
 scourgeHeadWeap.ignoreRotation = false;
 scourgeHeadWeap.bullet = scourgeBullet;
+scourgeHeadWeap.shootSound = Sounds.artillery;
 
 const scourgeUnitTail = extendContent(UnitType, "scourge-tail", {
 	isHidden(){
