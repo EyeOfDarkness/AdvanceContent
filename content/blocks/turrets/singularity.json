@@ -24,7 +24,7 @@
 		{ "item": "titanium", "amount": 770 },
 		{ "item": "surge-alloy", "amount": 230 },
 		{ "item": "lanthanum", "amount": 300 },
-		{ "item": "advance-alloy", "amount": 220 }
+		{ "item": "advance-alloy", "amount": 460 }
 	],
 	"category": "turret",
 	"research": "gluon"
