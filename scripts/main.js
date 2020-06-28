@@ -72,14 +72,11 @@ if(typeof(require) !== "undefined"){
 	require("famine");
 	require("death");
 	require("war");
+	require("scourge");
 	//etc
 	require("modsettings");
 	require("rturret");
 	require("effectlib");
 	require("funclib");
 	require("spritebatchcustom");
-	
-	require("scourge");
-	//require("turrets/shatterf");
-	//require("turrets/quakef");
 }
