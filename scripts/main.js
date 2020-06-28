@@ -79,6 +79,7 @@ if(typeof(require) !== "undefined"){
 	require("funclib");
 	require("spritebatchcustom");
 	
+	require("scourge");
 	//require("turrets/shatterf");
 	//require("turrets/quakef");
 }
