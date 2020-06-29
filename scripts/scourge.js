@@ -75,6 +75,7 @@ const bulletCollision = (owner, bullet) => {
 	//var threshold = Math.max(30 * owner.healthf(), 30);
 	var damageMul = 1;
 	var bulletType = bullet.getBulletType();
+	var pierceB = bulletType.pierce ? 60 : 1;
 	var tempBulletType = bulletType;
 	for(var i = 0; i < 5; i++){
 		if(tempBulletType.fragBullet != null){
@@ -83,12 +84,13 @@ const bulletCollision = (owner, bullet) => {
 		};
 	};
 	//print((bulletType.damage + bulletType.splashDamage) * damageMul);
-	if((bulletType.damage + bulletType.splashDamage) * damageMul > threshold){
+	if((bulletType.damage + bulletType.splashDamage) * pierceB * damageMul > threshold){
 		var bulletOwner = bullet.getOwner();
 		var bulletAngle = Angles.angle(bullet.x, bullet.y, bulletOwner.x, bulletOwner.y);
 		
 		var tempB = Bullet.create(bulletType, bulletOwner, bulletOwner.getTeam(), bullet.x, bullet.y, bulletAngle);
 		tempB.velocity(bulletType.speed, bulletAngle);
+		if(tempB.getBulletType().speed < 1) tempB.set(bulletOwner.x, bulletOwner.y);
 		tempB.resetOwner(owner, owner.getTeam());
 		
 		bullet.deflect();
