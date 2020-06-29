@@ -70,6 +70,37 @@ scourgeBullet.bulletShrink = 0.1;
 scourgeBullet.frontColor = Pal.missileYellow;
 scourgeBullet.backColor = Pal.missileYellowBack;
 
+const bulletCollision = (owner, bullet) => {
+	var threshold = Math.max(800 * owner.healthf(), 40);
+	//var threshold = Math.max(30 * owner.healthf(), 30);
+	var damageMul = 1;
+	var bulletType = bullet.getBulletType();
+	var tempBulletType = bulletType;
+	for(var i = 0; i < 5; i++){
+		if(tempBulletType.fragBullet != null){
+			damageMul *= tempBulletType.fragBullets;
+			tempBulletType = tempBulletType.fragBullet;
+		};
+	};
+	//print((bulletType.damage + bulletType.splashDamage) * damageMul);
+	if((bulletType.damage + bulletType.splashDamage) * damageMul > threshold){
+		var bulletOwner = bullet.getOwner();
+		var bulletAngle = Angles.angle(bullet.x, bullet.y, bulletOwner.x, bulletOwner.y);
+		
+		var tempB = Bullet.create(bulletType, bulletOwner, bulletOwner.getTeam(), bullet.x, bullet.y, bulletAngle);
+		tempB.velocity(bulletType.speed, bulletAngle);
+		tempB.resetOwner(owner, owner.getTeam());
+		
+		bullet.deflect();
+		//bullet.time(bulletType.lifetime);
+		owner.healBy(bulletType.damage + bulletType.splashDamage);
+		bullet.velocity(bulletType.speed, bulletAngle);
+		bullet.resetOwner(owner, owner.getTeam());
+		bullet.time(0);
+		//print("deflected");
+	}
+};
+
 const scourgeSegment = prov(() => {
 	scourgeSegmentB = extend(FlyingUnit, {
 		update(){
@@ -110,6 +141,8 @@ const scourgeSegment = prov(() => {
 			
 			if(other instanceof DamageTrait && other instanceof Bullet){
 				if(other.getBulletType().pierce) other.scaleTime(other.getBulletType().damage / 10);
+				
+				bulletCollision(this, other);
 			};
 		},
 		
@@ -442,8 +475,21 @@ const scourgeMain = prov(() => {
 			return this.hitTime;
 		},
 		
+		collision(other, x, y){
+			this.super$collision(other, x, y);
+			
+			if(other instanceof DamageTrait && other instanceof Bullet){
+				if(other.getBulletType().pierce) other.scaleTime(other.getBulletType().damage / 10);
+				
+				bulletCollision(this, other);
+			};
+		},
+		
 		calculateDamage(amount){
-			return (amount / (totalSegments / 2)) * Mathf.clamp(1 - this.status.getArmorMultiplier() / 100);
+			var trueAmount = amount;
+			//if(amount >= 3000) trueAmount = Math.max(6000 - amount, Math.log(amount) * 2);
+			if(amount >= 3000) trueAmount = 3000 + (Math.log(amount - 2999) * 20);
+			return (trueAmount / (totalSegments / 2)) * Mathf.clamp(1 - this.status.getArmorMultiplier() / 100);
 		},
 		
 		/*health(){
@@ -748,6 +794,6 @@ scourgeUnit.shootCone = 30;
 scourgeUnit.rotatespeed = 0.015;
 scourgeUnit.baseRotateSpeed = 0.005;
 
-//const tempFac = extendContent(UnitFactory, "temp-factory", {});
+/*const tempFac = extendContent(UnitFactory, "temp-factory", {});
 
-//tempFac.unitType = scourgeUnit;
+tempFac.unitType = scourgeUnit;*/
