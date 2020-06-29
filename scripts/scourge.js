@@ -19,22 +19,26 @@ const scourgeMissile = extend(BasicBulletType, {
 	update(b){
 		this.super$update(b);
 		
+		if(Mathf.chance(Time.delta() * 0.2)){
+			Effects.effect(Fx.missileTrail, Pal.missileYellowBack, b.x, b.y, 2);
+		};
+		
 		b.velocity().rotate(Mathf.sin(Time.time() + b.id * 4422, this.weaveScale, this.weaveMag) * Time.delta());
 	}
 });
 scourgeMissile.speed = 7;
-scourgeMissile.damage = 10;
+scourgeMissile.damage = 12;
 scourgeMissile.bulletSprite = "missile";
 scourgeMissile.weaveScale = 9;
 scourgeMissile.weaveMag = 2;
 scourgeMissile.homingPower = 1;
-scourgeMissile.homingRange = 70;
+scourgeMissile.homingRange = 60;
 scourgeMissile.splashDamage = 20;
 scourgeMissile.splashDamageRadius = 25;
 scourgeMissile.hitEffect = Fx.hitMeltdown;
 scourgeMissile.despawnEffect = Fx.none;
 scourgeMissile.hitSize = 4;
-scourgeMissile.lifetime = 30;
+scourgeMissile.lifetime = 27;
 scourgeMissile.bulletWidth = 10;
 scourgeMissile.bulletHeight = 16;
 scourgeMissile.bulletShrink = 0.1;
@@ -47,6 +51,17 @@ const scourgeBullet = extend(BasicBulletType, {
 		this.super$update(b);
 		
 		b.velocity().rotate(Mathf.sin(Time.time() + b.id * 4422, this.weaveScale, this.weaveMag) * Time.delta());
+	},
+	
+	hitTile(b, tile){
+		this.super$hitTile(b, tile);
+		
+		var entity = tile.ent();
+		if(entity == null) return;
+		
+		if(entity.maxHealth() > 5000){
+			entity.damage(Math.max((entity.maxHealth() - 5000) * 4, 0));
+		}
 	}
 });
 scourgeBullet.speed = 7;
