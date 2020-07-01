@@ -18,7 +18,7 @@ const clearHoles = function(array){
 };
 
 const updatePersistantTiles = () => {
-	if(persistantTiles.length == 0) return;
+	if(persistantTiles.length == 0 || Vars.state.is(GameState.State.menu) || Vars.state.isPaused()) return;
 	persistantTiles = persistantTiles.filter(clearHoles);
 	//expectedHealth = expectedHealth.filter(clearHoles);
 	
@@ -36,14 +36,14 @@ const updatePersistantTiles = () => {
 			persistantTiles[i] = null;
 			expectedHealth[i] = null;
 		};*/
-		if(entityB != null && Mathf.equal(entityB.health(), entityB.maxHealth(), 9) && tileB != null){
-			entityB.kill();
-			persistantTiles[i] = null;
-			//expectedHealth[i] = null;
-		}else{
-			persistantTiles[i] = null;
-			//expectedHealth[i] = null;
+		if(entityB != null && /*Mathf.equal(entityB.health(), entityB.maxHealth(), 9) &&*/ tileB != null){
+			var lastHealth = entityB.health;
+			entityB.damage(5);
+			if(Mathf.equal(lastHealth, entityB.health(), 0.002) || Mathf.equal(entityB.health(), entityB.maxHealth(), 2)){
+				entityB.kill();
+			};
 		};
+		persistantTiles[i] = null;
 	};
 	//print(persistantTiles + "\n" + expectedHealth);
 };
