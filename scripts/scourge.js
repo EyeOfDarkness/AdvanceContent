@@ -151,9 +151,13 @@ scourgeBullet.bulletShrink = 0.1;
 scourgeBullet.frontColor = Pal.missileYellow;
 scourgeBullet.backColor = Pal.missileYellowBack;
 
-const bulletCollision = (owner, bullet) => {
-	var threshold = Math.max(800 * owner.healthf(), 40);
+//var trueBulletMultiplier = 1;
+
+const bulletCollision = (owner, bullet, multiplier) => {
+	//var threshold = Math.max(800 * owner.healthf(), 40);
 	//var threshold = Math.max(30 * owner.healthf(), 30);
+	var threshold = Math.max(1400 * owner.healthf(), 130);
+	//print(multiplier);
 	var damageMul = 1;
 	var bulletType = bullet.getBulletType();
 	var pierceB = bulletType.pierce ? 60 : 1;
@@ -166,7 +170,7 @@ const bulletCollision = (owner, bullet) => {
 	};
 	var ownerBulletTypes = bulletType == scourgeBullet || bulletType == segmentBullet || bulletType == scourgeMissile;
 	//print((bulletType.damage + bulletType.splashDamage) * damageMul);
-	if(((bulletType.damage + bulletType.splashDamage) * pierceB * damageMul > threshold) || ownerBulletTypes){
+	if(((bulletType.damage + bulletType.splashDamage) * pierceB * damageMul * multiplier > threshold) || ownerBulletTypes){
 		var bulletOwner = bullet.getOwner();
 		if(bulletOwner != null){
 			var bulletAngle = Angles.angle(bullet.x, bullet.y, bulletOwner.x, bulletOwner.y);
@@ -277,7 +281,12 @@ const scourgeSegment = prov(() => {
 			if(other instanceof DamageTrait && other instanceof Bullet){
 				if(other.getBulletType().pierce) other.scaleTime(other.getBulletType().damage / 10);
 				
-				bulletCollision(this, other);
+				if(other.getOwner() instanceof Lightning && other.getData() > 0){
+					//print(other.getData());
+					this.healBy((other.getData() / 20) * Math.max(this.getTrueParentUnit().getBulletMultiplier() / 32, 1));
+				};
+				
+				bulletCollision(this, other, this.getTrueParentUnit().getBulletMultiplier());
 			};
 		},
 		
@@ -573,6 +582,19 @@ const scourgeMain = prov(() => {
 			
 			if(this.getChildUnit() != null) this.getChildUnit().updateCustom();
 			//print(this.health() + "/" + this.maxHealth());
+			if(this.getTimer().get(5, 5)){
+				var bulletsCounted = 0;
+				var scanRange = 220;
+				Vars.bulletGroup.intersect(this.x - scanRange, this.y - scanRange, scanRange * 2, scanRange * 2, cons(b => {
+					if(Mathf.within(this.x, this.y, b.x, b.y, scanRange) && b.getTeam() != this.getTeam()){
+						bulletsCounted += 1;
+					}
+				}));
+				
+				//trueBulletMultiplier = Math.max(bulletsCounted, 1);
+				this.setBulletMultiplier(Math.max(bulletsCounted, 1));
+				//print(this.getBulletMultiplier());
+			};
 		},
 		
 		added(){
@@ -606,6 +628,14 @@ const scourgeMain = prov(() => {
 			};
 		},
 		
+		getBulletMultiplier(){
+			return this._bulletMultiplier;
+		},
+		
+		setBulletMultiplier(a){
+			this._bulletMultiplier = a;
+		},
+		
 		getHitTime(){
 			return this.hitTime;
 		},
@@ -616,7 +646,12 @@ const scourgeMain = prov(() => {
 			if(other instanceof DamageTrait && other instanceof Bullet){
 				if(other.getBulletType().pierce) other.scaleTime(other.getBulletType().damage / 10);
 				
-				bulletCollision(this, other);
+				if(other.getOwner() instanceof Lightning && other.getData() > 0){
+					//print(other.getData());
+					this.healBy((other.getData() / 20) * Math.max(this.getBulletMultiplier() / 32, 1));
+				};
+				
+				bulletCollision(this, other, this.getBulletMultiplier());
 			};
 		},
 		
@@ -713,7 +748,9 @@ const scourgeMain = prov(() => {
 		}*/
 	});
 	//scourgeMainB.trueHealth = 0;
+	scourgeMainB.timer = new Interval(6);
 	scourgeMainB.setChildUnit(null);
+	scourgeMainB.setBulletMultiplier(1);
 	return scourgeMainB;
 })
 
