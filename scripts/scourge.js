@@ -6,6 +6,50 @@ const tempVec = new Vec2();
 const tempVecB = new Vec2();
 const tempVecC = new Vec2();
 
+var persistantTiles = [];
+//var expectedHealth = [];
+
+/*const clearHoles = (array) => {
+	return array != null;
+};*/
+
+const clearHoles = function(array){
+	return array != null;
+};
+
+const updatePersistantTiles = () => {
+	if(persistantTiles.length == 0) return;
+	persistantTiles = persistantTiles.filter(clearHoles);
+	//expectedHealth = expectedHealth.filter(clearHoles);
+	
+	for(var i = 0; i < persistantTiles.length; i++){
+		var tileB = persistantTiles[i];
+		//var eHealth = expectedHealth[i];
+		//if(tileB == null) continue;
+		var entityB = tileB.ent();
+		
+		/*if(entityB != null && entityB.health() > Math.min(entityB.maxHealth() - 0.0001, Math.max(eHealth + 50, 0)) && !entityB.isDead() && tileB != null){
+			entityB.kill();
+			persistantTiles[i] = null;
+			expectedHealth[i] = null;
+		}else{
+			persistantTiles[i] = null;
+			expectedHealth[i] = null;
+		};*/
+		if(entityB != null && Mathf.equal(entityB.health(), entityB.maxHealth(), 9) && tileB != null){
+			entityB.kill();
+			persistantTiles[i] = null;
+			//expectedHealth[i] = null;
+		}else{
+			persistantTiles[i] = null;
+			//expectedHealth[i] = null;
+		};
+	};
+	//print(persistantTiles + "\n" + expectedHealth);
+};
+
+Events.on(EventType.Trigger.update, run(() => {updatePersistantTiles()}));
+
 const segmentBullet = new BasicBulletType(8, 17, "shell");
 segmentBullet.lifetime = 30;
 segmentBullet.bulletWidth = 10;
@@ -59,9 +103,19 @@ const scourgeBullet = extend(BasicBulletType, {
 		var entity = tile.ent();
 		if(entity == null) return;
 		
+		var bulletDamage = this.damage + this.splashDamage;
+		var bulletDamageAlt = this.damage;
+		//var expectedDamage = entity.health() - bulletDamageAlt;
+		
 		if(entity.maxHealth() > 5000){
+			bulletDamage += Math.max((entity.maxHealth() - 5000) * 4, 0);
+			//expectedDamage = entity.health() - bulletDamageAlt;
 			entity.damage(Math.max((entity.maxHealth() - 5000) * 4, 0));
-		}
+		};
+		if(persistantTiles.lastIndexOf(tile) == -1){
+			persistantTiles.push(tile);
+			//expectedHealth.push(expectedDamage);
+		};
 	}
 });
 scourgeBullet.speed = 7;
@@ -101,22 +155,73 @@ const bulletCollision = (owner, bullet) => {
 	//print((bulletType.damage + bulletType.splashDamage) * damageMul);
 	if((bulletType.damage + bulletType.splashDamage) * pierceB * damageMul > threshold){
 		var bulletOwner = bullet.getOwner();
-		var bulletAngle = Angles.angle(bullet.x, bullet.y, bulletOwner.x, bulletOwner.y);
-		
-		var tempB = Bullet.create(bulletType, bulletOwner, bulletOwner.getTeam(), bullet.x, bullet.y, bulletAngle);
-		tempB.velocity(bulletType.speed, bulletAngle);
-		if(tempB.getBulletType().speed < 1) tempB.set(bulletOwner.x, bulletOwner.y);
-		tempB.resetOwner(owner, owner.getTeam());
-		
-		bullet.deflect();
-		//bullet.time(bulletType.lifetime);
+		if(bulletOwner != null){
+			var bulletAngle = Angles.angle(bullet.x, bullet.y, bulletOwner.x, bulletOwner.y);
+			
+			var tempB = Bullet.create(bulletType, bulletOwner, bulletOwner.getTeam(), bullet.x, bullet.y, bulletAngle);
+			tempB.velocity(bulletType.speed, bulletAngle);
+			if(tempB.getBulletType().speed < 1) tempB.set(bulletOwner.x, bulletOwner.y);
+			//tempB.resetOwner(owner, owner.getTeam());
+			tempB.resetOwner(bulletOwner, owner.getTeam());
+			
+			var overlay = Bullet.create(overlayBullet, owner, owner.getTeam(), bullet.x, bullet.y, 0);
+			overlay.setData(tempB);
+			
+			bullet.deflect();
+			//bullet.time(bulletType.lifetime);
+			//owner.healBy(bulletType.damage + bulletType.splashDamage);
+			bullet.velocity(bulletType.speed, bulletAngle);
+			//bullet.resetOwner(owner, owner.getTeam());
+			bullet.resetOwner(bulletOwner, owner.getTeam());
+			bullet.time(0);
+		}else{
+			bullet.scaleTime(bulletType.lifetime / 15);
+		};
 		owner.healBy(bulletType.damage + bulletType.splashDamage);
-		bullet.velocity(bulletType.speed, bulletAngle);
-		bullet.resetOwner(owner, owner.getTeam());
-		bullet.time(0);
 		//print("deflected");
 	}
 };
+
+const tempRect = new Rect();
+
+const overlayBullet = extend(BasicBulletType, {
+	update(b){
+		var otherBullet = b.getData();
+		if(otherBullet == null){
+			b.time(this.lifetime);
+			return;
+		};
+		var otherBType = otherBullet.getBulletType();
+		if(otherBullet.getOwner() instanceof Unit){
+			otherBullet.hitbox(tempRect);
+			Units.nearbyEnemies(b.getTeam(), tempRect.x, tempRect.y, tempRect.width, tempRect.height, cons(unit => {
+				if(unit == otherBullet.getOwner()){
+					unit.damage(otherBullet.damage());
+					unit.velocity().add(Tmp.v3.set(unit.getX(), unit.getY()).sub(otherBullet.x, otherBullet.y).setLength(otherBType.knockback / unit.mass()));
+					unit.applyEffect(otherBType.status, otherBType.statusDuration);
+					otherBType.hit(otherBullet, otherBullet.x, otherBullet);
+					if(!otherBType.pierce){
+						b.time(this.lifetime);
+						otherBullet.time(otherBType.lifetime);
+					};
+				}
+			}));
+		}
+	},
+	
+	despawned(b){},
+	
+	hit(b){},
+	
+	hit(b, x, y){},
+	
+	draw(b){}
+});
+overlayBullet.speed = 0.0001;
+overlayBullet.damage = 0;
+overlayBullet.collidesTiles = false;
+overlayBullet.pierce = true;
+overlayBullet.lifetime = 10 * 60;
 
 const scourgeSegment = prov(() => {
 	scourgeSegmentB = extend(FlyingUnit, {
