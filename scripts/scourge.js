@@ -37,10 +37,14 @@ const updatePersistantTiles = () => {
 			expectedHealth[i] = null;
 		};*/
 		if(entityB != null && /*Mathf.equal(entityB.health(), entityB.maxHealth(), 9) &&*/ tileB != null){
-			var lastHealth = entityB.health;
+			var lastHealth = entityB.health();
+			//print("last:" + lastHealth);
 			entityB.damage(5);
-			if(Mathf.equal(lastHealth, entityB.health(), 0.002) || Mathf.equal(entityB.health(), entityB.maxHealth(), 2)){
+			//print(lastHealth + "/" + entityB.health);
+			if(Mathf.equal(lastHealth, entityB.health, 0.001) || Mathf.equal(entityB.health, entityB.maxHealth(), 2)){
+				//print(lastHealth + "/" + entityB.health);
 				entityB.kill();
+				//print("test");
 			};
 		};
 		persistantTiles[i] = null;
@@ -103,23 +107,31 @@ const scourgeBullet = extend(BasicBulletType, {
 		var entity = tile.ent();
 		if(entity == null) return;
 		
-		var bulletDamage = this.damage + this.splashDamage;
-		var bulletDamageAlt = this.damage;
+		var lastHealthb = entity.health();
+		//print(lastHealthb);
+		//var bulletDamage = this.damage + this.splashDamage;
+		//var bulletDamageAlt = this.damage;
 		//var expectedDamage = entity.health() - bulletDamageAlt;
+		tile.block().handleBulletHit(entity, b);
+		//print(lastHealthb + "/" + entity.health);
+		if(Mathf.equal(lastHealthb, entity.health, 0.002)){
+			entity.damage(this.damage * 2);
+		};
 		
 		if(entity.maxHealth() > 5000){
-			bulletDamage += Math.max((entity.maxHealth() - 5000) * 4, 0);
+			//bulletDamage += Math.max((entity.maxHealth() - 5000) * 4, 0);
 			//expectedDamage = entity.health() - bulletDamageAlt;
 			entity.damage(Math.max((entity.maxHealth() - 5000) * 4, 0));
 		};
-		if(persistantTiles.lastIndexOf(tile) == -1){
+		if(persistantTiles.lastIndexOf(tile) == -1 && !entity.isDead()){
 			persistantTiles.push(tile);
 			//expectedHealth.push(expectedDamage);
 		};
 	}
 });
 scourgeBullet.speed = 7;
-scourgeBullet.damage = 40;
+//scourgeBullet.damage = 40;
+scourgeBullet.damage = 30;
 scourgeBullet.bulletSprite = "shell";
 scourgeBullet.weaveScale = 12;
 scourgeBullet.weaveMag = 6;
@@ -152,8 +164,9 @@ const bulletCollision = (owner, bullet) => {
 			tempBulletType = tempBulletType.fragBullet;
 		};
 	};
+	var ownerBulletTypes = bulletType == scourgeBullet || bulletType == segmentBullet || bulletType == scourgeMissile;
 	//print((bulletType.damage + bulletType.splashDamage) * damageMul);
-	if((bulletType.damage + bulletType.splashDamage) * pierceB * damageMul > threshold){
+	if(((bulletType.damage + bulletType.splashDamage) * pierceB * damageMul > threshold) || ownerBulletTypes){
 		var bulletOwner = bullet.getOwner();
 		if(bulletOwner != null){
 			var bulletAngle = Angles.angle(bullet.x, bullet.y, bulletOwner.x, bulletOwner.y);
