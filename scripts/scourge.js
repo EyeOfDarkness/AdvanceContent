@@ -1093,6 +1093,6 @@ scourgeUnit.shootCone = 30;
 scourgeUnit.rotatespeed = 0.015;
 scourgeUnit.baseRotateSpeed = 0.005;
 
-const tempFac = extendContent(UnitFactory, "temp-factory", {});
+/*const tempFac = extendContent(UnitFactory, "temp-factory", {});
 
-tempFac.unitType = scourgeUnit;
+tempFac.unitType = scourgeUnit;*/
