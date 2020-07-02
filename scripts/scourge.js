@@ -1,10 +1,11 @@
-var totalSegments = 30;
+var totalSegments = 35;
 
 var segmentOffset = 50;
 
 const tempVec = new Vec2();
 const tempVecB = new Vec2();
 const tempVecC = new Vec2();
+const tempVecD = new Vec2();
 
 var persistantTiles = [];
 //var expectedHealth = [];
@@ -400,13 +401,17 @@ const scourgeSegment = prov(() => {
 			for(var s = 0; s < 2; s++){
 				sign = Mathf.signs[s];
 				var tra = this.rotation - 90;
+				var traB = this.weaponAngles[s];
 				//print(this.type.weapon.region);
-				var trY = -this.type.weapon.getRecoil(this, sign > 0) + this.type.weaponOffsetY;
+				//var trY = -this.type.weapon.getRecoil(this, sign > 0) + this.type.weaponOffsetY;
+				var trY = this.type.weaponOffsetY;
 				var w = -sign * this.type.weapon.region.getWidth() * Draw.scl;
 				
+				tempVecD.trns(traB, -this.type.weapon.getRecoil(this, sign > 0));
+				
 				Draw.rect(this.type.weapon.region,
-				this.x + Angles.trnsx(tra, this.getWeapon().width * sign, trY),
-				this.y + Angles.trnsy(tra, this.getWeapon().width * sign, trY), w, this.type.weapon.region.getHeight() * Draw.scl, this.weaponAngles[s] - 90);
+				this.x + Angles.trnsx(tra, this.getWeapon().width * sign, trY) + tempVecD.x,
+				this.y + Angles.trnsy(tra, this.getWeapon().width * sign, trY) + tempVecD.y, w, this.type.weapon.region.getHeight() * Draw.scl, this.weaponAngles[s] - 90);
 			}
 		},
 		
@@ -601,7 +606,7 @@ const scourgeMain = prov(() => {
 			this.super$added();
 			
 			//if(!this.loaded) this.trueHealth = this.getType().health * totalSegments;
-			unitTypeArray = [scourgeUnitSegment, scourgeUnitMissile];
+			unitTypeArray = [scourgeUnitSegment, scourgeUnitSegment, scourgeUnitMissile, scourgeUnitDestroyer];
 			
 			if(/*!this.loaded*/ true){
 				this.trueHealth = this.getType().health * totalSegments;
@@ -610,7 +615,7 @@ const scourgeMain = prov(() => {
 				for(var i = 0; i < totalSegments; i++){
 					//type = i < totalSegments - 1 ? scourgeUnitSegment : scourgeUnitTail;
 					//type = i < totalSegments - 1 ? (i % 2) == 0 ? scourgeUnitMissile : scourgeUnitSegment : scourgeUnitTail;
-					type = i < totalSegments - 1 ? unitTypeArray[i % 2] : scourgeUnitTail;
+					type = i < totalSegments - 1 ? unitTypeArray[i % unitTypeArray.length] : scourgeUnitTail;
 					
 					base = type.create(this.getTeam());
 					base.setParentUnit(parent);
@@ -760,7 +765,7 @@ const scourgeSegWeap = extendContent(Weapon, "scourge-segment-equip", {
 	}
 });
 
-scourgeSegWeap.reload = 9;
+scourgeSegWeap.reload = 7;
 scourgeSegWeap.alternate = true;
 scourgeSegWeap.length = 8;
 scourgeSegWeap.width = 19;
@@ -768,13 +773,33 @@ scourgeSegWeap.ignoreRotation = true;
 scourgeSegWeap.bullet = segmentBullet;
 scourgeSegWeap.shootSound = Sounds.shootSnap;
 
+const scourgeSegDestroyer = extendContent(Weapon, "scourge-segment-destroyer", {
+	load(){
+		this.region = Core.atlas.find("advancecontent-scourge-segment-destroyer");
+	}
+});
+
+scourgeSegDestroyer.reload = 37;
+scourgeSegDestroyer.alternate = true;
+scourgeSegDestroyer.length = 8;
+scourgeSegDestroyer.width = 19;
+scourgeSegDestroyer.spacing = 0;
+scourgeSegDestroyer.shots = 4;
+scourgeSegDestroyer.recoil = 5.5;
+//scourgeSegDestroyer.recoil = 12.5;
+scourgeSegDestroyer.inaccuracy = 4;
+scourgeSegDestroyer.shotDelay = 3;
+scourgeSegDestroyer.ignoreRotation = true;
+scourgeSegDestroyer.bullet = scourgeBullet;
+scourgeSegDestroyer.shootSound = Sounds.artillery;
+
 const scourgeSegSwarmer = extendContent(Weapon, "scourge-segment-swarmer", {
 	load(){
 		this.region = Core.atlas.find("advancecontent-scourge-segment-swarmer");
 	}
 });
 
-scourgeSegSwarmer.reload = 18;
+scourgeSegSwarmer.reload = 20;
 scourgeSegSwarmer.alternate = true;
 scourgeSegSwarmer.spacing = 8;
 scourgeSegSwarmer.shots = 6;
@@ -833,6 +858,50 @@ scourgeUnitTail.drag = 0.07;
 scourgeUnitTail.attackLength = 130;
 scourgeUnitTail.range = 150;
 scourgeUnitTail.maxVelocity = 4.92;
+
+const scourgeUnitDestroyer = extendContent(UnitType, "scourge-segment-destroyer", {
+	load(){
+		this.super$load();
+		
+		this.weapon.load();
+		this.region = Core.atlas.find("advancecontent-scourge-segment");
+	},
+	
+	init(){
+		this.super$init();
+		
+		loadImmunities(this);
+	},
+	
+	icon(icon){
+		if(this.cicons[icon.ordinal()] == null){
+			this.cicons[icon.ordinal()] = Core.atlas.find("advancecontent-scourge-segment");
+		};
+		
+		return this.cicons[icon.ordinal()];
+	},
+	
+	isHidden(){
+		return true;
+	}
+});
+
+scourgeUnitDestroyer.localizedName = "Zenith Destroyer Segment";
+scourgeUnitDestroyer.create(scourgeSegment);
+scourgeUnitDestroyer.weapon = scourgeSegDestroyer;
+scourgeUnitDestroyer.engineSize = 0;
+scourgeUnitDestroyer.engineOffset = 0;
+scourgeUnitDestroyer.flying = true;
+scourgeUnitDestroyer.rotateWeapon = true;
+scourgeUnitDestroyer.shootCone = 360;
+scourgeUnitDestroyer.health = 32767;
+scourgeUnitDestroyer.mass = 11;
+scourgeUnitDestroyer.hitsize = segmentOffset / 1.5;
+scourgeUnitDestroyer.speed = 0;
+scourgeUnitDestroyer.drag = 0.07;
+scourgeUnitDestroyer.attackLength = 130;
+scourgeUnitDestroyer.range = 150;
+scourgeUnitDestroyer.maxVelocity = 4.92;
 
 const scourgeUnitMissile = extendContent(UnitType, "scourge-segment-missile", {
 	load(){
