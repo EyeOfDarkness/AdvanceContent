@@ -95,11 +95,68 @@ scourgeMissile.keepVelocity = false;
 scourgeMissile.frontColor = Pal.missileYellow;
 scourgeMissile.backColor = Pal.missileYellowBack;
 
+const tempRect = new Rect();
+
 const scourgeBullet = extend(BasicBulletType, {
 	update(b){
 		this.super$update(b);
 		
+		/*b.hitbox(tempRect);
+		Units.nearbyEnemies(b.getTeam(), tempRect.x, tempRect.y, tempRect.width, tempRect.height, cons(unit => {
+			if(unit.getTeam() != b.getTeam()){
+				var lastHealthC = unit.health();
+				
+				print(lastHealthC);
+				
+				unit.damage(1);
+				
+				print(lastHealthC + "/" + unit.health);
+				
+				if(Mathf.equal(lastHealthC, unit.health, 0.002)){
+					print("killed");
+					unit.kill();
+				};
+				
+				//print("test");
+				
+				if(unit.health > 6000){
+					unit.damage(Math.max((unit.health - 6000) * 1.3, 0));
+					print(Math.max((unit.health - 6000) * 1.3, 0) + "#");
+				};
+			}
+		}));*/
+		
 		b.velocity().rotate(Mathf.sin(Time.time() + b.id * 4422, this.weaveScale, this.weaveMag) * Time.delta());
+	},
+	
+	hit(b, x, y){
+		if(x == null || y == null) return;
+		this.super$hit(b, x, y);
+		
+		b.hitbox(tempRect);
+		Units.nearbyEnemies(b.getTeam(), tempRect.x, tempRect.y, tempRect.width, tempRect.height, cons(unit => {
+			if(unit.getTeam() != b.getTeam()){
+				var lastHealthC = unit.health();
+				
+				//print(lastHealthC);
+				
+				unit.damage(1);
+				
+				//print(lastHealthC + "/" + unit.health);
+				
+				if(Mathf.equal(lastHealthC, unit.health, 0.002)){
+					//print("killed");
+					unit.kill();
+				};
+				
+				//print("test");
+				
+				if(unit.health > 7000){
+					//print(Math.max((unit.health - 7000) * 0.5, 0) + "#");
+					unit.damage(Math.max((unit.health - 7000) * 0.5, 0));
+				};
+			}
+		}));
 	},
 	
 	hitTile(b, tile){
@@ -157,7 +214,8 @@ scourgeBullet.backColor = Pal.missileYellowBack;
 const bulletCollision = (owner, bullet, multiplier) => {
 	//var threshold = Math.max(800 * owner.healthf(), 40);
 	//var threshold = Math.max(30 * owner.healthf(), 30);
-	var threshold = Math.max(1400 * owner.healthf(), 130);
+	//var threshold = Math.max(1400 * owner.healthf(), 130);
+	var threshold = Math.max(1500 * owner.healthf(), 280);
 	//print(multiplier);
 	var damageMul = 1;
 	var bulletType = bullet.getBulletType();
@@ -200,7 +258,7 @@ const bulletCollision = (owner, bullet, multiplier) => {
 	}
 };
 
-const tempRect = new Rect();
+//const tempRect = new Rect();
 
 const overlayBullet = extend(BasicBulletType, {
 	update(b){
@@ -1035,6 +1093,6 @@ scourgeUnit.shootCone = 30;
 scourgeUnit.rotatespeed = 0.015;
 scourgeUnit.baseRotateSpeed = 0.005;
 
-/*const tempFac = extendContent(UnitFactory, "temp-factory", {});
+const tempFac = extendContent(UnitFactory, "temp-factory", {});
 
-tempFac.unitType = scourgeUnit;*/
+tempFac.unitType = scourgeUnit;
