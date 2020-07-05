@@ -54,7 +54,7 @@ const negative = extend(BasicBulletType, {
 	update(b){
 		this.super$update(b);
 		
-		if(b.getData() == null){
+		if(b.getData() == null && (b.getData() != null && !(b.getData() instanceof Bullet))){
 			suppress(b);
 			return;
 		}
@@ -83,7 +83,7 @@ const positive = extend(BasicBulletType, {
 	update(b){
 		this.super$update(b);
 		
-		if(b.getData() == null && b.getData() instanceof Bullet){
+		if(b.getData() == null && (b.getData() != null && !(b.getData() instanceof Bullet))){
 			suppress(b);
 			return;
 		};
