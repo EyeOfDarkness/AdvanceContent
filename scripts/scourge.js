@@ -455,7 +455,7 @@ const scourgeSegment = prov(() => {
 			return this._trueParentUnit;
 		},
 		
-		drawWeapons(){
+		/*drawWeapons(){
 			for(var s = 0; s < 2; s++){
 				sign = Mathf.signs[s];
 				var tra = this.rotation - 90;
@@ -470,6 +470,36 @@ const scourgeSegment = prov(() => {
 				Draw.rect(this.type.weapon.region,
 				this.x + Angles.trnsx(tra, this.getWeapon().width * sign, trY) + tempVecD.x,
 				this.y + Angles.trnsy(tra, this.getWeapon().width * sign, trY) + tempVecD.y, w, this.type.weapon.region.getHeight() * Draw.scl, this.weaponAngles[s] - 90);
+			}
+		},*/
+		
+		getWeaponID(){
+			return this._weaponId;
+		},
+		
+		getWeapon(){
+			return this.getWeaponID();
+		},
+		
+		setWeapon(a){
+			this._weaponId = a;
+		},
+		
+		drawWeapons(){
+			for(var s = 0; s < 2; s++){
+				sign = Mathf.signs[s];
+				var tra = this.rotation - 90;
+				var traB = this.weaponAngles[s];
+				//print(this.type.weapon.region);
+				//var trY = -this.type.weapon.getRecoil(this, sign > 0) + this.type.weaponOffsetY;
+				var trY = this.type.weaponOffsetY;
+				var w = -sign * this.getWeapon().region.getWidth() * Draw.scl;
+				
+				tempVecD.trns(traB, -this.getWeapon().getRecoil(this, sign > 0));
+				
+				Draw.rect(this.getWeapon().region,
+				this.x + Angles.trnsx(tra, this.getWeapon().width * sign, trY) + tempVecD.x,
+				this.y + Angles.trnsy(tra, this.getWeapon().width * sign, trY) + tempVecD.y, w, this.getWeapon().region.getHeight() * Draw.scl, this.weaponAngles[s] - 90);
 			}
 		},
 		
@@ -631,6 +661,7 @@ const scourgeSegment = prov(() => {
 	});
 	//scourgeSegmentB.repaired = false;
 	//scourgeSegmentB.parentID = -1;
+	scourgeSegmentB.setWeapon(null);
 	scourgeSegmentB.setDrawerUnit(false);
 	scourgeSegmentB.setParentUnit(null);
 	scourgeSegmentB.setTrueParentUnit(null);
@@ -664,21 +695,23 @@ const scourgeMain = prov(() => {
 			this.super$added();
 			
 			//if(!this.loaded) this.trueHealth = this.getType().health * totalSegments;
-			unitTypeArray = [scourgeUnitSegment, scourgeUnitSegment, scourgeUnitMissile, scourgeUnitDestroyer];
+			//unitTypeArray = [scourgeUnitSegment, scourgeUnitSegment, scourgeUnitMissile, scourgeUnitDestroyer];
+			weaponArray = [scourgeSegWeap, scourgeSegWeap, scourgeSegSwarmer, scourgeSegDestroyer];
 			
 			if(/*!this.loaded*/ true){
 				this.trueHealth = this.getType().health * totalSegments;
 				var parent = this;
-				//var weaponArray = [scourgeSegWeap, scourgeSegSwarmer];
+				//var weaponArray = [scourgeSegWeap, scourgeSegWeap, scourgeSegSwarmer,scourgeSegDestroyer];
 				for(var i = 0; i < totalSegments; i++){
-					//type = i < totalSegments - 1 ? scourgeUnitSegment : scourgeUnitTail;
+					type = i < totalSegments - 1 ? scourgeUnitSegment : scourgeUnitTail;
 					//type = i < totalSegments - 1 ? (i % 2) == 0 ? scourgeUnitMissile : scourgeUnitSegment : scourgeUnitTail;
-					type = i < totalSegments - 1 ? unitTypeArray[i % unitTypeArray.length] : scourgeUnitTail;
+					//type = i < totalSegments - 1 ? unitTypeArray[i % unitTypeArray.length] : scourgeUnitTail;
 					
 					base = type.create(this.getTeam());
 					base.setParentUnit(parent);
 					base.setTrueParentUnit(this);
 					base.setDrawerUnit(type == scourgeUnitTail);
+					base.setWeapon(weaponArray[i % weaponArray.length]);
 					base.add();
 					//base.set(this.x + Mathf.random(12), this.y + Mathf.random(12));
 					//print(this.rotation);
@@ -917,99 +950,21 @@ scourgeUnitTail.attackLength = 130;
 scourgeUnitTail.range = 150;
 scourgeUnitTail.maxVelocity = 4.92;
 
-const scourgeUnitDestroyer = extendContent(UnitType, "scourge-segment-destroyer", {
-	load(){
-		this.super$load();
-		
-		this.weapon.load();
-		this.region = Core.atlas.find("advancecontent-scourge-segment");
-	},
-	
-	init(){
-		this.super$init();
-		
-		loadImmunities(this);
-	},
-	
-	icon(icon){
-		if(this.cicons[icon.ordinal()] == null){
-			this.cicons[icon.ordinal()] = Core.atlas.find("advancecontent-scourge-segment");
-		};
-		
-		return this.cicons[icon.ordinal()];
-	},
-	
-	isHidden(){
-		return true;
-	}
-});
-
-scourgeUnitDestroyer.localizedName = "Zenith Destroyer Segment";
-scourgeUnitDestroyer.create(scourgeSegment);
-scourgeUnitDestroyer.weapon = scourgeSegDestroyer;
-scourgeUnitDestroyer.engineSize = 0;
-scourgeUnitDestroyer.engineOffset = 0;
-scourgeUnitDestroyer.flying = true;
-scourgeUnitDestroyer.rotateWeapon = true;
-scourgeUnitDestroyer.shootCone = 360;
-scourgeUnitDestroyer.health = 32767;
-scourgeUnitDestroyer.mass = 11;
-scourgeUnitDestroyer.hitsize = segmentOffset / 1.5;
-scourgeUnitDestroyer.speed = 0;
-scourgeUnitDestroyer.drag = 0.07;
-scourgeUnitDestroyer.attackLength = 130;
-scourgeUnitDestroyer.range = 150;
-scourgeUnitDestroyer.maxVelocity = 4.92;
-
-const scourgeUnitMissile = extendContent(UnitType, "scourge-segment-missile", {
-	load(){
-		this.super$load();
-		
-		this.weapon.load();
-		this.region = Core.atlas.find("advancecontent-scourge-segment");
-	},
-	
-	init(){
-		this.super$init();
-		
-		loadImmunities(this);
-	},
-	
-	icon(icon){
-		if(this.cicons[icon.ordinal()] == null){
-			this.cicons[icon.ordinal()] = Core.atlas.find("advancecontent-scourge-segment");
-		};
-		
-		return this.cicons[icon.ordinal()];
-	},
-	
-	isHidden(){
-		return true;
-	}
-});
-
-scourgeUnitMissile.localizedName = "Zenith Missile Segment";
-scourgeUnitMissile.create(scourgeSegment);
-scourgeUnitMissile.weapon = scourgeSegSwarmer;
-scourgeUnitMissile.engineSize = 0;
-scourgeUnitMissile.engineOffset = 0;
-scourgeUnitMissile.flying = true;
-scourgeUnitMissile.rotateWeapon = true;
-scourgeUnitMissile.shootCone = 360;
-scourgeUnitMissile.health = 32767;
-scourgeUnitMissile.mass = 11;
-scourgeUnitMissile.hitsize = segmentOffset / 1.5;
-scourgeUnitMissile.speed = 0;
-scourgeUnitMissile.drag = 0.07;
-scourgeUnitMissile.attackLength = 130;
-scourgeUnitMissile.range = 150;
-scourgeUnitMissile.maxVelocity = 4.92;
-
 const scourgeUnitSegment = extendContent(UnitType, "scourge-segment", {
 	init(){
 		this.super$init();
 		
 		loadImmunities(this);
+	},
+	
+	load(){
+		this.super$load();
+		
+		weaponArray = [scourgeSegSwarmer, scourgeSegDestroyer];
+		
+		for(var s = 0; s < weaponArray.length; s++){
+			weaponArray[s].load();
+		}
 	},
 	
 	isHidden(){
