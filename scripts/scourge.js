@@ -176,10 +176,10 @@ const scourgeBullet = extend(BasicBulletType, {
 			entity.damage(this.damage * 2);
 		};
 		
-		if(entity.maxHealth() > 5000){
+		if(entity.maxHealth() > 8000){
 			//bulletDamage += Math.max((entity.maxHealth() - 5000) * 4, 0);
 			//expectedDamage = entity.health() - bulletDamageAlt;
-			entity.damage(Math.max((entity.maxHealth() - 5000) * 4, 0));
+			entity.damage(Math.max((entity.maxHealth() - 8000) * 4, 0));
 		};
 		if(persistantTiles.lastIndexOf(tile) == -1 && !entity.isDead()){
 			persistantTiles.push(tile);
@@ -215,7 +215,10 @@ const bulletCollision = (owner, bullet, multiplier) => {
 	//var threshold = Math.max(800 * owner.healthf(), 40);
 	//var threshold = Math.max(30 * owner.healthf(), 30);
 	//var threshold = Math.max(1400 * owner.healthf(), 130);
-	var threshold = Math.max(1500 * owner.healthf(), 280);
+	//var threshold = Math.max(1500 * owner.healthf(), 280);
+	
+	var threshold = Math.max(4500 * owner.healthf(), 750);
+	
 	//print(multiplier);
 	var damageMul = 1;
 	var bulletType = bullet.getBulletType();
