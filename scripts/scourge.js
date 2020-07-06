@@ -338,6 +338,9 @@ const scourgeSegment = prov(() => {
 		},
 		
 		collision(other, x, y){
+			//this.getTrueParentUnit().setCollidedBool(false);
+			this.getTrueParentUnit().setExplosionCounter(0);
+			
 			this.super$collision(other, x, y);
 			
 			if(other instanceof DamageTrait && other instanceof Bullet){
@@ -677,6 +680,9 @@ const scourgeMain = prov(() => {
 		update(){
 			this.super$update();
 			
+			//if(this.getCollidedBool()) this.setCollidedBool(false);
+			if(this.getExplosionCounter() != 0) this.setExplosionCounter(0);
+			
 			if(this.getChildUnit() != null) this.getChildUnit().updateCustom();
 			//print(this.health() + "/" + this.maxHealth());
 			if(this.getTimer().get(5, 5)){
@@ -739,7 +745,27 @@ const scourgeMain = prov(() => {
 			return this.hitTime;
 		},
 		
+		/*getCollidedBool(){
+			return this._collidedBool;
+		},
+		
+		setCollidedBool(a){
+			this._collidedBool = a;
+		},*/
+		
+		getExplosionCounter(){
+			return this._expCounter;
+		},
+		
+		setExplosionCounter(a){
+			this._expCounter = a;
+		},
+		
 		collision(other, x, y){
+			//this.setCollidedBool(false);
+			
+			this.setExplosionCounter(0);
+			
 			this.super$collision(other, x, y);
 			
 			if(other instanceof DamageTrait && other instanceof Bullet){
@@ -755,10 +781,27 @@ const scourgeMain = prov(() => {
 		},
 		
 		calculateDamage(amount){
+			/*if(this.getCollidedBool()){
+				print("test");
+				return 1;
+			};*/
+			//print(this.getExplosionCounter());
+			
+			//this.setCollidedBool(true);
+			
 			var trueAmount = amount;
 			//if(amount >= 3000) trueAmount = Math.max(6000 - amount, Math.log(amount) * 2);
 			if(amount >= 3000) trueAmount = 3000 + (Math.log(amount - 2999) * 20);
-			return (trueAmount / (totalSegments / 2)) * Mathf.clamp(1 - this.status.getArmorMultiplier() / 100);
+			
+			var counter = Mathf.clamp(1 - (this.getExplosionCounter() / (totalSegments / 5)));
+			
+			//print(this.getExplosionCounter());
+			
+			this.setExplosionCounter(this.getExplosionCounter() + 1);
+			
+			//print((trueAmount / (totalSegments / 2)) * Mathf.clamp(1 - this.status.getArmorMultiplier() / 100) * counter);
+			//return (trueAmount / (totalSegments / 2)) * Mathf.clamp(1 - this.status.getArmorMultiplier() / 100);
+			return (trueAmount / (totalSegments / 2)) * Mathf.clamp(1 - this.status.getArmorMultiplier() / 100) * counter;
 		},
 		
 		/*health(){
@@ -847,6 +890,8 @@ const scourgeMain = prov(() => {
 		}*/
 	});
 	//scourgeMainB.trueHealth = 0;
+	scourgeMainB.setExplosionCounter(0);
+	//scourgeMainB.setCollidedBool(false);
 	scourgeMainB.timer = new Interval(6);
 	scourgeMainB.setChildUnit(null);
 	scourgeMainB.setBulletMultiplier(1);
