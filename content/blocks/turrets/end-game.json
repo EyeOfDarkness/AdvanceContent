@@ -7,6 +7,7 @@
 	"health": 23500,
 	"itemCapacity": 140,
 	"powerUse": 530,
+	"outlineIcon": false,
 	"shootSound": "end-game-shoot",
 	"coolantMultiplier": 0.1,
 	"hasLiquids": false,
