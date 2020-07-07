@@ -53,6 +53,13 @@ const updatePersistantTiles = () => {
 	//print(persistantTiles + "\n" + expectedHealth);
 };
 
+Events.on(EventType.ResetEvent, cons(event => {
+	/*for(var i = 0; i < persistantTiles.length; i++){
+		persistantTiles[i] = null;
+	}*/
+	persistantTiles = [];
+}));
+
 Events.on(EventType.Trigger.update, run(() => {updatePersistantTiles()}));
 
 const segmentBullet = new BasicBulletType(8, 17, "shell");
