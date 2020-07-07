@@ -72,6 +72,7 @@ if(typeof(require) !== "undefined"){
 	require("famine");
 	require("death");
 	require("war");
+	require("phoenix");
 	require("scourge");
 	//etc
 	require("modsettings");
@@ -79,4 +80,6 @@ if(typeof(require) !== "undefined"){
 	require("effectlib");
 	require("funclib");
 	require("spritebatchcustom");
+	
+	//require("tempwall");
 }
