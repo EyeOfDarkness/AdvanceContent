@@ -23,6 +23,7 @@
 	"consumes": {
 		"liquid": {
 			"liquid": "tb-coolant",
+			"update": false,
 			"amount": 0.58
 		}
 	},
