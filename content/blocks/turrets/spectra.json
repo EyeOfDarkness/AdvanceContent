@@ -23,6 +23,7 @@
 	"consumes": {
 		"liquid": {
 			"liquid": "ta-coolant",
+			"update": false,
 			"amount": 0.275
 		}
 	},

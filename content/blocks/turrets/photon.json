@@ -26,6 +26,7 @@
 	"consumes": {
 		"liquid": {
 			"liquid": "water",
+			"update": false,
 			"amount": 0.2
 		}
 	},

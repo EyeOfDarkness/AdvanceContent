@@ -25,6 +25,7 @@
 	"consumes": {
 		"liquid": {
 			"liquid": "tc-coolant",
+			"update": false,
 			"amount": 1.2
 		}
 	},
