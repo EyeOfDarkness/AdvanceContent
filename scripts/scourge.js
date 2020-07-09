@@ -591,10 +591,19 @@ const scourgeSegment = prov(() => {
 			
 			var dst = Mathf.dst(this.x, this.y, parentB.x, parentB.y) - segmentOffset;
 			
-			tempVecC.trns(parentB.velocity().angle, segmentOffset / 2.5);
+			tempVecC.trns(parentB.velocity().angle() + 180, segmentOffset / 2.5);
 			
 			var angle = Angles.angle(this.x, this.y, parentB.x + tempVecC.x, parentB.y + tempVecC.y);
 			var vel = this.velocity();
+			
+			if(!Angles.near(angle, parentB.rotation, 20)) angle = Mathf.slerp(angle, parentB.rotation, Mathf.clamp((Angles.angleDist(angle, parentB.rotation) - 20) / 40) * 0.3 * Mathf.clamp(Time.delta(), 0, 1));
+			
+			/*if(!Angles.within(this.rotation, parentB.rotation, 5)){
+				angle = Mathf.slerp(angle, parentB.rotation, 0.1);
+				//var nextB = Angles.angleDist(this.rotation, parentB.rotation);
+				//print(this.id + ": " + nextB);
+			};*/
+			if(!Mathf.within(this.x, this.y, parentB.x, parentB.y, segmentOffset * 5)) this.set(parentB.x, parentB.y);
 			
 			if(!Mathf.within(this.x, this.y, parentB.x, parentB.y, segmentOffset)){
 				tempVec.trns(angle, dst);
@@ -999,7 +1008,7 @@ scourgeUnitTail.health = 32767;
 scourgeUnitTail.mass = 11;
 scourgeUnitTail.hitsize = segmentOffset / 1.5;
 scourgeUnitTail.speed = 0;
-scourgeUnitTail.drag = 0.07;
+scourgeUnitTail.drag = 0.075;
 scourgeUnitTail.attackLength = 130;
 scourgeUnitTail.range = 150;
 scourgeUnitTail.maxVelocity = 4.92;
@@ -1038,7 +1047,7 @@ scourgeUnitSegment.health = 32767;
 scourgeUnitSegment.mass = 11;
 scourgeUnitSegment.hitsize = segmentOffset / 1.5;
 scourgeUnitSegment.speed = 0;
-scourgeUnitSegment.drag = 0.07;
+scourgeUnitSegment.drag = 0.075;
 scourgeUnitSegment.attackLength = 130;
 scourgeUnitSegment.range = 150;
 scourgeUnitSegment.maxVelocity = 4.92;
