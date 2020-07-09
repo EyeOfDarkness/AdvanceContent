@@ -66,6 +66,7 @@ if(typeof(require) !== "undefined"){
 	require("overgrowth");
 	//unit
 	require("strider");
+	require("disintegrator");
 	require("angel");
 	require("empunit");
 	require("pestilence");
@@ -80,6 +81,8 @@ if(typeof(require) !== "undefined"){
 	require("effectlib");
 	require("funclib");
 	require("spritebatchcustom");
+	
+	//require("disintegrator");
 	
 	//require("tempwall");
 }
