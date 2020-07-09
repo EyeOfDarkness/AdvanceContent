@@ -170,7 +170,7 @@ const phoenixBullet = extend(BasicBulletType, {
 });
 
 phoenixBullet.speed = 4.6;
-phoenixBullet.damage = 8;
+phoenixBullet.damage = 14;
 phoenixBullet.lifetime = 56;
 phoenixBullet.homingPower = 0.1;
 phoenixBullet.homingRange = 80;

@@ -159,7 +159,6 @@ const scourgeBullet = extend(BasicBulletType, {
 				//print("test");
 				
 				if(unit.health > 7000){
-					//print(Math.max((unit.health - 7000) * 0.5, 0) + "#");
 					unit.damage(Math.max((unit.health - 7000) * 0.5, 0));
 				};
 			}
@@ -263,7 +262,7 @@ const bulletCollision = (owner, bullet, multiplier) => {
 		}else{
 			bullet.scaleTime(bulletType.lifetime / 15);
 		};
-		owner.healBy(bulletType.damage + bulletType.splashDamage);
+		owner.healBy((bulletType.damage + bulletType.splashDamage) / (totalSegments / 2));
 		//print("deflected");
 	}
 };
