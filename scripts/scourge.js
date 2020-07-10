@@ -258,11 +258,12 @@ const bulletCollision = (owner, bullet, multiplier) => {
 			bullet.velocity(bulletType.speed, bulletAngle);
 			//bullet.resetOwner(owner, owner.getTeam());
 			bullet.resetOwner(bulletOwner, owner.getTeam());
-			bullet.time(0);
+			//bullet.time(0);
 		}else{
 			bullet.scaleTime(bulletType.lifetime / 15);
 		};
-		owner.healBy((bulletType.damage + bulletType.splashDamage) / (totalSegments / 2));
+		//owner.healBy(((bulletType.damage + bulletType.splashDamage) / (totalSegments / 2)) + Math.min(bulletType.damage, 80));
+		owner.getOrigin().health(owner.getOrigin().getLastHealth());
 		//print("deflected");
 	}
 };
@@ -347,6 +348,8 @@ const scourgeSegment = prov(() => {
 			//this.getTrueParentUnit().setCollidedBool(false);
 			this.getTrueParentUnit().setExplosionCounter(0);
 			
+			this.setLastHealth(this.getTrueParentUnit().health());
+			
 			this.super$collision(other, x, y);
 			
 			if(other instanceof DamageTrait && other instanceof Bullet){
@@ -359,6 +362,7 @@ const scourgeSegment = prov(() => {
 				
 				bulletCollision(this, other, this.getTrueParentUnit().getBulletMultiplier());
 			};
+			//this.super$collision(other, x, y);
 		},
 		
 		isDead(){
@@ -484,6 +488,22 @@ const scourgeSegment = prov(() => {
 				this.y + Angles.trnsy(tra, this.getWeapon().width * sign, trY) + tempVecD.y, w, this.type.weapon.region.getHeight() * Draw.scl, this.weaponAngles[s] - 90);
 			}
 		},*/
+		
+		getOrigin(){
+			return this.getTrueParentUnit();
+		},
+		
+		setLastHealth(a){
+			if(this.getTrueParentUnit() == null) return;
+			
+			this.getTrueParentUnit().setLastHealth(a);
+		},
+		
+		getLastHealth(){
+			if(this.getTrueParentUnit() == null) return 0;
+			
+			return this.getTrueParentUnit().getLastHealth();
+		},
 		
 		getWeaponID(){
 			return this._weaponId;
@@ -720,6 +740,8 @@ const scourgeMain = prov(() => {
 			
 			//if(!this.loaded) this.trueHealth = this.getType().health * totalSegments;
 			//unitTypeArray = [scourgeUnitSegment, scourgeUnitSegment, scourgeUnitMissile, scourgeUnitDestroyer];
+			this.setLastHealth(this.health());
+			
 			weaponArray = [scourgeSegWeap, scourgeSegWeap, scourgeSegSwarmer, scourgeSegDestroyer];
 			
 			if(/*!this.loaded*/ true){
@@ -760,6 +782,10 @@ const scourgeMain = prov(() => {
 			return this.hitTime;
 		},
 		
+		getOrigin(){
+			return this;
+		},
+		
 		/*getCollidedBool(){
 			return this._collidedBool;
 		},
@@ -767,6 +793,14 @@ const scourgeMain = prov(() => {
 		setCollidedBool(a){
 			this._collidedBool = a;
 		},*/
+		
+		setLastHealth(a){
+			this._lastHealth = a;
+		},
+		
+		getLastHealth(){
+			return this._lastHealth;
+		},
 		
 		getExplosionCounter(){
 			return this._expCounter;
@@ -778,10 +812,15 @@ const scourgeMain = prov(() => {
 		
 		collision(other, x, y){
 			//this.setCollidedBool(false);
+			this.setLastHealth(this.health());
+			
+			//print(this.health);
 			
 			this.setExplosionCounter(0);
 			
 			this.super$collision(other, x, y);
+			
+			//print(this.health);
 			
 			if(other instanceof DamageTrait && other instanceof Bullet){
 				if(other.getBulletType().pierce) other.scaleTime(other.getBulletType().damage / 10);
@@ -793,6 +832,11 @@ const scourgeMain = prov(() => {
 				
 				bulletCollision(this, other, this.getBulletMultiplier());
 			};
+			
+			//print(this.health);
+			//this.super$collision(other, x, y);
+			
+			//print(this.health);
 		},
 		
 		calculateDamage(amount){
@@ -877,34 +921,9 @@ const scourgeMain = prov(() => {
 			
 			return this._childUnit;
 		}
-		
-		/*writeSave(stream){
-			this.writeSave(stream, false);
-			stream.writeByte(this.type.id);
-			stream.writeInt(this.spawner);
-			stream.writeFloat(this.health);
-		},
-		
-		readSave(stream, version){
-			this.super$readSave(stream, version);
-			var trueHealth = stream.readFloat();
-			
-			this.health = trueHealth;
-		},
-		
-		write(data){
-			this.super$write(data);
-			data.writeFloat(this.health);
-		},
-		
-		read(data){
-			this.super$readSave(data, this.version());
-			var trueHealth = data.readFloat();
-			
-			this.health = trueHealth;
-		}*/
 	});
 	//scourgeMainB.trueHealth = 0;
+	scourgeMainB.setLastHealth(0);
 	scourgeMainB.setExplosionCounter(0);
 	//scourgeMainB.setCollidedBool(false);
 	scourgeMainB.timer = new Interval(6);
