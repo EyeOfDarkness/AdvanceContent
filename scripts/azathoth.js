@@ -496,6 +496,6 @@ azathoth.drag = 0.02;
 azathoth.shootCone = 360;
 azathoth.rotatespeed = 0.007;
 
-const tempFac = extendContent(UnitFactory, "temp-factory", {});
+/*const tempFac = extendContent(UnitFactory, "temp-factory", {});
 
-tempFac.unitType = azathoth;
+tempFac.unitType = azathoth;*/
