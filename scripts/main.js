@@ -75,14 +75,13 @@ if(typeof(require) !== "undefined"){
 	require("war");
 	require("phoenix");
 	require("scourge");
+	require("azathoth");
 	//etc
 	require("modsettings");
 	require("rturret");
 	require("effectlib");
 	require("funclib");
 	require("spritebatchcustom");
-	
-	//require("disintegrator");
 	
 	//require("tempwall");
 }

@@ -1,5 +1,18 @@
+const vec1 = new Vec2();
+const vec2 = new Vec2();
+const tPos = new Vec2();
+
 // function library made by Eye of darkness, please dont claim that you made this script.
 module.exports = {
+	loadImmunities(unit){
+		var statuses = Vars.content.getBy(ContentType.status);
+		statuses.each(cons(stat => {
+			if(stat != null){
+				unit.immunities.add(stat);
+			}
+		}));
+	},
+	
 	findDamagedAlly(team, x, y, range, boolff){
 		if(team == Team.derelict) return null;
 		
@@ -91,9 +104,9 @@ module.exports = {
 		const segDegreeOffset = moveMagOffset;
 		const segFrequency = moveScale;
 			
-		const vec1 = new Vec2();
-		const vec2 = new Vec2();
-		const tPos = new Vec2();
+		//const vec1 = new Vec2();
+		//const vec2 = new Vec2();
+		//const tPos = new Vec2();
 			
 		tPos.trns(rotation - 90, 0, startingLength);
 		vec2.trns(rotation - 90, 0, startingLength);
@@ -116,9 +129,9 @@ module.exports = {
 		const segDegreeOffset = moveMagOffset;
 		const segFrequency = moveScale;
 			
-		const vec1 = new Vec2();
-		const vec2 = new Vec2();
-		const tPos = new Vec2();
+		//const vec1 = new Vec2();
+		//const vec2 = new Vec2();
+		//const tPos = new Vec2();
 			
 		tPos.trns(rotation - 90, 0, startingLength);
 		vec2.trns(rotation - 90, 0, startingLength);
@@ -135,9 +148,9 @@ module.exports = {
 	},
 	
 	legRenderer(texture, x, y, defaultRotation, segments, rotations, lengths, left) {
-		const vec1 = new Vec2();
-		const vec2 = new Vec2();
-		const tPos = new Vec2();
+		//const vec1 = new Vec2();
+		//const vec2 = new Vec2();
+		//const tPos = new Vec2();
 		
 		var lastRot = defaultRotation;
 		
