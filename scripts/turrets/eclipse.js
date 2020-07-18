@@ -43,7 +43,7 @@ const eclipseBullet = extend(BasicBulletType, {
 	},
 	
 	draw: function(b){
-		if(b.getData()[0] == null){
+		if(b.getData() == null || (b.getData() != null && b.getData()[0] == null)){
 			return
 		};
 		
