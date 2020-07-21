@@ -308,7 +308,7 @@ overgrowth.engineSize = 5;
 overgrowth.mineSpeed = 1.7;
 overgrowth.buildPower = 1.5;
 overgrowth.itemCapacity = 90;
-overgrowth.localizedName = "overgrowth Summoner";
+overgrowth.localizedName = "Overgrowth Summoner";
 overgrowth.description = "Shoots an assortment of bullets. good at destroying units, destroys everything in close range.";
 
 const overgrowthPad = extendContent(MechPad, "overgrowth-summoner-mech-pad", {});
