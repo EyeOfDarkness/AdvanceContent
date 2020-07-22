@@ -1,33 +1,64 @@
 {
-	"localizedName": "Alloy Synthesizer",
-	"description": "Produces an alloy that allows highly advance technology possible.",
-	"outputItem": {"item": "advance-alloy", "amount": 2},
-	"size": 3,
-	"hasLiquids": false,
-	"hasPower": true,
-	"hasItems": true,
-	"craftTime": 160,
-	"consumes": {
-		"power": 1.9,
-		"items": {
-			"items": [
-				{ "item": "surge-alloy", "amount": 1 },
-				{ "item": "lanthanum", "amount": 1 },
-				{ "item": "chromium", "amount": 2 },
-				{ "item": "phase-fabric", "amount": 2 }
-			]
-		}
-	},
-	"requirements": [
-		{ "item": "graphite", "amount": 210 },
-		{ "item": "lanthanum", "amount": 80 },
-		{ "item": "silicon", "amount": 270 },
-		{ "item": "titanium", "amount": 230 },
-		{ "item": "thorium", "amount": 120 },
-		{ "item": "surge-alloy", "amount": 125 }
-	],
-	"category": "crafting",
-	"research": "alloy-smelter",
-	"idleSound": "respawning",
-	"idleSoundVolume": 0.6
+  "outputItem": {
+    "item": "advance-alloy",
+    "amount": 2
+  },
+  "size": 3,
+  "hasLiquids": false,
+  "hasPower": true,
+  "hasItems": true,
+  "craftTime": 160,
+  "consumes": {
+    "power": 1.9,
+    "items": {
+      "items": [
+        {
+          "item": "surge-alloy",
+          "amount": 1
+        },
+        {
+          "item": "lanthanum",
+          "amount": 1
+        },
+        {
+          "item": "chromium",
+          "amount": 2
+        },
+        {
+          "item": "phase-fabric",
+          "amount": 2
+        }
+      ]
+    }
+  },
+  "requirements": [
+    {
+      "item": "graphite",
+      "amount": 210
+    },
+    {
+      "item": "lanthanum",
+      "amount": 80
+    },
+    {
+      "item": "silicon",
+      "amount": 270
+    },
+    {
+      "item": "titanium",
+      "amount": 230
+    },
+    {
+      "item": "thorium",
+      "amount": 120
+    },
+    {
+      "item": "surge-alloy",
+      "amount": 125
+    }
+  ],
+  "category": "crafting",
+  "research": "alloy-smelter",
+  "idleSound": "respawning",
+  "idleSoundVolume": 0.6
 }

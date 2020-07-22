@@ -1,25 +1,23 @@
 {
-	"name": "Halberd",
-	"description": "Fast speed and building speed, but has a lower health than Dart.",
-	"speed": 0.64,
-	"drillPower": 5,
-	"mineSpeed": 4,
-	"drag": 0.07,
-	"mass": 2.1,
-	"buildPower": 1.7,
-	"engineOffset": 6.75,
-	"engineColor": "feb380",
-	"flying": true,
-	"health": 180,
-	"cellTrnsY": 1,
-	"itemCapacity": 75,
-	"weaponOffsetX": 5.75,
-	"weapon": {
-		"name": "halberd-equip",
-		"length": 1,
-		"reload": 12.5,
-		"shootSound": "shootSnap",
-		"alternate": true,
-		"bullet": "standardGlaive"
-	}
+  "speed": 0.64,
+  "drillPower": 5,
+  "mineSpeed": 4,
+  "drag": 0.07,
+  "mass": 2.1,
+  "buildPower": 1.7,
+  "engineOffset": 6.75,
+  "engineColor": "feb380",
+  "flying": true,
+  "health": 180,
+  "cellTrnsY": 1,
+  "itemCapacity": 75,
+  "weaponOffsetX": 5.75,
+  "weapon": {
+    "name": "halberd-equip",
+    "length": 1,
+    "reload": 12.5,
+    "shootSound": "shootSnap",
+    "alternate": true,
+    "bullet": "standardGlaive"
+  }
 }

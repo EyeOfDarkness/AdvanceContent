@@ -1,5 +1,4 @@
 {
-	"name": "Corrupted Spore Pine",
-	"type": "StaticWall",
-	"variants": 2
+  "type": "StaticWall",
+  "variants": 2
 }

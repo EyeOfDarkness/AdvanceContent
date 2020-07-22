@@ -1,33 +1,54 @@
 {
-	"localizedName": "Prism",
-	"description": "Shoots lasers in multiple directions that slowly concentrate into one.",
-	"health": 6400,
-	"size": 6,
-	"reload": 390,
-	"coolantMultiplier": 2.3,
-	"shootCone": 50,
-	"hasPower": true,
-	"hasLiquids": true,
-	"range": 290,
-	"ammoUseEffect": "none",
-	"rotatespeed": 2.1,
-	"recoil": 4.3,
-	"powerUse": 24.3,
-	"hasPower": true,
-	"targetAir": true,
-	"shootSound": "laser",
-	"activeSoundVolume": 2.5,
-	"activeSound": "prism-beam",
-	"requirements": [
-		{ "item": "copper", "amount": 900 },
-		{ "item": "lead", "amount": 850 },
-		{ "item": "silicon", "amount": 725 },
-		{ "item": "chromium", "amount": 620 },
-		{ "item": "titanium", "amount": 730 },
-		{ "item": "thorium", "amount": 280 },
-		{ "item": "lanthanum", "amount": 225 },
-		{ "item": "advance-alloy", "amount": 85 }
-	],
-	"category": "turret",
-	"research": "rainbow-road"
+  "health": 6400,
+  "size": 6,
+  "reload": 390,
+  "coolantMultiplier": 2.3,
+  "shootCone": 50,
+  "hasPower": true,
+  "hasLiquids": true,
+  "range": 290,
+  "ammoUseEffect": "none",
+  "rotatespeed": 2.1,
+  "recoil": 4.3,
+  "powerUse": 24.3,
+  "targetAir": true,
+  "shootSound": "laser",
+  "activeSoundVolume": 2.5,
+  "activeSound": "prism-beam",
+  "requirements": [
+    {
+      "item": "copper",
+      "amount": 900
+    },
+    {
+      "item": "lead",
+      "amount": 850
+    },
+    {
+      "item": "silicon",
+      "amount": 725
+    },
+    {
+      "item": "chromium",
+      "amount": 620
+    },
+    {
+      "item": "titanium",
+      "amount": 730
+    },
+    {
+      "item": "thorium",
+      "amount": 280
+    },
+    {
+      "item": "lanthanum",
+      "amount": 225
+    },
+    {
+      "item": "advance-alloy",
+      "amount": 85
+    }
+  ],
+  "category": "turret",
+  "research": "rainbow-road"
 }

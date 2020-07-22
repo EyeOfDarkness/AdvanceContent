@@ -1,10 +1,8 @@
 {
-	"type": "material",
-	"name": "Advance Alloy",
-	"description": "Used for advance turrets and buildings.",
-	"cost": 1.3,
-	"flammability": 0,
-	"radioactivity": 0.1,
-	"explosiveness": 0,
-	"color": "748096"
+  "type": "material",
+  "cost": 1.3,
+  "flammability": 0,
+  "radioactivity": 0.1,
+  "explosiveness": 0,
+  "color": "748096"
 }

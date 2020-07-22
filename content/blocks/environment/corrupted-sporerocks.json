@@ -1,5 +1,4 @@
 {
-	"name": "Corrupted Spore Rocks",
-	"type": "StaticWall",
-	"variants": 2
+  "type": "StaticWall",
+  "variants": 2
 }

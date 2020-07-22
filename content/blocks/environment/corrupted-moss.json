@@ -1,7 +1,13 @@
 {
-	"name": "Corrupted Moss",
-	"type": "Floor",
-	"speedMultiplier": 0.9,
-	"variants": 3,
-	"attributes": { "array": [ 0, 0.2, 0, 0.05 ] }
+  "type": "Floor",
+  "speedMultiplier": 0.9,
+  "variants": 3,
+  "attributes": {
+    "array": [
+      0,
+      0.2,
+      0,
+      0.05
+    ]
+  }
 }

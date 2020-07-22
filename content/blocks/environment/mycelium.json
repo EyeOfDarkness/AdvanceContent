@@ -1,7 +1,13 @@
 {
-	"name": "Mycelium",
-	"type": "Floor",
-	"speedMultiplier": 0.95,
-	"variants": 3,
-	"attributes": { "array": [ 0, 0.16, 0, 0 ] }
+  "type": "Floor",
+  "speedMultiplier": 0.95,
+  "variants": 3,
+  "attributes": {
+    "array": [
+      0,
+      0.16,
+      0,
+      0
+    ]
+  }
 }

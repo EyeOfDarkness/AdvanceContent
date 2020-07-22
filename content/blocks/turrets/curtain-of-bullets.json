@@ -1,27 +1,57 @@
 {
-	"localizedName": "Kami",
-	"description": "Have you ever played Touhou, Undertale, Deltarune and Just shapes and beats?",
-	"size": 5,
-	"expanded": true,
-	"coolantMultiplier": 0,
-	"health": 18700,
-	"powerUse": 330,
-	"shootSound": "curtain-of-bullets-shoot",
-	"breakSound": "curtain-of-bullets-explosion-b",
-	"coolantMultiplier": 1,
-	"requirements": [
-		{ "item": "copper", "amount": 6000 },
-		{ "item": "lead", "amount": 5600 },
-		{ "item": "metaglass", "amount": 3400 },
-		{ "item": "graphite", "amount": 4500 },
-		{ "item": "lanthanum", "amount": 5300 },
-		{ "item": "titanium", "amount": 6430 },
-		{ "item": "surge-alloy", "amount": 6740 },
-		{ "item": "silicon", "amount": 2345 },
-		{ "item": "phase-fabric", "amount": 5420 },
-		{ "item": "thorium", "amount": 2450 },
-		{ "item": "advance-alloy", "amount": 4300 }
-	],
-	"category": "turret",
-	"research": "the-cube"
+  "size": 5,
+  "expanded": true,
+  "coolantMultiplier": 1,
+  "health": 18700,
+  "powerUse": 330,
+  "shootSound": "curtain-of-bullets-shoot",
+  "breakSound": "curtain-of-bullets-explosion-b",
+  "requirements": [
+    {
+      "item": "copper",
+      "amount": 6000
+    },
+    {
+      "item": "lead",
+      "amount": 5600
+    },
+    {
+      "item": "metaglass",
+      "amount": 3400
+    },
+    {
+      "item": "graphite",
+      "amount": 4500
+    },
+    {
+      "item": "lanthanum",
+      "amount": 5300
+    },
+    {
+      "item": "titanium",
+      "amount": 6430
+    },
+    {
+      "item": "surge-alloy",
+      "amount": 6740
+    },
+    {
+      "item": "silicon",
+      "amount": 2345
+    },
+    {
+      "item": "phase-fabric",
+      "amount": 5420
+    },
+    {
+      "item": "thorium",
+      "amount": 2450
+    },
+    {
+      "item": "advance-alloy",
+      "amount": 4300
+    }
+  ],
+  "category": "turret",
+  "research": "the-cube"
 }

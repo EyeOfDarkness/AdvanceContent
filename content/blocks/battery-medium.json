@@ -1,17 +1,24 @@
 {
-	"localizedName": "Medium Battery",
-	"type": "Battery",
-	"size": "2",
-	"description": "Not too big and not too small.",
-	"hasPower": true,
-	"consumes": {
-		"powerBuffered": 27000
-	},
-	"category": "power",
-	"research": "battery",
-	"requirements": [
-		{ "item": "lead", "amount": 25 },
-		{ "item": "graphite", "amount": 20 },
-		{ "item": "silicon", "amount": 20 }
-	]
+  "type": "Battery",
+  "size": "2",
+  "hasPower": true,
+  "consumes": {
+    "powerBuffered": 27000
+  },
+  "category": "power",
+  "research": "battery",
+  "requirements": [
+    {
+      "item": "lead",
+      "amount": 25
+    },
+    {
+      "item": "graphite",
+      "amount": 20
+    },
+    {
+      "item": "silicon",
+      "amount": 20
+    }
+  ]
 }

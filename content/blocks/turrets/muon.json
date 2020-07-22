@@ -1,33 +1,52 @@
 {
-	"size": 8,
-	"health": 9800,
-	"range": 310,
-	"shots": 9,
-	"spread": 6,
-	"reload": 90,
-	"coolantMultiplier": 1.9,
-	"shootCone": 80,
-	"powerUse": 18,
-	"shootShake": 5,
-	"recoil": 8,
-	"localizedName": "Muon",
-	"description": "Shoots multiple deadly lasers.",
-	"hasPower": true,
-	"hasLiquids": true,
-	"shootSound": "muon-shoot",
-	"rotatespeed": 1.9,
-	"heatColor": "CCFFFF",
-	"cooldown": 0.009,
-	"expanded": true,
-	"requirements": [
-		{ "item": "lead", "amount": 770 },
-		{ "item": "silicon", "amount": 720 },
-		{ "item": "chromium", "amount": 990 },
-		{ "item": "lanthanum", "amount": 380 },
-		{ "item": "titanium", "amount": 670 },
-		{ "item": "surge-alloy", "amount": 670 },
-		{ "item": "advance-alloy", "amount": 760 }
-	],
-	"category": "turret",
-	"research": "z-boson"
+  "size": 8,
+  "health": 9800,
+  "range": 310,
+  "shots": 9,
+  "spread": 6,
+  "reload": 90,
+  "coolantMultiplier": 1.9,
+  "shootCone": 80,
+  "powerUse": 18,
+  "shootShake": 5,
+  "recoil": 8,
+  "hasPower": true,
+  "hasLiquids": true,
+  "shootSound": "muon-shoot",
+  "rotatespeed": 1.9,
+  "heatColor": "CCFFFF",
+  "cooldown": 0.009,
+  "expanded": true,
+  "requirements": [
+    {
+      "item": "lead",
+      "amount": 770
+    },
+    {
+      "item": "silicon",
+      "amount": 720
+    },
+    {
+      "item": "chromium",
+      "amount": 990
+    },
+    {
+      "item": "lanthanum",
+      "amount": 380
+    },
+    {
+      "item": "titanium",
+      "amount": 670
+    },
+    {
+      "item": "surge-alloy",
+      "amount": 670
+    },
+    {
+      "item": "advance-alloy",
+      "amount": 760
+    }
+  ],
+  "category": "turret",
+  "research": "z-boson"
 }

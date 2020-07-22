@@ -1,30 +1,49 @@
 {
-	"localizedName": "Fission Synthesizer Silicon",
-	"description": "splits the atomic mass of thorium into silicon",
-	"outputItem": {"item": "silicon", "amount": 8},
-	"flameColor": "ffffff",
-	"size": 3,
-	"hasLiquids": false,
-	"hasPower": true,
-	"hasItems": true,
-	"craftTime": 180,
-	"consumes": {
-		"power": 1.8,
-		"items": {
-			"items": [
-				{ "item": "thorium", "amount": 1 },
-			]
-		}
-	},
-	"requirements": [
-		{ "item": "silicon", "amount": 320 },
-		{ "item": "titanium", "amount": 230 },
-		{ "item": "thorium", "amount": 150 },
-		{ "item": "surge-alloy", "amount": 75 },
-		{ "item": "phase-fabric", "amount": 60 }
-	],
-	"category": "crafting",
-	"research": "fst",
-	"idleSound": "respawning",
-	"idleSoundVolume": 0.7
+  "outputItem": {
+    "item": "silicon",
+    "amount": 8
+  },
+  "flameColor": "ffffff",
+  "size": 3,
+  "hasLiquids": false,
+  "hasPower": true,
+  "hasItems": true,
+  "craftTime": 180,
+  "consumes": {
+    "power": 1.8,
+    "items": {
+      "items": [
+        {
+          "item": "thorium",
+          "amount": 1
+        }
+      ]
+    }
+  },
+  "requirements": [
+    {
+      "item": "silicon",
+      "amount": 320
+    },
+    {
+      "item": "titanium",
+      "amount": 230
+    },
+    {
+      "item": "thorium",
+      "amount": 150
+    },
+    {
+      "item": "surge-alloy",
+      "amount": 75
+    },
+    {
+      "item": "phase-fabric",
+      "amount": 60
+    }
+  ],
+  "category": "crafting",
+  "research": "fst",
+  "idleSound": "respawning",
+  "idleSoundVolume": 0.7
 }

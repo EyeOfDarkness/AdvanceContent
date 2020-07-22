@@ -1,44 +1,66 @@
 {
-	"size": 8,
-	"health": 9750,
-	"range": 300,
-	"reload": 180,
-	"coolantMultiplier": 0.6,
-	"shootCone": 40,
-	"shootDuration": 320,
-	"powerUse": 33,
-	"shootShake": 4,
-	"firingMoveFract": 0.1,
-	"shootEffect": "shootBigSmoke2",
-	"recoil": 8,
-	"localizedName": "AC Phoenix Mk-2",
-	"description": "The upgraded version of Calamity, putting it behind defences or production is not recommended, can only use Tier-3 Coolant due to its design.",
-	"cooldown": 0.012,
-	"hasPower": true,
-	"hasLiquids": true,
-	"shootSound": "laser-big-extended",
-	"heatColor": "ffffff",
-	"rotatespeed": 1.1,
-	"activeSound": "phoenix-sound",
-	"activeSoundVolume": 5,
-	"expanded": true,
-	"consumes": {
-		"liquid": {
-			"liquid": "tc-coolant",
-			"update": false,
-			"amount": 1.2
-		}
-	},
-	"requirements": [
-		{ "item": "copper", "amount": 1300 },
-		{ "item": "lead", "amount": 980 },
-		{ "item": "graphite", "amount": 1100 },
-		{ "item": "titanium", "amount": 750 },
-		{ "item": "surge-alloy", "amount": 960 },
-		{ "item": "silicon", "amount": 900 },
-		{ "item": "thorium", "amount": 770 },
-		{ "item": "advance-alloy", "amount": 270 }
-	],
-	"category": "turret",
-	"research": "ac-calamity",
+  "size": 8,
+  "health": 9750,
+  "range": 300,
+  "reload": 180,
+  "coolantMultiplier": 0.6,
+  "shootCone": 40,
+  "shootDuration": 320,
+  "powerUse": 33,
+  "shootShake": 4,
+  "firingMoveFract": 0.1,
+  "shootEffect": "shootBigSmoke2",
+  "recoil": 8,
+  "cooldown": 0.012,
+  "hasPower": true,
+  "hasLiquids": true,
+  "shootSound": "laser-big-extended",
+  "heatColor": "ffffff",
+  "rotatespeed": 1.1,
+  "activeSound": "phoenix-sound",
+  "activeSoundVolume": 5,
+  "expanded": true,
+  "consumes": {
+    "liquid": {
+      "liquid": "tc-coolant",
+      "update": false,
+      "amount": 1.2
+    }
+  },
+  "requirements": [
+    {
+      "item": "copper",
+      "amount": 1300
+    },
+    {
+      "item": "lead",
+      "amount": 980
+    },
+    {
+      "item": "graphite",
+      "amount": 1100
+    },
+    {
+      "item": "titanium",
+      "amount": 750
+    },
+    {
+      "item": "surge-alloy",
+      "amount": 960
+    },
+    {
+      "item": "silicon",
+      "amount": 900
+    },
+    {
+      "item": "thorium",
+      "amount": 770
+    },
+    {
+      "item": "advance-alloy",
+      "amount": 270
+    }
+  ],
+  "category": "turret",
+  "research": "ac-calamity"
 }

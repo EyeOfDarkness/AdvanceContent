@@ -1,5 +1,4 @@
 {
-	"name": "Overgrown Pine",
-	"type": "StaticWall",
-	"variants": 2
+  "type": "StaticWall",
+  "variants": 2
 }

@@ -1,7 +1,13 @@
 {
-	"name": "Corrupted Spore Moss",
-	"type": "Floor",
-	"speedMultiplier": 0.85,
-	"variants": 3,
-	"attributes": { "array": [ 0, 0.5, 0, 0.08 ] }
+  "type": "Floor",
+  "speedMultiplier": 0.85,
+  "variants": 3,
+  "attributes": {
+    "array": [
+      0,
+      0.5,
+      0,
+      0.08
+    ]
+  }
 }

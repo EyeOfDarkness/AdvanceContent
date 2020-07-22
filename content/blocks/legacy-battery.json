@@ -1,28 +1,47 @@
 {
-	"localizedName": "FES Legacy Type Battery",
-	"size": 6,
-	"description": "Chemical batteries are very limited on storing energy and is highly volatile, this battery type uses motion to store energy.",
-	"hasPower": true,
-	"outputsPower": true,
-	"consumesPower": true,
-	"hasItems": false,
-	"itemCapacity": 0,
-	"canOverdrive": false,
-	"health": 800,
-	"idleSound": "none",
-	"group": "power",
-	"consumes": {
-		"powerBuffered": 750000
-	},
-	"category": "power",
-	"research": "battery-large",
-	"requirements": [
-		{ "item": "copper", "amount": 190 },
-		{ "item": "lead", "amount": 290 },
-		{ "item": "graphite", "amount": 180 },
-		{ "item": "silicon", "amount": 180 },
-		{ "item": "metaglass", "amount": 90 },
-		{ "item": "titanium", "amount": 120 },
-		{ "item": "surge-alloy", "amount": 90 }
-	]
+  "size": 6,
+  "hasPower": true,
+  "outputsPower": true,
+  "consumesPower": true,
+  "hasItems": false,
+  "itemCapacity": 0,
+  "canOverdrive": false,
+  "health": 800,
+  "idleSound": "none",
+  "group": "power",
+  "consumes": {
+    "powerBuffered": 750000
+  },
+  "category": "power",
+  "research": "battery-large",
+  "requirements": [
+    {
+      "item": "copper",
+      "amount": 190
+    },
+    {
+      "item": "lead",
+      "amount": 290
+    },
+    {
+      "item": "graphite",
+      "amount": 180
+    },
+    {
+      "item": "silicon",
+      "amount": 180
+    },
+    {
+      "item": "metaglass",
+      "amount": 90
+    },
+    {
+      "item": "titanium",
+      "amount": 120
+    },
+    {
+      "item": "surge-alloy",
+      "amount": 90
+    }
+  ]
 }

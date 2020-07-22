@@ -1,16 +1,29 @@
 {
-	"localizedName": "Shatter",
-	"description": "A version of Ripple, but instead of one barrel it has two making its reload speed twice faster than Ripple.",
-	"size": 4,
-	"health": 2080,
-	"targetAir": false,
-	"requirements": [
-		{ "item": "copper", "amount": 280 },
-		{ "item": "graphite", "amount": 240 },
-		{ "item": "titanium", "amount": 130 },
-		{ "item": "silicon", "amount": 90 },
-		{ "item": "thorium", "amount": 80 },
-	],
-	"category": "turret",
-	"research": "ripple",
+  "size": 4,
+  "health": 2080,
+  "targetAir": false,
+  "requirements": [
+    {
+      "item": "copper",
+      "amount": 280
+    },
+    {
+      "item": "graphite",
+      "amount": 240
+    },
+    {
+      "item": "titanium",
+      "amount": 130
+    },
+    {
+      "item": "silicon",
+      "amount": 90
+    },
+    {
+      "item": "thorium",
+      "amount": 80
+    }
+  ],
+  "category": "turret",
+  "research": "ripple"
 }

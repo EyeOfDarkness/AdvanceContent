@@ -1,7 +1,5 @@
 {
-	"name": "Tier-1 Coolant",
-	"description": "Easy to produce, primarily used for constant laser turrets.",
-	"temperature": 0.45,
-	"heatCapacity": 0.6,
-	"color": "51507d"
+  "temperature": 0.45,
+  "heatCapacity": 0.6,
+  "color": "51507d"
 }

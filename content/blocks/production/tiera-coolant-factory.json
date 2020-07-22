@@ -1,28 +1,41 @@
 {
-	"localizedName": "Tier-1 Coolant Synthesizer",
-	"description": "Produces Tier-1 Coolant, primarily used for laser turrets and some factories.",
-	"outputLiquid": {"liquid": "ta-coolant", "amount": 1.3},
-	"size": 2,
-	"hasPower": true,
-	"hasItems": true,
-	"craftTime": 110,
-	"consumes": {
-		"power": 0.65,
-		"items": {
-			"items": [
-				{ "item": "copper", "amount": 1 },
-			]
-		},
-		"liquid": {
-			"liquid": "water",
-			"amount": 0.25
-		}
-	},
-	"requirements": [
-		{ "item": "lead", "amount": 60 },
-		{ "item": "graphite", "amount": 45 },
-		{ "item": "silicon", "amount": 30 },
-	],
-	"category": "crafting",
-	"research": "kiln"
+  "outputLiquid": {
+    "liquid": "ta-coolant",
+    "amount": 1.3
+  },
+  "size": 2,
+  "hasPower": true,
+  "hasItems": true,
+  "craftTime": 110,
+  "consumes": {
+    "power": 0.65,
+    "items": {
+      "items": [
+        {
+          "item": "copper",
+          "amount": 1
+        }
+      ]
+    },
+    "liquid": {
+      "liquid": "water",
+      "amount": 0.25
+    }
+  },
+  "requirements": [
+    {
+      "item": "lead",
+      "amount": 60
+    },
+    {
+      "item": "graphite",
+      "amount": 45
+    },
+    {
+      "item": "silicon",
+      "amount": 30
+    }
+  ],
+  "category": "crafting",
+  "research": "kiln"
 }

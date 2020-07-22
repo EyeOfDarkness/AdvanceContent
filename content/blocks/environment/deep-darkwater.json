@@ -1,12 +1,11 @@
 {
-	"name":"Deep Dark Water",
-	"type":"floor",
-	"variants": 0,
-	"speedMultiplier":0.15,
-	"drownTime": 150,
-	"isLiquid": true,
-	"status": "wet",
-	"statusDuration": 120,
-	"cacheLayer": "water",
-	"liquidDrop":"water"
+  "type": "floor",
+  "variants": 0,
+  "speedMultiplier": 0.15,
+  "drownTime": 150,
+  "isLiquid": true,
+  "status": "wet",
+  "statusDuration": 120,
+  "cacheLayer": "water",
+  "liquidDrop": "water"
 }

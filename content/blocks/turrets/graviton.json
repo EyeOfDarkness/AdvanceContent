@@ -1,41 +1,52 @@
 {
-	"localizedName": "Graviton",
-	"description": "A laser turret. Deals almost no damage but it moves units closer to it, useful for turrets with low range but high damage.",
-	"health": 2780,
-	"size": 3,
-	"reload": 80,
-	"coolantMultiplier": 8,
-	"shootCone": 40,
-	"shootDuration": 190,
-	"firingMoveFract": 0.25,
-	"hasPower": true,
-	"hasLiquids": true,
-	"range": 230,
-	"shootCone": 20,
-	"heatColor": "CCFFFF",
-	"ammoUseEffect": "none",
-	"rotatespeed": 3.3,
-	"recoil": 2,
-	"powerUse": 1.9,
-	"hasPower": true,
-	"targetAir": true,
-	"shootSound": "laser",
-	"activeSound": "graviton-beam",
-	"activeSoundVolume": 2,
-	"cooldown": 0.012,
-	"consumes": {
-		"liquid": {
-			"liquid": "ta-coolant",
-			"amount": 0.35
-		}
-	},
-	"requirements": [
-		{ "item": "silicon", "amount": 70 },
-		{ "item": "chromium", "amount": 160 },
-		{ "item": "titanium", "amount": 130 },
-		{ "item": "plastanium", "amount": 50 },
-		{ "item": "lanthanum", "amount": 35 }
-	],
-	"category": "turret",
-	"research": "photon"
+  "health": 2780,
+  "size": 3,
+  "reload": 80,
+  "coolantMultiplier": 8,
+  "shootCone": 20,
+  "shootDuration": 190,
+  "firingMoveFract": 0.25,
+  "hasPower": true,
+  "hasLiquids": true,
+  "range": 230,
+  "heatColor": "CCFFFF",
+  "ammoUseEffect": "none",
+  "rotatespeed": 3.3,
+  "recoil": 2,
+  "powerUse": 1.9,
+  "targetAir": true,
+  "shootSound": "laser",
+  "activeSound": "graviton-beam",
+  "activeSoundVolume": 2,
+  "cooldown": 0.012,
+  "consumes": {
+    "liquid": {
+      "liquid": "ta-coolant",
+      "amount": 0.35
+    }
+  },
+  "requirements": [
+    {
+      "item": "silicon",
+      "amount": 70
+    },
+    {
+      "item": "chromium",
+      "amount": 160
+    },
+    {
+      "item": "titanium",
+      "amount": 130
+    },
+    {
+      "item": "plastanium",
+      "amount": 50
+    },
+    {
+      "item": "lanthanum",
+      "amount": 35
+    }
+  ],
+  "category": "turret",
+  "research": "photon"
 }

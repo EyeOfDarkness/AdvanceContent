@@ -1,35 +1,57 @@
 {
-	"size": 7,
-	"health": 9000,
-	"range": 340,
-	"reload": 280,
-	"coolantMultiplier": 2.4,
-	"shootCone": 40,
-	"powerUse": 19,
-	"shootShake": 3,
-	"shootEffect": "shootBigSmoke2",
-	"recoil": 8,
-	"localizedName": "AC Eclipse",
-	"description": "Shoots a powerful beam, but it cant pierce.",
-	"hasPower": true,
-	"hasLiquids": true,
-	"shootSound": "laser",
-	"activeSound": "eclipse-beam",
-	"activeSoundVolume": 2.5,
-	"heatColor": "59a7ff",
-	"rotatespeed": 1.9,
-	"canOverdrive": false,
-	"expanded": true,
-	"requirements": [
-		{ "item": "lead", "amount": 620 },
-		{ "item": "silicon", "amount": 760 },
-		{ "item": "chromium", "amount": 740 },
-		{ "item": "lanthanum", "amount": 320 },
-		{ "item": "titanium", "amount": 520 },
-		{ "item": "surge-alloy", "amount": 720 },
-		{ "item": "phase-fabric", "amount": 120 },
-		{ "item": "advance-alloy", "amount": 680 }
-	],
-	"category": "turret",
-	"research": "storm"
+  "size": 7,
+  "health": 9000,
+  "range": 340,
+  "reload": 280,
+  "coolantMultiplier": 2.4,
+  "shootCone": 40,
+  "powerUse": 19,
+  "shootShake": 3,
+  "shootEffect": "shootBigSmoke2",
+  "recoil": 8,
+  "hasPower": true,
+  "hasLiquids": true,
+  "shootSound": "laser",
+  "activeSound": "eclipse-beam",
+  "activeSoundVolume": 2.5,
+  "heatColor": "59a7ff",
+  "rotatespeed": 1.9,
+  "canOverdrive": false,
+  "expanded": true,
+  "requirements": [
+    {
+      "item": "lead",
+      "amount": 620
+    },
+    {
+      "item": "silicon",
+      "amount": 760
+    },
+    {
+      "item": "chromium",
+      "amount": 740
+    },
+    {
+      "item": "lanthanum",
+      "amount": 320
+    },
+    {
+      "item": "titanium",
+      "amount": 520
+    },
+    {
+      "item": "surge-alloy",
+      "amount": 720
+    },
+    {
+      "item": "phase-fabric",
+      "amount": 120
+    },
+    {
+      "item": "advance-alloy",
+      "amount": 680
+    }
+  ],
+  "category": "turret",
+  "research": "storm"
 }

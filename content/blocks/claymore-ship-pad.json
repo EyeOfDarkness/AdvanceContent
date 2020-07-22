@@ -1,18 +1,34 @@
 {
-	"localizedName": "Claymore Ship Pad",
-	"description": "Provides transformation into a fast ship that shoots missiles and create a laser at high speeds.",
-	"size": 3,
-	"consumes": {
-		"power": 1.7
-	},
-	"category": "upgrade",
-	"research": "blade-ship-pad",
-	"requirements": [
-		{ "item": "lead", "amount": 400 },
-		{ "item": "graphite", "amount": 300 },
-		{ "item": "silicon", "amount": 570 },
-		{ "item": "titanium", "amount": 630 },
-		{ "item": "plastanium", "amount": 630 },
-		{ "item": "phase-fabric", "amount": 280 },
-	]
+  "size": 3,
+  "consumes": {
+    "power": 1.7
+  },
+  "category": "upgrade",
+  "research": "blade-ship-pad",
+  "requirements": [
+    {
+      "item": "lead",
+      "amount": 400
+    },
+    {
+      "item": "graphite",
+      "amount": 300
+    },
+    {
+      "item": "silicon",
+      "amount": 570
+    },
+    {
+      "item": "titanium",
+      "amount": 630
+    },
+    {
+      "item": "plastanium",
+      "amount": 630
+    },
+    {
+      "item": "phase-fabric",
+      "amount": 280
+    }
+  ]
 }

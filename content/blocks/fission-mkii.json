@@ -1,28 +1,44 @@
 {
-	"localizedName": "Fission Synthesizer MK-2",
-	"description": "splits the atomic mass of thorium into multiple types items.",
-	"size": 5,
-	"hasLiquids": false,
-	"hasPower": true,
-	"hasItems": true,
-	"craftTime": 165,
-	"consumes": {
-		"power": 1.9,
-		"items": {
-			"items": [
-				{ "item": "thorium", "amount": 1 },
-			]
-		}
-	},
-	"requirements": [
-		{ "item": "silicon", "amount": 680 },
-		{ "item": "titanium", "amount": 560 },
-		{ "item": "thorium", "amount": 340 },
-		{ "item": "surge-alloy", "amount": 250 },
-		{ "item": "phase-fabric", "amount": 160 }
-	],
-	"category": "crafting",
-	"research": "fsl",
-	"idleSound": "respawning",
-	"idleSoundVolume": 0.7
+  "size": 5,
+  "hasLiquids": false,
+  "hasPower": true,
+  "hasItems": true,
+  "craftTime": 165,
+  "consumes": {
+    "power": 1.9,
+    "items": {
+      "items": [
+        {
+          "item": "thorium",
+          "amount": 1
+        }
+      ]
+    }
+  },
+  "requirements": [
+    {
+      "item": "silicon",
+      "amount": 680
+    },
+    {
+      "item": "titanium",
+      "amount": 560
+    },
+    {
+      "item": "thorium",
+      "amount": 340
+    },
+    {
+      "item": "surge-alloy",
+      "amount": 250
+    },
+    {
+      "item": "phase-fabric",
+      "amount": 160
+    }
+  ],
+  "category": "crafting",
+  "research": "fsl",
+  "idleSound": "respawning",
+  "idleSoundVolume": 0.7
 }

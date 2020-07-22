@@ -1,27 +1,37 @@
 {
-	"localizedName": "Neutron",
-	"description": "A powerful energy only flak turret.",
-	"health": 2520,
-	"size": 4,
-	"reload": 10,
-	"range": 235,
-	"shootCone": 20,
-	"heatColor": "CCFFFF",
-	"ammoUseEffect": "none",
-	"rotatespeed": 3.9,
-	"recoil": 4,
-	"powerUse": 3.4,
-	"hasPower": true,
-	"targetAir": true,
-	"shootSound": "pew",
-	"cooldown": 0.008,
-	"inaccuracy": 3.4,
-	"requirements": [
-		{ "item": "silicon", "amount": 220 },
-		{ "item": "chromium", "amount": 210 },
-		{ "item": "lanthanum", "amount": 70 },
-		{ "item": "titanium", "amount": 120 }
-	],
-	"category": "turret",
-	"research": "electron"
+  "health": 2520,
+  "size": 4,
+  "reload": 10,
+  "range": 235,
+  "shootCone": 20,
+  "heatColor": "CCFFFF",
+  "ammoUseEffect": "none",
+  "rotatespeed": 3.9,
+  "recoil": 4,
+  "powerUse": 3.4,
+  "hasPower": true,
+  "targetAir": true,
+  "shootSound": "pew",
+  "cooldown": 0.008,
+  "inaccuracy": 3.4,
+  "requirements": [
+    {
+      "item": "silicon",
+      "amount": 220
+    },
+    {
+      "item": "chromium",
+      "amount": 210
+    },
+    {
+      "item": "lanthanum",
+      "amount": 70
+    },
+    {
+      "item": "titanium",
+      "amount": 120
+    }
+  ],
+  "category": "turret",
+  "research": "electron"
 }

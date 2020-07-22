@@ -1,8 +1,6 @@
 {
-	"name": "Tier-2 Coolant",
-	"description": "Bit hard to produce, primarily used for constant laser turrets.",
-	"temperature": 0.33,
-	"heatCapacity": 0.74,
-	"color": "6c67aa",
-	"lightColor": "6c67aa44"
+  "temperature": 0.33,
+  "heatCapacity": 0.74,
+  "color": "6c67aa",
+  "lightColor": "6c67aa44"
 }

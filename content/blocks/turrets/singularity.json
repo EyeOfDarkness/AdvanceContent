@@ -1,31 +1,45 @@
 {
-	"localizedName": "Singularity",
-	"description": "Shoots bullet that attracts and destroys everything.",
-	"health": 9800,
-	"size": 7,
-	"reload": 220,
-	"coolantMultiplier": 1.1,
-	"shootCone": 40,
-	"hasPower": true,
-	"range": 310,
-	"shootCone": 30,
-	"heatColor": "CCFFFF",
-	"ammoUseEffect": "none",
-	"rotatespeed": 3.3,
-	"recoil": 6,
-	"powerUse": 39.3,
-	"hasPower": true,
-	"targetAir": true,
-	"cooldown": 0.012,
-	"shootSound": "singularity-shoot",
-	"requirements": [
-		{ "item": "silicon", "amount": 420 },
-		{ "item": "chromium", "amount": 980 },
-		{ "item": "titanium", "amount": 770 },
-		{ "item": "surge-alloy", "amount": 230 },
-		{ "item": "lanthanum", "amount": 300 },
-		{ "item": "advance-alloy", "amount": 460 }
-	],
-	"category": "turret",
-	"research": "gluon"
+  "health": 9800,
+  "size": 7,
+  "reload": 220,
+  "coolantMultiplier": 1.1,
+  "shootCone": 30,
+  "hasPower": true,
+  "range": 310,
+  "heatColor": "CCFFFF",
+  "ammoUseEffect": "none",
+  "rotatespeed": 3.3,
+  "recoil": 6,
+  "powerUse": 39.3,
+  "targetAir": true,
+  "cooldown": 0.012,
+  "shootSound": "singularity-shoot",
+  "requirements": [
+    {
+      "item": "silicon",
+      "amount": 420
+    },
+    {
+      "item": "chromium",
+      "amount": 980
+    },
+    {
+      "item": "titanium",
+      "amount": 770
+    },
+    {
+      "item": "surge-alloy",
+      "amount": 230
+    },
+    {
+      "item": "lanthanum",
+      "amount": 300
+    },
+    {
+      "item": "advance-alloy",
+      "amount": 460
+    }
+  ],
+  "category": "turret",
+  "research": "gluon"
 }

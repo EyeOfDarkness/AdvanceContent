@@ -1,21 +1,31 @@
 {
-	"name": "Railgun MK-1",
-	"description": "instead of lobbed shots like Hail, shots pierces through its targets.",
-	"health": 800,
-	"size": 2,
-	"reload": 70,
-	"range": 290,
-	"recoil": 2.5,
-	"ammoUseEffect": "none",
-	"shootSound": "railgun-shoot",
-	"restitution": 0.05,
-	"shootCone": 10,
-	"requirements": [
-		{ "item": "copper", "amount": 80 },
-		{ "item": "lead", "amount": 60 },
-		{ "item": "graphite", "amount": 40 },
-		{ "item": "silicon", "amount": 40 }
-	],
-	"category": "turret",
-	"research": "hail"
+  "health": 800,
+  "size": 2,
+  "reload": 70,
+  "range": 290,
+  "recoil": 2.5,
+  "ammoUseEffect": "none",
+  "shootSound": "railgun-shoot",
+  "restitution": 0.05,
+  "shootCone": 10,
+  "requirements": [
+    {
+      "item": "copper",
+      "amount": 80
+    },
+    {
+      "item": "lead",
+      "amount": 60
+    },
+    {
+      "item": "graphite",
+      "amount": 40
+    },
+    {
+      "item": "silicon",
+      "amount": 40
+    }
+  ],
+  "category": "turret",
+  "research": "hail"
 }

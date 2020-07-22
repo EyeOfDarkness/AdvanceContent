@@ -1,5 +1,4 @@
 {
-	"name": "Mycelium Shrubs",
-	"type": "StaticWall",
-	"variants": 2
+  "type": "StaticWall",
+  "variants": 2
 }
