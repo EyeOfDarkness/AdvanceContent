@@ -177,75 +177,13 @@ const omniTurret = extendContent(ItemTurret, "omniturret", {
 	},
 	
 	init(){
-		/*blf = boolf(entity => {
-			print(entity.target + ":" + entity.isElectric());
-			
-			return entity.target != null && entity.isElectric();
-		});*/
-		
 		scoreLib.loadItems();
 		
 		this.generateBullets();
 		
-		/*customPowerCons = extend(ConsumePower, {
-			requestedPower(entity){
-				print(entity.target != null && entity.isElectric() ? omniTurret.powerUse : 0);
-				return entity.target != null && entity.isElectric() ? omniTurret.powerUse : 0;
-			}
-		});*/
-		
-		//this.consumes.powerCond(14, blf);
-		//this.consumes.add(customPowerCons);
-		
 		this.super$init();
-		
-		//this.consumes.add(customPowerCons);
-		
-		//this.consumes.init();
 	}
 });
 omniTurret.itemArrayB = [];
 omniTurret.bulletArrayB = [];
 omniTurret.range = 430;
-/*omniTurret.entityType = prov(() => {
-	entityB = extendContent(ItemTurret.ItemTurretEntity, omniTurret, {
-		elecLaser(){
-			return this._isLaser;
-		},
-		
-		setLaser(a){
-			this._isLaser = a;
-		},
-		
-		setScannedUnits(a){
-			this._scanned = a;
-		},
-		
-		setReloadSpeed(a){
-			this._rSpeed = a
-		},
-		
-		getReloadSpeed(){
-			return this._rSpeed;
-		},
-		
-		getScannedUnits(){
-			return this._scanned;
-		},
-		
-		isElectric(){
-			//if(this._electric == null) return false;
-			return this._electric;
-		},
-		
-		setElectric(a){
-			this._electric = a;
-		}
-	});
-	entityB.setLaser(false);
-	entityB.setReloadSpeed(1);
-	entityB.setScannedUnits(0);
-	entityB.setElectric(false);
-	
-	return entityB;
-});*/
