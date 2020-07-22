@@ -1,0 +1,30 @@
+{
+	"localizedName": "Omni Turret M-1",
+	"description": "An adaptable turret that can shoot every item available.",
+	"health": 9900,
+	"size": 8,
+	"reload": 3.25,
+	"range": 430,
+	"recoil": 4.2,
+	"restitution": 0.1,
+	"coolantMultiplier": 0.84,
+	"ammoUseEffect": "none",
+	"shootCone": 18,
+	"shootSound": "shootBig",
+	"rotatespeed": 3.7,
+	"inaccuracy": 1.1,
+	"requirements": [
+		{ "item": "copper", "amount": 1100 },
+		{ "item": "lead", "amount": 1200 },
+		{ "item": "graphite", "amount": 1250 },
+		{ "item": "silicon", "amount": 1200 },
+		{ "item": "titanium", "amount": 1350 },
+		{ "item": "surge-alloy", "amount": 1300 },
+		{ "item": "plastanium", "amount": 950 },
+		{ "item": "thorium", "amount": 1300 },
+		{ "item": "phase-fabric", "amount": 800 },
+		{ "item": "advance-alloy", "amount": 900 }
+	],
+	"category": "turret",
+	"research": "illusion"
+}
