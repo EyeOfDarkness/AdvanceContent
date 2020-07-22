@@ -6,6 +6,7 @@ if(typeof(require) !== "undefined"){
 	require("turrets/mirage");
 	require("turrets/illusion");
 	require("turrets/ghost");
+	require("turrets/omniturret");
 	require("turrets/shotgun");
 	require("turrets/railgun");
 	require("turrets/railgunii");
@@ -82,6 +83,8 @@ if(typeof(require) !== "undefined"){
 	require("effectlib");
 	require("funclib");
 	require("spritebatchcustom");
+	require("itemscorelib");
 	
+	//require("turrets/omniturret");
 	//require("tempwall");
 }
