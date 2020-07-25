@@ -133,7 +133,12 @@ const azathothBullet = extend(BasicBulletType, {
 				if(tileC != null && tileC.ent() != null && tmpA.lastIndexOf(tileC) == -1 && tileC.getTeam() != b.getTeam()){
 					entityC = tileC.ent();
 					//entityC.kill();
-					entityC.onDeath();
+					//entityC.onDeath();
+					entityC.setDead(true);
+					Events.fire(new EventType.BlockDestroyEvent(entityC.tile));
+					entityC.block.onDestroyed(entityC.tile);
+					entityC.tile.remove();
+					entityC.remove();
 					
 					tmpA.push(tileC);
 				}
