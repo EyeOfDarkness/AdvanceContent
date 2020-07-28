@@ -150,7 +150,7 @@ const azathothBullet = extend(BasicBulletType, {
 });
 //azathothBullet.disableRange = 540;
 azathothBullet.speed = 6;
-azathothBullet.damage = 92319733;
+azathothBullet.damage = 0;
 azathothBullet.lifetime = 60;
 //azathothBullet.instantDisappear = true;
 azathothBullet.shootEffect = Fx.none;
