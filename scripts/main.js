@@ -75,6 +75,7 @@ if(typeof(require) !== "undefined"){
 	require("death");
 	require("war");
 	require("phoenix");
+	require("storm");
 	require("scourge");
 	require("azathoth");
 	//etc
@@ -84,7 +85,9 @@ if(typeof(require) !== "undefined"){
 	require("funclib");
 	require("spritebatchcustom");
 	require("itemscorelib");
+	//require("objlib");
 	
+	//require("storm");
 	//require("turrets/omniturret");
 	//require("tempwall");
 }
