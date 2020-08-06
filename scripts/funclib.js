@@ -1,9 +1,129 @@
 const vec1 = new Vec2();
 const vec2 = new Vec2();
 const tPos = new Vec2();
+const tRect = new Rect();
+const hRect = new Rect();
+const queue = new Packages.arc.struct.Array();
+const sortedQueue = new Packages.arc.struct.Array();
 
 // function library made by Eye of darkness, please dont claim that you made this script.
 module.exports = {
+	predictAlt(entity, offsetVec, other, bulletSpeed, inheritVelocity){
+		var ex = entity.getX() + offsetVec.x;
+		var ey = entity.getY() + offsetVec.y;
+		
+		var dstA = Mathf.dst(ex, ey, other.getX(), other.getY());
+		var calc = dstA / bulletSpeed;
+		
+		vec1.set(other.getTargetVelocityX(), other.getTargetVelocityY());
+		if(other instanceof SolidEntity) vec1.set(other.velocity());
+		if(inheritVelocity){
+			if(entity instanceof SolidEntity){
+				vec1.sub(other.velocity());
+			}else{
+				vec1.sub(entity.getTargetVelocityX(), entity.getTargetVelocityY());
+			}
+		};
+		vec1.scl(calc);
+		vec1.add(other.getX(), other.getY());
+		
+		return vec1.cpy();
+	},
+	collideLineHealth(bullet, x, y, angle, length, health, effectInsulated){
+		vec1.trns(angle, length);
+		vec1.add(x, y);
+		sortedQueue.clear();
+		queue.clear();
+		var healthB = health;
+		
+		Vars.world.raycastEachWorld(x, y, vec1.x, vec1.y, new World.Raycaster({
+			accept: (ax, ay) => {
+				//collider.get(ax, ay);
+				var tile = Vars.world.ltile(ax, ay);
+				if(tile != null && tile.ent() != null && tile.getTeamID() != bullet.team.id && tile.ent().collide(bullet) && !queue.contains(tile.ent())){
+					//healthB -= tile.ent().health();
+					queue.add(tile.ent());
+				};
+				
+				return false;
+			}
+		}));
+		
+		tRect.setPosition(x, y).setSize(vec1.x - x, vec1.y - y);
+		
+		if(tRect.width < 0){
+			tRect.x += tRect.width;
+			tRect.width *= -1;
+		};
+
+		if(tRect.height < 0){
+			tRect.y += tRect.height;
+			tRect.height *= -1;
+		};
+		
+		var expand = 3;
+
+		tRect.y -= expand;
+		tRect.x -= expand;
+		tRect.width += expand * 2;
+		tRect.height += expand * 2;
+		
+		var conss = cons(e => {
+			expand = 3;
+			
+			e.hitbox(hRect);
+			hRect.x -= expand;
+			hRect.y -= expand;
+			hRect.width += expand * 2;
+			hRect.height += expand * 2;
+			
+			var vec = Geometry.raycastRect(x, y, vec1.x, vec1.y, hRect);
+			
+			if(vec != null){
+				queue.add(e);
+			}
+		});
+		
+		Units.nearbyEnemies(bullet.getTeam(), tRect, conss);
+		
+		var bool = true;
+		
+		while(bool){
+			var closest = null;
+			var cdist = 0;
+			
+			queue.each(cons(item => {
+				if(item != null){
+					var dst = item.dst(x, y);
+					
+					if(closest == null || dst < cdist){
+						closest = item;
+						cdist = dst;
+					}
+				}
+			}));
+			
+			if(closest != null){
+				sortedQueue.add(closest);
+				queue.remove(closest);
+			};
+			
+			bool = queue.size > 0;
+		};
+		var last;
+		sortedQueue.each(cons(item => {
+			if(healthB > 0){
+				last = vec1.set(item.getX(), item.getY()).cpy();
+				//healthB -= item.health();
+				if(item instanceof TileEntity && item.block != null && item.block.insulated && effectInsulated){
+					healthB = 0;
+				};
+				healthB -= item.health();
+			}
+		}));
+		return last;
+	},
+	
 	loadImmunities(unit){
 		var statuses = Vars.content.getBy(ContentType.status);
 		statuses.each(cons(stat => {

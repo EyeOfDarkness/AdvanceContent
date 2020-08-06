@@ -68,6 +68,7 @@ if(typeof(require) !== "undefined"){
 	//unit
 	require("strider");
 	require("disintegrator");
+	require("ravager");
 	require("angel");
 	require("empunit");
 	require("pestilence");
@@ -85,8 +86,9 @@ if(typeof(require) !== "undefined"){
 	require("funclib");
 	require("spritebatchcustom");
 	require("itemscorelib");
-	//require("objlib");
+	//require("ravager");
 	
+	//require("test");
 	//require("storm");
 	//require("turrets/omniturret");
 	//require("tempwall");
