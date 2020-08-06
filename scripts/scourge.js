@@ -108,6 +108,12 @@ const scourgeBullet = extend(BasicBulletType, {
 	update(b){
 		this.super$update(b);
 		
+		if(b.timer.get(1, 32767)){
+			b.setData([b.getOwner(), b.getTeam()]);
+		};
+		
+		if(b.getData() != null && (b.getOwner() != b.getData()[0] || b.getTeam() != b.getData()[1])) b.resetOwner(b.getData()[0], b.getData()[1]);
+		
 		/*b.hitbox(tempRect);
 		Units.nearbyEnemies(b.getTeam(), tempRect.x, tempRect.y, tempRect.width, tempRect.height, cons(unit => {
 			if(unit.getTeam() != b.getTeam()){
