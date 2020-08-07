@@ -418,12 +418,31 @@ const ravagerMain = prov(() => {
 				
 				Vars.bulletGroup.intersect(this.x - rangeD, this.y - rangeD, rangeD * 2, rangeD * 2, cons(b => {
 					if(Mathf.within(this.x, this.y, b.x, b.y, rangeD) && b.getBulletType() != null && b.getTeam() != this.getTeam() && !(b instanceof Lightning)){
-						var extraDamage = b.getBulletType().pierce ? (this.getSize() / b.getBulletType().speed) * Time.delta() : 1;
-						totalDamage += (b.getBulletType().damage + (b.getBulletType().splashDamage * Math.max(1, b.getBulletType().splashDamageRadius / 4))) * extraDamage;
+						var piercing = b.getBulletType().pierce ? 60 : 1;
+						var tmpDamage = b.getBulletType().damage + b.getBulletType().splashDamage * piercing;
+						var currentBType = b.getBulletType();
+						var totalFragBullets = 1;
+						for(var i = 0; i < 16; i++){
+							if(currentBType.fragBullet == null) break;
+							
+							var frag = currentBType.fragBullet;
+							//var frags = currentBullet.fragBullets;
+							
+							piercing = frag.pierce ? 60 : 1;
+							
+							totalFragBullets *= currentBType.fragBullets;
+							
+							tmpDamage += (frag.damage + frag.splashDamage) * piercing * totalFragBullets;
+							
+							currentBType = currentBType.fragBullet;
+						};
+						//var extraDamage = b.getBulletType().pierce ? (this.getSize() / b.getBulletType().speed) * Time.delta() : 1;
+						//totalDamage += (b.getBulletType().damage + (b.getBulletType().splashDamage * Math.max(1, b.getBulletType().splashDamageRadius / 4))) * extraDamage;
+						totalDamage += tmpDamage;
 					}
 				}));
 				
-				if(totalDamage < 24000) return;
+				if(totalDamage < 9000 / ravagerResistance) return;
 				//if(totalDamage < 2) return;
 				
 				Vars.bulletGroup.intersect(this.x - rangeD, this.y - rangeD, rangeD * 2, rangeD * 2, cons(b => {
@@ -594,7 +613,7 @@ const nightmareBulletAC = extend(BasicBulletType, {
 			if(vec instanceof Vec2){
 				b.setData(vec.cpy());
 			}else{
-				tempVec.trns(b.rot() - 90, this.maxLaserRange);
+				tempVec.trns(b.rot(), this.maxLaserRange);
 				tempVec.add(b.x, b.y);
 				b.setData(tempVec.cpy());
 			};
@@ -932,6 +951,6 @@ ravagerType.maxVelocity = 1.1;
 ravagerType.rotatespeed = 0.065;
 ravagerType.baseRotateSpeed = 0.00001;
 
-/*const tempFac = extendContent(UnitFactory, "temp-factory", {});
+const tempFac = extendContent(UnitFactory, "temp-factory", {});
 
-tempFac.unitType = ravagerType;*/
+tempFac.unitType = ravagerType;
