@@ -28,6 +28,7 @@ const falseUnit = prov(() => {
 	falseUnitB = extend(FlyingUnit, {
 		setOwner(a){
 			this._owner = a;
+			this.team = a.getTeam();
 		},
 		/*setType(a){
 			this.type = a;
