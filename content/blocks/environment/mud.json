@@ -4,5 +4,6 @@
 	"speedMultiplier": 0.4,
 	"variants": 3,
 	"itemDrop": "sand",
+	"playerUnmineable": true,
 	"attributes": { "array": [ 0, 0, 0.23, 0 ] }
 }
