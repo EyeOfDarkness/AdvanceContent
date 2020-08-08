@@ -76,8 +76,13 @@ var createLeg = prov(() => {
 			this._femurAngleOffset = 0;
 			//this._femurSpeed = 0.07;
 			//this._tibiaSpeed = 0.05;
+			
+			//this._femurSpeed = 0.05;
+			//this._tibiaSpeed = 0.03;
+			
 			this._femurSpeed = 0.05;
-			this._tibiaSpeed = 0.03;
+			this._tibiaSpeed = 0.025;
+			
 			this._femurAngle = 0;
 			this._tibiaAngle = 0;
 			this._tibiaLength = 1;
@@ -146,7 +151,7 @@ var createLeg = prov(() => {
 				tempVec.set(tempVec2);
 				tempVec2.trns(this._tibiaAngle, this._tibiaLength);
 				tempVec.add(tempVec2.x + this._owner.getX(), tempVec2.y + this._owner.getY());
-				var dstt = Mathf.clamp((this._legLength - tempVec.dst(this._targetedPosition)) / (this._legLength * 2.2), 0, 0.6);
+				var dstt = Mathf.clamp((this._legLength - tempVec.dst(this._targetedPosition)) / (this._legLength * 3.2), 0, 0.6);
 				//print(dstt);
 				
 				//this._femurAngle = Mathf.slerpDelta(this._femurAngle, angleF, this._femurSpeed);
@@ -414,6 +419,8 @@ const ravagerMain = prov(() => {
 		countBullets(){
 			if(this.timer.get(6, 5)){
 				var totalDamage = 0;
+				var counted = 0;
+				//var fade = 1
 				const rangeD = 312;
 				
 				Vars.bulletGroup.intersect(this.x - rangeD, this.y - rangeD, rangeD * 2, rangeD * 2, cons(b => {
@@ -438,19 +445,45 @@ const ravagerMain = prov(() => {
 						};
 						//var extraDamage = b.getBulletType().pierce ? (this.getSize() / b.getBulletType().speed) * Time.delta() : 1;
 						//totalDamage += (b.getBulletType().damage + (b.getBulletType().splashDamage * Math.max(1, b.getBulletType().splashDamageRadius / 4))) * extraDamage;
+						counted += 1;
+						//fade /= 1.5;
 						totalDamage += tmpDamage;
 					}
 				}));
 				
-				if(totalDamage < 9000 / ravagerResistance) return;
+				//if(totalDamage < 9000 / ravagerResistance) return;
 				//if(totalDamage < 2) return;
 				
 				Vars.bulletGroup.intersect(this.x - rangeD, this.y - rangeD, rangeD * 2, rangeD * 2, cons(b => {
 					if(Mathf.within(this.x, this.y, b.x, b.y, rangeD) && b.getBulletType() != null && b.getTeam() != this.getTeam() && !(b instanceof Lightning)){
-						b.time(b.getBulletType().lifetime);
-						b.deflect();
+						var piercing = b.getBulletType().pierce ? 60 : 1;
+						var tmpDamage = b.getBulletType().damage + b.getBulletType().splashDamage * piercing;
+						var currentBType = b.getBulletType();
+						var totalFragBullets = 1;
+						for(var i = 0; i < 16; i++){
+							if(currentBType.fragBullet == null) break;
+							
+							var frag = currentBType.fragBullet;
+							//var frags = currentBullet.fragBullets;
+							
+							piercing = frag.pierce ? 60 : 1;
+							
+							totalFragBullets *= currentBType.fragBullets;
+							
+							tmpDamage += (frag.damage + frag.splashDamage) * piercing * totalFragBullets;
+							
+							currentBType = currentBType.fragBullet;
+						};
 						
-						Effects.effect(pointDefenceLaser, this.x, this.y, 0, [this, new Vec2(b.x, b.y)]);
+						var am = b.getOwner() != null ? this.dst(b.getOwner()) > this.getWeapon().bullet.range() : false;
+						
+						if(totalDamage > 9000 / ravagerResistance || tmpDamage * counted > 9500 || (tmpDamage * counted > 900 && am) || tmpDamage > 2600){
+							b.time(b.getBulletType().lifetime);
+							b.deflect();
+							if(counted >= 2) counted -= 1;
+							
+							Effects.effect(pointDefenceLaser, this.x, this.y, 0, [this, new Vec2(b.x, b.y)]);
+						}
 					}
 				}));
 			}
@@ -508,8 +541,9 @@ const ravagerMain = prov(() => {
 			return Units.findEnemyTile(this.getTeam(), this.x, this.y, rangeA, boolf(t => true));
 		},
 		updateLegs(){
-			//var distance = 130;
-			var distance = 110;
+			var distance = 100;
+			//var angleDst = Mathf.clamp(Angles.angleDist(this.velocity().angle(), this.baseRotation) / 34, 1, 2);
+			//var distance = 110;
 			var progress = this.walkTime % distance;
 			for(var m = 0; m < this.getLegs().length; m++){
 				this.getLegs()[m].updateC();
@@ -524,7 +558,8 @@ const ravagerMain = prov(() => {
 					tempVec.set(155 * wd, this.getLegHeight()[groupA[v]]);
 					tempVec.setLength(155);
 					//tempVec2.trns(this.baseRotation, 0, 126);
-					tempVec2.set(0, 40);
+					//tempVec2.set(0, 40);
+					tempVec2.set(0, 60);
 					tempVec.add(tempVec2);
 					
 					//tempVec.trns(this.baseRotation, legHeightArray[v]);
@@ -825,7 +860,7 @@ ravagerNightmare.alternate = true;
 //ravagerNightmare.length = 265 / 4;
 ravagerNightmare.length = 255 / 4;
 ravagerNightmare.width = 224 / 4;
-ravagerNightmare.reload = 5 * 60;
+ravagerNightmare.reload = 7 * 60;
 ravagerNightmare.recoil = 3.5;
 
 const ravagerMinigun = extendContent(Weapon, "advancecontent-ravager-launcher", {
@@ -951,6 +986,6 @@ ravagerType.maxVelocity = 1.1;
 ravagerType.rotatespeed = 0.065;
 ravagerType.baseRotateSpeed = 0.00001;
 
-/*const tempFac = extendContent(UnitFactory, "temp-factory", {});
+const tempFac = extendContent(UnitFactory, "temp-factory", {});
 
-tempFac.unitType = ravagerType;*/
+tempFac.unitType = ravagerType;
