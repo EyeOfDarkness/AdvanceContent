@@ -28,14 +28,14 @@ const falseUnit = prov(() => {
 	falseUnitB = extend(FlyingUnit, {
 		setOwner(a){
 			this._owner = a;
-			if(a != null) this.team = a.getTeam();
+			//if(a != null) this.team = a.getTeam();
 		},
 		/*setType(a){
 			this.type = a;
-		},
-		setTeam(a){
-			this.team = a;
 		},*/
+		setTeamA(a){
+			this.team = a;
+		},
 		getOwner(){
 			return this._owner;
 		},
@@ -367,6 +367,7 @@ const stormMain = prov(() => {
 				this.getSegments()[2][v].add();
 				//this.getSegments()[2][v].setType(this.getType());
 				this.getSegments()[2][v].setOwner(this);
+				this.getSegments()[2][v].setTeamA(this.getTeam());
 				//this.getSegments()[2][v].setTeam(this.getTeam());
 				this.getSegments()[2][v].updateStatusC();
 			}
