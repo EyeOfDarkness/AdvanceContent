@@ -477,7 +477,7 @@ const ravagerMain = prov(() => {
 						
 						var am = b.getOwner() != null ? this.dst(b.getOwner()) > this.getWeapon().bullet.range() : false;
 						
-						if(totalDamage > 9000 / ravagerResistance || tmpDamage * counted > 9500 || (tmpDamage * counted > 900 && am) || tmpDamage > 2600){
+						if(totalDamage > 9000 / ravagerResistance || tmpDamage * counted > 11000 || (tmpDamage * counted > 1300 && am) || tmpDamage > 6700){
 							b.time(b.getBulletType().lifetime);
 							b.deflect();
 							if(counted >= 2) counted -= 1;
@@ -986,6 +986,6 @@ ravagerType.maxVelocity = 1.1;
 ravagerType.rotatespeed = 0.065;
 ravagerType.baseRotateSpeed = 0.00001;
 
-/*const tempFac = extendContent(UnitFactory, "temp-factory", {});
+const tempFac = extendContent(UnitFactory, "temp-factory", {});
 
-tempFac.unitType = ravagerType;*/
+tempFac.unitType = ravagerType;
