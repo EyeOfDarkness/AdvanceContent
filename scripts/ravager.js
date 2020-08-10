@@ -985,7 +985,3 @@ ravagerType.weaponOffsetY = -63 / 4;
 ravagerType.maxVelocity = 1.1;
 ravagerType.rotatespeed = 0.065;
 ravagerType.baseRotateSpeed = 0.00001;
-
-const tempFac = extendContent(UnitFactory, "temp-factory", {});
-
-tempFac.unitType = ravagerType;
