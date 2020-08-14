@@ -8,7 +8,7 @@
 	"hasItems": true,
 	"craftTime": 170,
 	"consumes": {
-		"power": 2.9,
+		"power": 4.2,
 		"items": {
 			"items": [
 				{ "item": "surge-alloy", "amount": 1 },
