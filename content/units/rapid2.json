@@ -9,7 +9,7 @@
 	"mass": 1.7,
 	"rotatespeed": 0.17,
 	"health": 110,
-	"range": 120,
+	"range": 190,
 	"shootCone": 7,
 	"rotateWeapon": false,
 	"weapon": {
@@ -21,7 +21,7 @@
 		"bullet": {
 			"type": "BasicBulletType",
 			"speed": 5.5,
-			"damage": 8,
+			"damage": 11,
 			"lifetime": 32,
 			"bulletWidth": 8,
 			"bulletHeight": 10,
