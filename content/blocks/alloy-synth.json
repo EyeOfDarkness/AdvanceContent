@@ -6,13 +6,13 @@
 	"hasLiquids": false,
 	"hasPower": true,
 	"hasItems": true,
-	"craftTime": 160,
+	"craftTime": 170,
 	"consumes": {
-		"power": 1.9,
+		"power": 2.9,
 		"items": {
 			"items": [
 				{ "item": "surge-alloy", "amount": 1 },
-				{ "item": "lanthanum", "amount": 1 },
+				{ "item": "lanthanum", "amount": 2 },
 				{ "item": "chromium", "amount": 2 },
 				{ "item": "phase-fabric", "amount": 2 }
 			]
@@ -20,11 +20,11 @@
 	},
 	"requirements": [
 		{ "item": "graphite", "amount": 210 },
-		{ "item": "lanthanum", "amount": 80 },
+		{ "item": "lanthanum", "amount": 120 },
 		{ "item": "silicon", "amount": 270 },
 		{ "item": "titanium", "amount": 230 },
-		{ "item": "thorium", "amount": 120 },
-		{ "item": "surge-alloy", "amount": 125 }
+		{ "item": "thorium", "amount": 160 },
+		{ "item": "surge-alloy", "amount": 150 }
 	],
 	"category": "crafting",
 	"research": "alloy-smelter",
