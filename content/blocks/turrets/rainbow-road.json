@@ -14,7 +14,7 @@
 	"ammoUseEffect": "none",
 	"rotatespeed": 1.9,
 	"recoil": 2,
-	"powerUse": 8.6,
+	"powerUse": 12.6,
 	"hasPower": true,
 	"targetAir": true,
 	"shootSound": "laser",
