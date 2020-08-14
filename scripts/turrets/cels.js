@@ -46,7 +46,7 @@ const celsBullet = extend(BasicBulletType, {
 
 celsBullet.speed = 4.7;
 celsBullet.drag = 0.034;
-celsBullet.damage = 20;
+celsBullet.damage = 13;
 celsBullet.lifetime = 18;
 celsBullet.hitSize = 4;
 celsBullet.shootEffect = Fx.none;

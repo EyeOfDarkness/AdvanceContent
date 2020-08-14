@@ -26,7 +26,7 @@ const bosonHiggsbullet = extend(BasicBulletType, {
 
 bosonHiggsbullet.laserLength = 270;
 bosonHiggsbullet.speed = 0.001;
-bosonHiggsbullet.damage = 110;
+bosonHiggsbullet.damage = 85;
 bosonHiggsbullet.lifetime = 14;
 bosonHiggsbullet.hitEffect = Fx.hitLancer;
 bosonHiggsbullet.despawnEffect = Fx.none;
