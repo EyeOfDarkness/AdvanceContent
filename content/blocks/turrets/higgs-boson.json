@@ -12,7 +12,7 @@
 	"rotatespeed": 2.2,
 	"recoil": 1.5,
 	"restitution": 0.09,
-	"powerUse": 9.5,
+	"powerUse": 10.4,
 	"hasPower": true,
 	"targetAir": true,
 	"shootSound": "higgsboson-shoot",
