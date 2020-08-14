@@ -6,7 +6,7 @@
 	"reload": 2,
 	"range": 70,
 	"inaccuracy": 28,
-	"shots": 3,
+	"shots": 2,
 	"ammoUseEffect": "none",
 	"activeSound": "spray",
 	"activeSoundVolume": 0.75,
@@ -15,9 +15,9 @@
 	"shootCone": 35,
 	"recoil": 0.5,
 	"requirements": [
-		{ "item": "copper", "amount": 40 },
-		{ "item": "lead", "amount": 30 },
-		{ "item": "graphite", "amount": 20 }
+		{ "item": "copper", "amount": 45 },
+		{ "item": "lead", "amount": 35 },
+		{ "item": "graphite", "amount": 25 }
 	],
 	"category": "turret",
 	"research": "shred"

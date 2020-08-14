@@ -13,7 +13,7 @@
 	"shots": 2,
 	"spread": 6,
 	"recoil": 1,
-	"powerUse": 9.4,
+	"powerUse": 12.4,
 	"hasPower": true,
 	"targetAir": true,
 	"shootSound": "flame",
@@ -22,7 +22,7 @@
 		{ "item": "silicon", "amount": 180 },
 		{ "item": "chromium", "amount": 270 },
 		{ "item": "lanthanum", "amount": 150 },
-		{ "item": "advance-alloy", "amount": 90 },
+		{ "item": "advance-alloy", "amount": 95 },
 		{ "item": "titanium", "amount": 220 }
 	],
 	"category": "turret",
