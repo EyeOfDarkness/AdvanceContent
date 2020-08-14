@@ -31,7 +31,7 @@
 			"speed": 6,
 			"inaccuracy": 1.5,
 			"damage": 10,
-			"lifetime": 30,
+			"lifetime": 35,
 			"bulletWidth": 13,
 			"bulletHeight": 18,
 			"bulletShrink": 0,
