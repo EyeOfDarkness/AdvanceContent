@@ -60,7 +60,7 @@ const protBullet = extend(ArtilleryBulletType, {
 });
 
 protBullet.speed = 8;
-protBullet.damage = 76;
+protBullet.damage = 44;
 protBullet.lifetime = 35;
 protBullet.bulletWidth = 18;
 protBullet.bulletHeight = 27;
@@ -69,7 +69,7 @@ protBullet.fragBullet = protLightning;
 protBullet.fragBullets = 3;
 protBullet.hitSize = 15;
 protBullet.splashDamageRadius = 45;
-protBullet.splashDamage = 35;
+protBullet.splashDamage = 23;
 protBullet.trailEffect = protTrail;
 protBullet.hitEffect = protHit;
 protBullet.collides = true;

@@ -40,7 +40,7 @@ const elecBullet = extend(ArtilleryBulletType, {
 });
 
 elecBullet.speed = 9;
-elecBullet.damage = 62;
+elecBullet.damage = 34;
 elecBullet.lifetime = 22;
 elecBullet.bulletWidth = 12;
 elecBullet.bulletHeight = 19;
