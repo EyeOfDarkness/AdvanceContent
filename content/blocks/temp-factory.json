@@ -1,0 +1,12 @@
+{
+	"name": "Temp Factory",
+	"description": "AAAAA",
+	"size": 2,
+	"produceTime": 1,
+	"maxSpawn": 1,
+	"category": "units",
+	"research": "fortress-factory",
+	"requirements": [
+		{ "item": "lead", "amount": 1 }
+	]
+}

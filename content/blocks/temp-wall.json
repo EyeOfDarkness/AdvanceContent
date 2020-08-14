@@ -1,0 +1,11 @@
+{
+	"name": "Temp Wall",
+	"description": "Cannot be destroyed in normal means of destruction.",
+	"health": 32767,
+	"size": 2,
+	"requirements": [
+		{ "item": "advance-alloy", "amount": 24 }
+	],
+	"category": "defense",
+	"research": "advance-alloy-wall"
+}

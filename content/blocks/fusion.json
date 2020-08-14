@@ -9,7 +9,7 @@
 	"hasItems": true,
 	"craftTime": 135,
 	"consumes": {
-		"power": 2.1,
+		"power": 4.1,
 		"items": {
 			"items": [
 				{ "item": "titanium", "amount": 5 },

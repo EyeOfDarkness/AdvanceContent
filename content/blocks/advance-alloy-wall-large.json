@@ -1,7 +1,7 @@
 {
 	"name": "Large Advance Wall",
 	"description": "A very durable wall and more volatile when releasing energy than Surge wall. Spans multiple tiles",
-	"health": 5000,
+	"health": 5200,
 	"size": 2,
 	"requirements": [
 		{ "item": "advance-alloy", "amount": 24 }

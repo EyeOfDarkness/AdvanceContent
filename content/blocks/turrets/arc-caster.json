@@ -13,7 +13,7 @@
 	"inaccuracy": 9.2,
 	"rotatespeed": 5.5,
 	"recoil": 1,
-	"powerUse": 6.4,
+	"powerUse": 9.4,
 	"hasPower": true,
 	"targetAir": true,
 	"shootSound": "flame",

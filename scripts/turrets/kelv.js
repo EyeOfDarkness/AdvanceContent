@@ -50,7 +50,7 @@ const kelvBullet = extend(BasicBulletType, {
 });
 
 kelvBullet.speed = 3.6;
-kelvBullet.damage = 9;
+kelvBullet.damage = 6;
 kelvBullet.lifetime = 29;
 kelvBullet.hitSize = 7;
 kelvBullet.shootEffect = Fx.none;

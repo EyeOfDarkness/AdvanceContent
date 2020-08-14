@@ -4,13 +4,13 @@
 	"type": "UnitFactory",
 	"unitType": "aptrgangr",
 	"size": 3,
-	"produceTime": 4000,
+	"produceTime": 3500,
 	"maxSpawn": 1,
 	"consumes": {
 		"power": 1.2,
 		"items": {
 			"items": [
-				{"item": "titanium", "amount": 5}
+				{"item": "thorium", "amount": 5}
 			]
 		}
 	},

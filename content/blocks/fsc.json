@@ -9,7 +9,7 @@
 	"hasItems": true,
 	"craftTime": 180,
 	"consumes": {
-		"power": 0.9,
+		"power": 1.9,
 		"items": {
 			"items": [
 				{ "item": "thorium", "amount": 1 },

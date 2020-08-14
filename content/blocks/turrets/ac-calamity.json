@@ -6,7 +6,7 @@
 	"coolantMultiplier": 0.6,
 	"shootCone": 40,
 	"shootDuration": 270,
-	"powerUse": 24,
+	"powerUse": 25,
 	"shootShake": 3,
 	"firingMoveFract": 0.16,
 	"shootEffect": "shootBigSmoke2",
