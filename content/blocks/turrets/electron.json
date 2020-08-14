@@ -10,7 +10,7 @@
 	"ammoUseEffect": "none",
 	"rotatespeed": 4.5,
 	"recoil": 3,
-	"powerUse": 1.2,
+	"powerUse": 2.2,
 	"hasPower": true,
 	"targetAir": true,
 	"shootSound": "pew",
