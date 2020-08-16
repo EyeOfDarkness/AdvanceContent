@@ -69,6 +69,10 @@ calamitylaserii.pierce = true;
 calamitylaserii.shootEffect = Fx.none;
 calamitylaserii.smokeEffect = Fx.none;
 
+const tmpCol = new Color();
+
+const pow6In = new Interpolation.PowIn(6);
+
 const calamityii = extendContent(LaserTurret, "ac-calamity-ii",{
 	load(){
 		this.super$load();
@@ -89,19 +93,27 @@ const calamityii = extendContent(LaserTurret, "ac-calamity-ii",{
 	},
 	
 	drawLayer: function(tile){
-		const tr2 = new Vec2();
+		//const tr2 = new Vec2();
 		
 		entity = tile.ent();
 
-		tr2.trns(entity.rotation, -entity.recoil);
+		this.tr2.trns(entity.rotation, -entity.recoil);
 
-		Draw.rect(this.region, tile.drawx() + tr2.x, tile.drawy() + tr2.y, entity.rotation - 90);
+		Draw.rect(this.region, tile.drawx() + this.tr2.x, tile.drawy() + this.tr2.y, entity.rotation - 90);
 		
-		Draw.color(1.0, 1.0 * Mathf.lerpDelta(entity.heat, 0.5, 0.15), 1.0 * Mathf.lerpDelta(entity.heat, 0.0, 0.6), entity.heat);
-		Draw.blend(Blending.additive);
-		Draw.rect(this.heatRegion, tile.drawx() + tr2.x, tile.drawy() + tr2.y, entity.rotation - 90);
-		Draw.blend();
-		Draw.color();
+		if(entity.heat > 0.0001){
+			//Draw.color(1.0, 1.0 * Mathf.lerpDelta(entity.heat, 0.5, 0.15), 1.0 * Mathf.lerpDelta(entity.heat, 0.0, 0.6), entity.heat);
+			var r = Interpolation.pow2Out.apply(entity.heat);
+			var g = Interpolation.pow3In.apply(entity.heat) + ((1 - Interpolation.pow3In.apply(entity.heat)) * 0.12);
+			var b = pow6In.apply(entity.heat);
+			var a = Interpolation.pow2Out.apply(entity.heat);
+			tmpCol.set(r, g, b, a);
+			Draw.color(tmpCol);
+			Draw.blend(Blending.additive);
+			Draw.rect(this.heatRegion, tile.drawx() + this.tr2.x, tile.drawy() + this.tr2.y, entity.rotation - 90);
+			Draw.blend();
+			Draw.color();
+		}
 	}
 });
 calamityii.shootType = calamitylaserii;
