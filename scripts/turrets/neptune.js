@@ -155,6 +155,11 @@ const neptune = extendContent(LiquidTurret, "neptune", {
 				tmpBullet.splashDamage = Mathf.clamp((liquid.explosiveness - 0.9) * 10, 0, clampMax / 2);
 			};
 			
+			if(liquid.effect != StatusEffects.none){
+				tmpBullet.status = liquid.effect;
+				tmpBullet.statusDuration = 120;
+			};
+			
 			if(liquid.effect == StatusEffects.none){
 				multiplier = 0.5;
 				if(liquid.temperature > 0.5) multiplier = 1.1;
