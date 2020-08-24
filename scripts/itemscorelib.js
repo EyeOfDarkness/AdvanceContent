@@ -172,9 +172,9 @@ const itemsLoad = () => {
 	for(var lm = 0; lm < tmpLiquidArray.length; lm++){
 		liquidScores.put(tmpLiquidArray[lm], tmpLiquidScoresAC[lm]);
 	};
-	print(itemScores);
+	//print(itemScores);
 	//print(tmpLiquidScoresAC);
-	print(liquidScores);
+	//print(liquidScores);
 };
 
 module.exports = {
