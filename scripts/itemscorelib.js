@@ -1,6 +1,9 @@
 //Item scoring system, by Eye of Darkness.
 const itemScores = new OrderedMap(128);
 const liquidScores = new OrderedMap(128);
+
+//const blockLib = require("blockscore");
+
 //Used for item factories.
 const scanLayer = 5;
 
@@ -24,9 +27,11 @@ const itemsLoad = () => {
 	//var tmpScores = new OrderedMap(128);
 	var tmpItemArray = [];
 	var tmpItemScores = [];
+	var tmpItemtypes = [];
 	
 	var tmpLiquidArray = [];
 	var tmpLiquidScoresAC = [];
+	var tmpLiquidType = [];
 	
 	//sets initial values.
 	for(var i = 0; i < Vars.content.items().size; i++){
@@ -39,6 +44,7 @@ const itemsLoad = () => {
 		
 		tmpItemArray[i] = item;
 		tmpItemScores[i] = score;
+		tmpItemtypes[i] = 0;
 	};
 	for(var c = 0; c < Vars.content.liquids().size; c++){
 		var liquid = Vars.content.liquids().get(c);
@@ -54,6 +60,7 @@ const itemsLoad = () => {
 		
 		tmpLiquidArray[c] = liquid;
 		tmpLiquidScoresAC[c] = scoreC;
+		tmpLiquidType[c] = 0;
 	};
 	//unoptimized, but easy to comprehend. may be inaccurate if theres backward factories.
 	for(var j = 0; j < scanLayer; j++){
@@ -73,6 +80,7 @@ const itemsLoad = () => {
 					if(block.consumes.get(ConsumeType.item) instanceof ConsumeItems){
 						var itemStacks = block.consumes.get(ConsumeType.item);
 						for(var f = 0; f < itemStacks.items.length; f++){
+							//var fMultiplyer = tmpItemtypes[tmpItemArray.indexOf(itemStacks.items[f].item)] == 2 ? 1.5 : 1;
 							tmpScoreA += (tmpItemScores[tmpItemArray.indexOf(itemStacks.items[f].item)] * Math.max(itemStacks.items[f].amount, 1));
 						};
 					}
@@ -80,12 +88,16 @@ const itemsLoad = () => {
 				if(block.consumes.has(ConsumeType.liquid)){
 					if(block.consumes.get(ConsumeType.liquid) instanceof ConsumeLiquid){
 						var liquidStacks = block.consumes.get(ConsumeType.liquid);
+						//var fMultiplyer = tmpLiquidType[tmpLiquidArray.indexOf(liquidStacks.liquid)] == 2 ? 1.5 : 1;
 						
 						tmpScoreB += tmpLiquidScoresAC[tmpLiquidArray.indexOf(liquidStacks.liquid)] * liquidStacks.amount;
 						//tmpScoreB /= liquidDivides;
 					}
 				};
-				tmpItemScores[tmpItemArray.indexOf(block.outputItem.item)] = Math.max((tmpScoreA + tmpScoreB) / block.outputItem.amount, getDefaultScoreItem(block.outputItem.item));
+				if(tmpItemtypes[tmpItemArray.indexOf(block.outputItem.item)] == 0){
+					tmpItemScores[tmpItemArray.indexOf(block.outputItem.item)] = Math.max((tmpScoreA + tmpScoreB) / block.outputItem.amount, getDefaultScoreItem(block.outputItem.item));
+					tmpItemtypes[tmpItemArray.indexOf(block.outputItem.item)] = 2;
+				};
 			};
 			if(block instanceof GenericCrafter && block.outputLiquid != null){
 				tmpScoreC = 0;
@@ -95,6 +107,7 @@ const itemsLoad = () => {
 					if(block.consumes.get(ConsumeType.item) instanceof ConsumeItems){
 						var itemStacks = block.consumes.get(ConsumeType.item);
 						for(var f = 0; f < itemStacks.items.length; f++){
+							//var fMultiplyer = tmpItemtypes[tmpItemArray.indexOf(itemStacks.items[f].item)] == 2 ? 1.5 : 1;
 							tmpScoreC += (tmpItemScores[tmpItemArray.indexOf(itemStacks.items[f].item)] * Math.max(itemStacks.items[f].amount, 1));
 						};
 					}
@@ -102,6 +115,7 @@ const itemsLoad = () => {
 				if(block.consumes.has(ConsumeType.liquid)){
 					if(block.consumes.get(ConsumeType.liquid) instanceof ConsumeLiquid){
 						var liquidStacks = block.consumes.get(ConsumeType.liquid);
+						//var fMultiplyer = tmpLiquidType[tmpLiquidArray.indexOf(liquidStacks.liquid)] == 2 ? 1.5 : 1;
 						
 						tmpScoreD += tmpLiquidScoresAC[tmpLiquidArray.indexOf(liquidStacks.liquid)] * liquidStacks.amount;
 						//tmpScoreD /= liquidDivides;
@@ -111,7 +125,10 @@ const itemsLoad = () => {
 				};
 				var trueAmount = !(block instanceof LiquidConverter) ? block.outputLiquid.amount : liqconvAmount;
 				//trueAmount /= liquidDivides;
-				tmpLiquidScoresAC[tmpLiquidArray.indexOf(block.outputLiquid.liquid)] = Math.max((tmpScoreC + tmpScoreD) / trueAmount, getDefaultScoreLiquid(block.outputLiquid.liquid));
+				if(tmpLiquidType[tmpLiquidArray.indexOf(block.outputLiquid.liquid)] == 0){
+					tmpLiquidScoresAC[tmpLiquidArray.indexOf(block.outputLiquid.liquid)] = Math.max((tmpScoreC + tmpScoreD) / trueAmount, getDefaultScoreLiquid(block.outputLiquid.liquid));
+					tmpLiquidType[tmpLiquidArray.indexOf(block.outputLiquid.liquid)] = 2;
+				}
 			};
 			//resets value.
 			if(block instanceof Floor){
@@ -122,6 +139,7 @@ const itemsLoad = () => {
 			
 					var scoreB = itemB.cost * typeB * hardnessB;
 					tmpItemScores[tmpItemArray.indexOf(itemB)] = scoreB;
+					tmpItemtypes[tmpItemArray.indexOf(itemB)] = 1;
 				};
 				if(block.liquidDrop != null){
 					var liquidB = block.liquidDrop;
@@ -140,6 +158,7 @@ const itemsLoad = () => {
 					//print(scoreC);
 					
 					tmpLiquidScoresAC[tmpLiquidArray.lastIndexOf(liquidB)] = Math.max(scoreC, 0.1);
+					tmpLiquidType[tmpLiquidArray.lastIndexOf(liquidB)] = 1;
 				};
 				//print("1: " + tmpLiquidScoresAC);
 			};
@@ -162,7 +181,12 @@ module.exports = {
 	loadItems(){
 		if(loaded) return;
 		itemsLoad();
+		//blockLib.loadB();
 		loaded = true;
+	},
+	
+	getLiquidDiv(){
+		return liquidDivides;
 	},
 	
 	liquidScores(){
