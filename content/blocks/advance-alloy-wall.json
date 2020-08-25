@@ -7,5 +7,5 @@
 		{ "item": "advance-alloy", "amount": 6 }
 	],
 	"category": "defense",
-	"research": "surge-wall-large"
+	"research": "surge-wall"
 }
