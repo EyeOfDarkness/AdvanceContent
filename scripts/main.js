@@ -33,6 +33,7 @@ if(typeof(require) !== "undefined"){
 	require("turrets/spectra");
 	require("turrets/rainbow");
 	require("turrets/prism");
+	require("turrets/darkside");
 	require("turrets/refract");
 	require("turrets/crusader");
 	require("turrets/xenon");
@@ -90,7 +91,6 @@ if(typeof(require) !== "undefined"){
 	require("itemscorelib");
 	require("blockscore");
 	
-	require("turrets/darkside");
 	//require("pandora");
 	//require("turrets/omniturret");
 	//require("tempwall");
