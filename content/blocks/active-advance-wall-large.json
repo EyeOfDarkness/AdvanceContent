@@ -1,0 +1,14 @@
+{
+	"name": "Large Active Advance Wall",
+	"description": "An active version of Advance wall, more durable and volatile than its predecessor, heals slightly and its max health slowly increases. Spans multiple tiles",
+	"health": 7600,
+	"size": 2,
+	"update": true,
+	"requirements": [
+		{ "item": "advance-alloy", "amount": 48 },
+		{ "item": "phase-fabric", "amount": 32 },
+		{ "item": "surge-alloy", "amount": 32 }
+	],
+	"category": "defense",
+	"research": "active-advance-wall"
+}
