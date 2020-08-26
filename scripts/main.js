@@ -50,6 +50,7 @@ if(typeof(require) !== "undefined"){
 	require("turrets/kamib");
 	//walls
 	require("advancewall");
+	require("advanceb");
 	//power
 	require("battery");
 	//crafting
@@ -68,6 +69,7 @@ if(typeof(require) !== "undefined"){
 	//unit
 	require("strider");
 	require("disintegrator");
+	require("pandora");
 	require("ravager");
 	require("angel");
 	require("empunit");
@@ -86,10 +88,10 @@ if(typeof(require) !== "undefined"){
 	require("funclib");
 	require("spritebatchcustom");
 	require("itemscorelib");
-	//require("ravager");
+	require("blockscore");
 	
-	//require("test");
-	//require("storm");
+	require("turrets/darkside");
+	//require("pandora");
 	//require("turrets/omniturret");
 	//require("tempwall");
 }

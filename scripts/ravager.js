@@ -112,7 +112,15 @@ var createLeg = prov(() => {
 			return Mathf.dst(tempVec.x, tempVec.y, this._owner.getX(), this._owner.getY());
 		},
 		resetB(x, y){
-			if(this._owner instanceof GroundUnit){tempVec.trns(this._owner.baseRotation - 90, x, y)}else{tempVec.trns(this._owner.rotation - 90, x, y)};
+			//if(this._owner instanceof GroundUnit){tempVec.trns(this._owner.baseRotation - 90, x, y)}else{tempVec.trns(this._owner.rotation - 90, x, y)};
+			if(this._owner instanceof GroundUnit){
+				//this._lastRotation = Mathf.slerp(this._lastRotation, this._owner.baseRotation, 0.5);
+				this._lastRotation = Angles.moveToward(this._lastRotation, this._owner.baseRotation, Math.max(Angles.angleDist(this._lastRotation, this._owner.baseRotation) / 1.75, 17));
+			}else{
+				//this._lastRotation = Mathf.slerp(this._lastRotation, this._owner.rotation, 0.5);
+				this._lastRotation = Angles.moveToward(this._lastRotation, this._owner.rotation, Math.max(Angles.angleDist(this._lastRotation, this._owner.rotation) / 1.75, 17));
+			};
+			tempVec.trns(this._lastRotation - 90, x, y);
 			this._targetedPosition.set(tempVec);
 			this._targetedPosition.add(this._owner.x, this._owner.y);
 			this._locked = false;
@@ -985,3 +993,7 @@ ravagerType.weaponOffsetY = -63 / 4;
 ravagerType.maxVelocity = 1.1;
 ravagerType.rotatespeed = 0.065;
 ravagerType.baseRotateSpeed = 0.00001;
+
+/*const tempFac = extendContent(UnitFactory, "temp-factory", {});
+
+tempFac.unitType = ravagerType;*/
