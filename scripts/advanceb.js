@@ -10,7 +10,7 @@ const upgradeEffectAA = newEffect(50, e => {
 	Lines.stroke((1.7 * e.fout()) + 0.5);
 	Lines.square(e.x, e.y, e.finpow() * e.rotation * Vars.tilesize / 2);
 });
-const levelUpTime = 60 * 60 * 3;
+const levelUpTime = 60 * 60 * 5;
 const maxLevel = 8;
 const activeWallEntity = prov(() => {
 	activeWallEntityB = extend(TileEntity, {
