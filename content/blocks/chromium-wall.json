@@ -1,0 +1,12 @@
+{
+	"type": "Wall",
+	"name": "Chromium Wall",
+	"description": "Slightly durable than Copper wall.",
+	"health": 410,
+	"size": 1,
+	"requirements": [
+		{ "item": "chromium", "amount": 6 }
+	],
+	"category": "defense",
+	"research": "copper-wall"
+}
