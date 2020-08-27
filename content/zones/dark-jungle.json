@@ -1,0 +1,49 @@
+{
+	"localizedName": "Dark Jungle",
+	"description": "Enemies are way more dangerous, nearly noone leave this place alive.",
+	"loadout": "basicNucleus",
+	"startingItems": [
+		{ "item": "copper", "amount": 1300 },
+		{ "item": "lead", "amount": 1100 },
+		{ "item": "titanium", "amount": 500 },
+		{ "item": "silicon", "amount": 300 },
+		{ "item": "graphite", "amount": 300 },
+		{ "item": "metaglass", "amount": 180 }
+	],
+	"conditionWave": 30,
+	"launchPeriod": 15,
+	"requirements": [
+		{
+			"type": "ZoneWave",
+			"zone": "nuclearComplex",
+			"wave": 30
+		},
+		{
+			"type": "ZoneWave",
+			"zone": "corrupted-grounds",
+			"wave": 15
+		},
+		{
+			"type": "Unlock",
+			"block": "xeno-corruptor"
+		},
+		{
+			"type": "Unlock",
+			"block": "singularity"
+		},
+		{
+			"type": "Unlock",
+			"block": "alloy-synth"
+		},
+	],
+	"resources": [
+		"coal",
+		"sand",
+		"copper",
+		"lead",
+		"chromium",
+		"lanthanum",
+		"titanium",
+		"thorium"
+	]
+}

@@ -1,0 +1,22 @@
+{
+	"shootSound": "darkside-shoot",
+	"consumes": {
+		"liquid": {
+			"liquid": "tc-coolant",
+			"update": false,
+			"amount": 1.1
+		}
+	},
+	"requirements": [
+		{ "item": "chromium", "amount": 820 },
+		{ "item": "lanthanum", "amount": 430 },
+		{ "item": "graphite", "amount": 720 },
+		{ "item": "titanium", "amount": 300 },
+		{ "item": "surge-alloy", "amount": 720 },
+		{ "item": "silicon", "amount": 780 },
+		{ "item": "thorium", "amount": 470 },
+		{ "item": "advance-alloy", "amount": 280 }
+	],
+	"category": "turret",
+	"research": "prism"
+}
