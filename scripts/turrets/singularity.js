@@ -84,8 +84,10 @@ const singularityBulletEffect = extend(BasicBulletType, {
 				
 				if(tileB.health <= tileDamage || (tileB.block != null && Mathf.within(b.x, b.y, tileB.x, tileB.y, (interpB * bulletSize * 3.9) + (tileB.block.size / 2)))){
 					tileB.kill();
-					var data = [Core.atlas.find(tileB.block.name), tileB.x, tileB.y];
-					Effects.effect(attractBlock, b.x, b.y, tileB.tile.rotation(), data);
+					if(!Vars.headless){
+						var data = [Core.atlas.find(tileB.block.name), tileB.x, tileB.y];
+						Effects.effect(attractBlock, b.x, b.y, tileB.tile.rotation(), data);
+					}
 				};
 				
 				tileB.damage(tileDamage * dstB);
