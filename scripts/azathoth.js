@@ -236,7 +236,7 @@ const azathothMain = prov(() => {
 			
 			this.health = this.maxHealth();
 			
-			if(this.getTimer().get(6, 5 * 60)){
+			if(this.getTimer().get(6, 3 * 60)){
 				var movementX = Mathf.range(220);
 				var movementY = Mathf.range(220);
 				this.x += movementX;
@@ -274,7 +274,7 @@ const azathothMain = prov(() => {
 							const regions = Core.atlas.getRegions();
 							const regionsB = Core.atlas.getRegionMap();
 							
-							if(Mathf.chance(dst * 1.3) && effectID != null && effectID.data instanceof Array && effectID.data[0].length < 75){
+							if(Mathf.chance(dst * 1.3 * Time.delta()) && effectID != null && effectID.data instanceof Array && effectID.data[0].length < 75){
 								var randX = Mathf.range(Core.graphics.getWidth() / 2) + Core.graphics.getWidth();
 								var randY = Mathf.range(Core.graphics.getHeight() / 2) + Core.graphics.getHeight();
 								var randXB = Mathf.random(Core.graphics.getWidth() / 3);
@@ -309,7 +309,7 @@ const azathothMain = prov(() => {
 								});
 								effectID.data[0].push(tmp);
 							};
-							if(Mathf.chance(dst * 0.3) && effectID != null && effectID.data instanceof Array && effectID.data[1].length < 20){
+							if(Mathf.chance(dst * 0.3 * Time.delta()) && effectID != null && effectID.data instanceof Array && effectID.data[1].length < 20){
 								var randXC = Mathf.range(Core.graphics.getWidth() / 2) + Core.graphics.getWidth();
 								var randYC = Mathf.range(Core.graphics.getHeight() / 2) + Core.graphics.getHeight();
 								
@@ -324,7 +324,7 @@ const azathothMain = prov(() => {
 								});
 								effectID.data[1].push(tmpB);
 							};
-							if(Mathf.chance(dst * 1.5)){
+							if(Mathf.chance(dst * 1.5 * Time.delta())){
 								textureArray = regionsB.values().toArray();
 								textureB = textureArray.get(Mathf.round(Mathf.random(textureArray.size - 1)));
 								randXD = Mathf.range(0.1);
