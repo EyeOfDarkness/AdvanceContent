@@ -209,6 +209,9 @@ const azathothMain = prov(() => {
 			if(other instanceof Bullet && other.getOwner() instanceof Turret.TurretEntity){
 				tmpB = Bullet.create(effectHandler, this, this.getTeam(), this.x, this.y, 0);
 				tmpB.setData(other.getOwner());
+			};
+			if(other instanceof Bullet && other.getBulletType() != null && other.getOwner() != null){
+				if(other.getBulletType().knockback >= 10) this.set(other.getOwner().x, other.getOwner().y);
 			}
 		},
 		
